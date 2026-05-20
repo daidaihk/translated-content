@@ -3,7 +3,7 @@ title: Мета-программирование
 slug: Web/JavaScript/Guide/Meta_programming
 ---
 
-{{jsSidebar("JavaScript Guide")}} {{Previous("Web/JavaScript/Guide/Iterators_and_Generators")}}
+{{jsSidebar("JavaScript Guide")}} {{Previous("Web/JavaScript/Guide/Iterators_and_generators")}}
 
 С приходом ECMAScript 2015, в JavaScript введены объекты {{jsxref("Proxy")}} и {{jsxref("Reflect")}}, позволяющие перехватить и переопределить поведение фундаментальных процессов языка (таких как поиск свойств, присвоение, итерирование, вызов функций и так далее). С помощью этих двух объектов вы можете программировать на мета уровне JavaScript.
 
@@ -30,7 +30,7 @@ console.log(p.a, p.b); // 1, 42
 
 В разговоре о функциях объекта `Proxy` применимы следующие термины:
 
-- {{jsxref("Global_Objects/Proxy/handler","handler","","true")}} (обработчик)
+- {{jsxref("Global_Objects/Proxy/handler","handler","",1)}} (обработчик)
   - : Объект - обёртка, содержащий в себе функции-ловушки.
 - ловушки (traps)
   - : Методы, реализующие доступ к свойствам. В своей концепции они аналогичны методам перехвата(hooking) в операционных системах.
@@ -41,7 +41,7 @@ console.log(p.a, p.b); // 1, 42
 
 ## Обработчики и ловушки
 
-В следующей таблице перечислены ловушки, доступные для использования в объекте `Proxy`. Смотрите подробные объяснения и примеры в [документации](/ru/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler).
+В следующей таблице перечислены ловушки, доступные для использования в объекте `Proxy`. Смотрите подробные объяснения и примеры в [документации](/ru/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy).
 
 <table class="standard-table">
   <thead>
@@ -376,7 +376,7 @@ typeof proxy; // "object", для метода typeof нет ловушек
 
 ## Рефлексия
 
-{{jsxref("Reflect")}} это встроенный объект, предоставляющий методы для перехватываемых операций JavaScript. Это те же самые методы, что имеются в {{jsxref("Global_Objects/Proxy/handler","обработчиках Proxy","","true")}}. Объект `Reflect` не является функцией.
+{{jsxref("Reflect")}} это встроенный объект, предоставляющий методы для перехватываемых операций JavaScript. Это те же самые методы, что имеются в {{jsxref("Global_Objects/Proxy/handler","обработчиках Proxy","",1)}}. Объект `Reflect` не является функцией.
 
 `Reflect` помогает при пересылке стандартных операций из обработчика к целевому объекту.
 
@@ -388,7 +388,7 @@ Reflect.has(Object, "assign"); // true
 
 ### Улучшенная функция `apply`
 
-В ES5 обычно используется метод {{jsxref("Function.prototype.apply()")}} для вызова функции в определённом контексте (с определённым `this)` и с параметрами, заданными в виде массива (или [массива-подобного объекта](/ru/docs/Web/JavaScript/Guide/Indexed_collections#Working_with_array-like_objects)).
+В ES5 обычно используется метод {{jsxref("Function.prototype.apply()")}} для вызова функции в определённом контексте (с определённым `this)` и с параметрами, заданными в виде массива (или [массива-подобного объекта](/ru/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects)).
 
 ```js
 Function.prototype.apply.call(Math.floor, undefined, [1.75]);
@@ -422,4 +422,4 @@ if (Reflect.defineProperty(target, property, attributes)) {
 }
 ```
 
-{{Previous("Web/JavaScript/Guide/Iterators_and_Generators")}}
+{{Previous("Web/JavaScript/Guide/Iterators_and_generators")}}

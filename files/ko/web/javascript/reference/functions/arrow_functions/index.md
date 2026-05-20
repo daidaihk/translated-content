@@ -13,7 +13,14 @@ l10n:
 - 화살표 함수는 [생성자](/ko/docs/Glossary/Constructor)로 사용할 수 없습니다. [`new`](/ko/docs/Web/JavaScript/Reference/Operators/new)로 호출하면 {{jsxref("TypeError")}}가 반환됩니다. [`new.target`](/ko/docs/Web/JavaScript/Reference/Operators/new.target) 키워드에 대한 액세스 권한도 없습니다.
 - 화살표 함수는 함수 내부에서 [`yield`](/ko/docs/Web/JavaScript/Reference/Operators/yield)를 사용할 수 없으며 제너레이터 함수로 생성할 수 없습니다.
 
-{{EmbedInteractiveExample("pages/js/functions-arrow.html")}}
+{{InteractiveExample("JavaScript Demo: Functions =>")}}
+
+```js interactive-example
+const materials = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
+
+console.log(materials.map((material) => material.length));
+// Expected output: Array [8, 6, 7, 9]
+```
 
 ## 구문
 
@@ -39,7 +46,7 @@ param => {
 }
 ```
 
-매개변수 내 [나머지 매개변수](/ko/docs/Web/JavaScript/Reference/Functions/rest_parameters), [기본값 매개변수](/ko/docs/Web/JavaScript/Reference/Functions/Default_parameters), [구조 분해 할당](/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)가 지원되며 항상 괄호 안에 넣어야 합니다.
+매개변수 내 [나머지 매개변수](/ko/docs/Web/JavaScript/Reference/Functions/rest_parameters), [기본값 매개변수](/ko/docs/Web/JavaScript/Reference/Functions/Default_parameters), [구조 분해 할당](/ko/docs/Web/JavaScript/Reference/Operators/Destructuring)이 지원되며 항상 괄호 안에 넣어야 합니다.
 
 ```js-nolint
 (a, b, ...r) => expression
@@ -61,7 +68,8 @@ async (param1, param2, ...paramN) => {
 
 기존의 익명 함수를 가장 간단한 화살표 함수로 단계별로 분해해 보겠습니다. 이 과정에서 각 단계는 유효한 화살표 함수입니다.
 
-> **참고:** 기존 함수 표현식과 화살표 함수는 구문 외에도 더 많은 차이점이 있습니다. 다음 몇 개의 하위 섹션에서 두 함수의 동작 차이에 대해 자세히 소개하겠습니다.
+> [!NOTE]
+> 기존 함수 표현식과 화살표 함수는 구문 외에도 더 많은 차이점이 있습니다. 다음 몇 개의 하위 섹션에서 두 함수의 동작 차이에 대해 자세히 소개하겠습니다.
 
 ```js-nolint
 // 기존의 익명 함수
@@ -154,7 +162,7 @@ const func2 = (x, y) => {
 
 ```js-nolint example-bad
 const func = () => { foo: 1 };
-// func()를 호출하면 정의되지 않은 값이 반환됩니다!
+// func()를 호출하면 정의되지 않은 값이 반환됩니다.
 
 const func2 = () => { foo: function () {} };
 // SyntaxError: function statement requires a name
@@ -207,7 +215,7 @@ Object.defineProperty(obj, "b", {
 });
 ```
 
-[클래스](/ko/docs/Web/JavaScript/Reference/Classes)의 내부에는 `this`가 있으므로, 화살표 함수는 [클래스 필드](/ko/docs/Web/JavaScript/Reference/Classes/Public_class_fields)가 클래스의 `this` 컨텍스트 위에 닫힐 때 작동합니다. 그러면 화살표 함수 내부의 `this`가 인스턴스 (또는 [정적 필드](/ko/docs/Web/JavaScript/Reference/Classes/static)의 경우 클래스 자체)를 올바르게 가리키게 됩니다. 그러나 함수 자체의 바인딩이 아닌 [클로저](/ko/docs/Web/JavaScript/Closures)이므로 실행 컨텍스트에 따라 `this`의 값이 변경되지 않습니다.
+[클래스](/ko/docs/Web/JavaScript/Reference/Classes)의 내부에는 `this`가 있으므로, 화살표 함수는 [클래스 필드](/ko/docs/Web/JavaScript/Reference/Classes/Public_class_fields)가 클래스의 `this` 컨텍스트 위에 닫힐 때 작동합니다. 그러면 화살표 함수 내부의 `this`가 인스턴스 (또는 [정적 필드](/ko/docs/Web/JavaScript/Reference/Classes/static)의 경우 클래스 자체)를 올바르게 가리키게 됩니다. 그러나 함수 자체의 바인딩이 아닌 [클로저](/ko/docs/Web/JavaScript/Guide/Closures)이므로 실행 컨텍스트에 따라 `this`의 값이 변경되지 않습니다.
 
 ```js
 class C {
@@ -238,7 +246,8 @@ class C {
 }
 ```
 
-> **참고:** 클래스 필드는 프로토타입이 아닌 인스턴스에 정의되므로 인스턴스를 생성할 때마다 새 함수 참조가 생성되고 새 클로저가 할당되어 일반적인 언바운드 메서드보다 메모리 사용량이 늘어날 수 있습니다.
+> [!NOTE]
+> 클래스 필드는 프로토타입이 아닌 인스턴스에 정의되므로 인스턴스를 생성할 때마다 새 함수 참조가 생성되고 새 클로저가 할당되어 일반적인 언바운드 메서드보다 메모리 사용량이 늘어날 수 있습니다.
 
 비슷한 이유로 [`call()`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply), [`bind()`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) 메서드는 화살표 함수에서 호출할 때 유용하지 않습니다. 화살표 함수는 화살표 함수가 정의된 범위를 기반으로 `this`을 설정하고 함수가 호출되는 방식에 따라 `this` 값이 변하지 않기 때문입니다.
 
@@ -255,7 +264,8 @@ function foo(n) {
 foo(3); // 3 + 3 = 6
 ```
 
-> **참고:** [strict mode](/ko/docs/Web/JavaScript/Reference/Strict_mode#making_eval_and_arguments_simpler)에서는 `arguments`는 변수를 선언할 수 없으므로 위의 코드는 구문 오류가 됩니다. 이렇게 하면 `arguments`의 범위 지정 효과를 훨씬 더 쉽게 이해할 수 있습니다.
+> [!NOTE]
+> [strict mode](/ko/docs/Web/JavaScript/Reference/Strict_mode#making_eval_and_arguments_simpler)에서는 `arguments`는 변수를 선언할 수 없으므로 위의 코드는 구문 오류가 됩니다. 이렇게 하면 `arguments`의 범위 지정 효과를 훨씬 더 쉽게 이해할 수 있습니다.
 
 대부분의 경우, [나머지 매개변수](/ko/docs/Web/JavaScript/Reference/Functions/rest_parameters)를 사용하는 것이
 `arguments` 객체를 사용하는 것보다 좋은 대안입니다.
@@ -271,7 +281,7 @@ foo(1); // 11
 
 ### 생성자로 사용할 수 없습니다
 
-화살표 함수는 생성자로 사용할 수 없으며 [`new`](/ko/docs/Web/JavaScript/Reference/Operators/new)와 함께 호출하면 에러가 발생합니다. 또한 [`prototype`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype) 속성이 없습니다.
+화살표 함수는 생성자로 사용할 수 없으며 [`new`](/ko/docs/Web/JavaScript/Reference/Operators/new)와 함께 호출하면 에러가 발생합니다. 또한 [`prototype`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function) 속성이 없습니다.
 
 ```js
 const Foo = () => {};
@@ -382,7 +392,7 @@ setTimeout(() => {
 
 ### call, bind, apply 메서드 사용하기
 
-[`call()`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply), [`bind()`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) 메서드는 각 메서드의 범위를 설정하므로 기존 함수에서 예상되는 대로 작동합니다:
+[`call()`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply()`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply), [`bind()`](/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) 메서드는 각 메서드의 범위를 설정하므로 기존 함수에서 예상되는 대로 작동합니다.
 
 ```js
 const obj = {

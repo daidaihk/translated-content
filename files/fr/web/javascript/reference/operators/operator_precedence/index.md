@@ -9,7 +9,21 @@ La **précédence des opérateurs** détermine l'ordre dans lequel les opérateu
 
 Ainsi, l'opérateur de multiplication (« `*` ») (ayant une précédence plus haute que l'opérateur d'addition (« `+` »)) est évalué en premier et l'expression `6 * 4 + 2` renverra 26 (et pas 36).
 
-{{EmbedInteractiveExample("pages/js/expressions-operatorprecedence.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Operator precedence")}}
+
+```js interactive-example
+console.log(3 + 4 * 5); // 3 + 20
+// Expected output: 23
+
+console.log(4 * 3 ** 2); // 4 * 9
+// Expected output: 36
+
+let a;
+let b;
+
+console.log((a = b = 5));
+// Expected output: 5
+```
 
 ## Associativité
 
@@ -64,7 +78,7 @@ Le tableau suivant est classé de la plus haute (19) à la plus basse (1) préc�
       <td colspan="1" rowspan="5">18</td>
       <td>
         <a
-          href="/fr/docs/Web/JavaScript/Reference/Operators/Property_Accessors#notation_avec_point"
+          href="/fr/docs/Web/JavaScript/Reference/Operators/Property_accessors#notation_avec_point"
           >Accès à un membre</a
         >
       </td>
@@ -74,7 +88,7 @@ Le tableau suivant est classé de la plus haute (19) à la plus basse (1) préc�
     <tr>
       <td>
         <a
-          href="/fr/docs/Web/JavaScript/Reference/Operators/Property_Accessors#notation_avec_crochets"
+          href="/fr/docs/Web/JavaScript/Reference/Operators/Property_accessors#notation_avec_crochets"
           >Accès à un membre calculé</a
         >
       </td>
@@ -487,7 +501,7 @@ Le tableau suivant est classé de la plus haute (19) à la plus basse (1) préc�
     <tr>
       <td>
         <a
-          href="/fr/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator"
+          href="/fr/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing"
           >Coalescence des nuls (??)</a
         >
       </td>
@@ -497,7 +511,7 @@ Le tableau suivant est classé de la plus haute (19) à la plus basse (1) préc�
       <td>3</td>
       <td>
         <a
-          href="/fr/docs/Web/JavaScript/Reference/Operators/Conditional_Operator"
+          href="/fr/docs/Web/JavaScript/Reference/Operators/Conditional_operator"
           >Opérateur conditionnel ternaire</a
         >
       </td>
@@ -585,7 +599,7 @@ Le tableau suivant est classé de la plus haute (19) à la plus basse (1) préc�
       <td>1</td>
       <td>
         <a
-          href="/fr/docs/Web/JavaScript/Reference/Operators/Comma_Operator"
+          href="/fr/docs/Web/JavaScript/Reference/Operators/Comma_operator"
           >Virgule</a
         >
       </td>

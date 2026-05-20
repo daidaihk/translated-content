@@ -1,27 +1,47 @@
 ---
 title: Comment ajouter des images et des médias
+short-title: Ajouter des médias
 slug: MDN/Writing_guidelines/Howto/Images_media
 l10n:
-  sourceCommit: 8d0cbeacdc1872f7e4d966177151585c58fb879e
+  sourceCommit: 0ff7ba5177bf2e66214bd90b58590c6bf3acb758
 ---
 
-{{MDNSidebar}}
+Cette page explique comment ajouter des images et des médias aux pages de documentation sur MDN.
 
-## Ajouter des images
+## Stocker et utiliser des médias avec shared-assets
 
-Pour ajouter une image à un document, ajoutez le fichier image dans le dossier du document puis référencez l'image dans le fichier `index.md` du document en utilisant un élément `<img>` ou [la syntaxe Markdown équivalente](https://github.github.com/gfm/#images).
+Avant d'ajouter des images ou des médias (en particulier lorsque vous illustrez une technologie où le contenu média est secondaire), vérifiez s'il existe déjà une ressource réutilisable dans le [dépôt mdn/shared-assets <sup>(angl.)</sup>](https://github.com/mdn/shared-assets).
+Considérez ce dépôt comme une **bibliothèque de médias** que vous pouvez parcourir pour choisir une ressource adaptée à un exemple, sans vous soucier du stockage, du déploiement ou des licences.
+
+Le dépôt contient des fichiers audio, vidéo, des polices, des images telles que des photos, des schémas et des icônes, ainsi que des fichiers divers comme des PDF, des sous-titres, des profils colorimétriques, etc.
+Si aucune ressource appropriée n'est disponible dans le dépôt, vous pouvez ajouter vos propres ressources ainsi que les fichiers sources des médias que vous souhaitez inclure.
+Vous trouverez des exemples dans le [dossier HTTP de shared-assets <sup>(angl.)</sup>](https://github.com/mdn/shared-assets/tree/main/images/diagrams/http).
+
+Pour utiliser une ressource du dépôt shared-assets dans une page MDN, consultez la section [Utiliser des ressources partagées dans la documentation <sup>(angl.)</sup>](https://github.com/mdn/shared-assets?tab=readme-ov-file#using-shared-assets-in-documentation) du fichier README du projet.
+
+## Utiliser des formats vectoriels
+
+De manière générale, si vous ajoutez des images, en particulier des schémas, envisagez d'utiliser un format vectoriel comme SVG pour les raisons suivantes&nbsp;:
+
+- **Les auteurs peuvent éditer le SVG directement** avec n'importe quel IDE ou outil en ligne.
+  Modifier un fichier .png implique généralement de recréer la ressource depuis zéro ou d'utiliser un logiciel de retouche d'image, ce qui est source d'erreurs et peut introduire des artefacts visuels ou de compression.
+- **Le SVG peut être comparé par Git**. À l'inverse, un fichier binaire entier est considéré comme modifié à chaque changement, donc un .png de 1 Mo augmentera la taille du dépôt de 1 Mo à chaque fusion si le fichier est modifié.
+- **Expérience utilisateur flexible**. Les SVG sont des formats vectoriels, ils ne deviennent donc pas flous quel que soit le niveau de zoom.
+
+## Ajouter des images au dépôt de contenu
+
+Si le dépôt shared-assets n'est pas adapté à votre cas d'usage, vous pouvez ajouter des images dans un dépôt de contenu (en-US ou translated-content).
+Pour ajouter une image à un document, placez votre fichier image dans le dossier du document, puis référencez l'image dans le fichier `index.md` du document en utilisant [la syntaxe d'image Markdown <sup>(angl.)</sup>](https://github.github.com/gfm/#images) ou l'élément HTML `<img>` équivalent.
 
 Prenons un exemple&nbsp;:
 
-1. Commencez avec une branche de travail fraîche avec le contenu le plus récent de la branche `main` du dépôt distant du `translated-content`.
+1. Commencez avec une branche de travail fraîche avec le contenu le plus récent de la branche `main` du dépôt distant du `mdn`.
 
    ```bash
    cd ~/chemin/vers/mdn/translated-content
    git checkout main
    git pull translated-content main
-   # Exécutez "yarn" à nouveau pour vous assurer
-   # que vous avez installé la dernière dépendance Yari.
-   yarn
+   # Exécutez "npm install" pour vous assurer que les dépendances sont à jour
    git checkout -b mes-images
    ```
 
@@ -32,7 +52,7 @@ Prenons un exemple&nbsp;:
    cp ../un/chemin/vers/ma-superbe-image.png files/fr/web/css/
    ```
 
-3. **Dans le répertoire de votre copie locale de `mdn/content`**, exécutez `filecheck` sur chaque image, ce dernier vous alerte si quelque chose ne va pas. Pour plus de détails, consultez la section [Compression des images](#compression-des-images).
+3. **Dans le répertoire de votre copie locale de `mdn/content`**, exécutez `filecheck` sur chaque image, ce dernier vous alerte si quelque chose ne va pas. Pour plus de détails, consultez la section [Compression des images](#compression_des_images).
 
    ```bash
    yarn filecheck /chemin/vers/translated-content/files/fr/web/css/ma-superbe-image.png
@@ -40,7 +60,8 @@ Prenons un exemple&nbsp;:
 
 4. Référencez votre image dans le document avec un élément `<img>` et un attribut `alt` dans `files/fr/web/css/index.md`&nbsp;:
 
-   ```html
+   ```md
+   ![Ma superbe image](ma-superbe-image.png)
    <img src="ma-superbe-image.png" alt="Ma superbe image" />
    ```
 
@@ -56,13 +77,19 @@ Prenons un exemple&nbsp;:
 
 ## Ajouter les textes alternatifs aux images
 
-Chaque image, `![]` et `<img>`, doit inclure un texte alternatif. Les attributs `alt` doivent être courts et fournir toutes les informations pertinentes que l'image transmet. Lorsque vous écrivez la description de l'image, réfléchissez aux informations précieuses de l'image et à la façon dont vous les transmettriez à quelqu'un qui peut lire le contenu de la page mais ne peut pas charger les images.
+Chaque image, `![]` et `<img>`, doit inclure un texte alternatif.
+Les attributs `alt` doivent être courts et fournir toutes les informations pertinentes que l'image transmet.
+Lorsque vous écrivez la description de l'image, réfléchissez aux informations précieuses de l'image et à la façon dont vous les transmettriez à quelqu'un qui peut lire le contenu de la page mais ne peut pas charger les images.
 
-> **Note :** Voir [la documentation sur l'attribut `alt` de `<img>` et notamment la façon d'écrire des textes alternatifs pertinents](/fr/docs/Web/HTML/Element/img#écrire_des_descriptions_alternatives_significatives).
+Soyez sûr que le texte alternatif de l'image est basé sur son contexte.
+Si la photo de Fluffy le chien est un avatar à côté d'un avis pour la nourriture pour chien Yuckymeat, `alt="Fluffy"` est approprié. Si la même photo fait partie de la page d'adoption de Fluffy, les informations transmises dans l'image sont pertinentes pour les futurs parents de chiens, telles que `alt="Fluffy, un terrier tricolore à poil très court, avec une balle de tennis dans la bouche."`.
+Le texte environnant indique probablement la taille et la race de Fluffy, il serait donc redondant de l'inclure.
+Évitez de décrire l'image avec trop de détails&nbsp;: le futur parent n'a pas besoin de savoir si le chien est à l'intérieur ou à l'extérieur, ou s'il a un collier rouge et une laisse bleue.
 
-Soyez sûr que le texte alternatif de l'image est basé sur son contexte. Si la photo de Fluffy le chien est un avatar à côté d'un avis pour la nourriture pour chien Yuckymeat, `alt="Fluffy"` est approprié. Si la même photo fait partie de la page d'adoption de Fluffy, les informations transmises dans l'image sont pertinentes pour les futurs parents de chiens, telles que `alt="Fluffy, un terrier tricolore à poil très court, avec une balle de tennis dans la bouche."`. Le texte environnant indique probablement la taille et la race de Fluffy, il serait donc redondant de l'inclure. Évitez de décrire l'image avec trop de détails&nbsp;: le futur parent n'a pas besoin de savoir si le chien est à l'intérieur ou à l'extérieur, ou s'il a un collier rouge et une laisse bleue.
-
-Avec les captures d'écran, écrivez ce que vous apprenez de l'image, ne détaillez pas le contenu de la capture d'écran et omettez les informations dont les lecteurs n'ont pas besoin ou qu'ils connaissent déjà. Par exemple, si vous êtes sur une page expliquant comment modifier les paramètres de Bing, si vous avez une capture d'écran d'un résultat de recherche Bing, n'incluez pas le terme de recherche ou le nombre de résultats, etc., car ce ne sont pas le but de l'image. Limitez l'attribut `alt` au sujet en question&nbsp;: comment modifier les paramètres dans Bing. L'attribut `alt` pourrait être `alt="L'icône des paramètres se trouve dans la barre de navigation sous le champ de recherche."`. N'incluez pas «&nbsp;capture d'écran&nbsp;» ou «&nbsp;Bing&nbsp;» car l'utilisateur n'a pas besoin de savoir qu'il s'agit d'une capture d'écran et il sait déjà que c'est Bing, car il est sur une page expliquant comment modifier les paramètres de Bing.
+Avec les captures d'écran, écrivez ce que vous apprenez de l'image, ne détaillez pas le contenu de la capture d'écran et omettez les informations dont les lecteurs n'ont pas besoin ou qu'ils connaissent déjà.
+Par exemple, si vous êtes sur une page expliquant comment modifier les paramètres de Bing, si vous avez une capture d'écran d'un résultat de recherche Bing, n'incluez pas le terme de recherche ou le nombre de résultats, etc., car ce ne sont pas le but de l'image.
+Limitez l'attribut `alt` au sujet en question&nbsp;: comment modifier les paramètres dans Bing. L'attribut `alt` pourrait être `alt="L'icône des paramètres se trouve dans la barre de navigation sous le champ de recherche."`.
+N'incluez pas «&nbsp;capture d'écran&nbsp;» ou «&nbsp;Bing&nbsp;» car l'utilisateur·ice n'a pas besoin de savoir qu'il s'agit d'une capture d'écran et il sait déjà que c'est Bing, car il est sur une page expliquant comment modifier les paramètres de Bing.
 
 La syntaxe en markdown et HTML&nbsp;:
 
@@ -87,7 +114,7 @@ Lorsque vous ajoutez des images à une page du MDN Web Docs, vous devez vous ass
 La meilleure façon de compresser les images est d'utiliser l'outil de compression intégré. Vous pouvez compresser une image de manière appropriée en utilisant la commande `filecheck` avec l'option `--save-compression`. Cette option compresse l'image autant que possible et remplace l'original par la version compressée. Par exemple, **depuis le répertoire de votre copie locale de `mdn/content`**&nbsp;:
 
 ```bash
-yarn filecheck /chemin/vers/translated-content/files/fr/web/css/ma-superbe-image.png --save-compression
+npm run filecheck /chemin/vers/translated-content/files/fr/web/css/ma-superbe-image.png --save-compression
 ```
 
 ## Ajouter des vidéos
@@ -102,7 +129,8 @@ Plusieurs arguments s'opposent à l'utilisation de vidéos dans la documentation
 - La vidéo pose des problèmes d'accessibilité&nbsp;: elle est généralement plus coûteuse à produire que le texte, mais surtout à traduire ou à rendre utilisable par les utilisateurs de lecteurs d'écran.
 - Dans le prolongement du dernier point, la vidéo est beaucoup plus difficile à éditer/mettre à jour/maintenir que le contenu textuel.
 
-> **Note :** Il est utile de garder à l'esprit cette problématique, même lorsque vous réalisez des vidéos, afin d'essayer d'en atténuer certains aspects.
+> [!NOTE]
+> Il est utile de garder à l'esprit cette problématique, même lorsque vous réalisez des vidéos, afin d'essayer d'en atténuer certains aspects.
 
 Il existe de nombreux sites populaires qui fournissent de nombreux tutoriels vidéo. MDN n'est pas un site dont la majorité du contenu est de la vidéo, toutefois, il est possible d'intégrer des vidéos dans certains articles MDN selon le contexte.
 
@@ -114,12 +142,9 @@ Dans de telles situations, il est souvent plus pratique de **montrer** ce qu'on 
 
 Une vidéo à destination de MDN devrait être&nbsp;:
 
-- Courte
-  - : On essaiera d'avoir des vidéos dont la durée est inférieure à 30 secondes, idéalement inférieure à 20 secondes. Elle sera ainsi suffisamment courte pour ne pas demander un temps d'attention trop long au spectateur ou à la spectatrice.
-- Simple
-  - : On essaiera de garder un cheminement simple avec 2 à 4 fragments distincts pour que les étapes soient faciles à suivre.
-- Silencieuse
-  - : Le son permet d'avoir des vidéos plus impactantes mais demande également plus de temps pour la réalisation et l'implication d'un spectateur ou d'une spectatrice qui peut ne pas pouvoir écouter au moment où il/elle regarde la vidéo. Cela peut également rallonger la vidéo et rajoute des coûts de maintenance et de localisation.
+- **Courte**&nbsp;: On essaiera d'avoir des vidéos dont la durée est inférieure à 30 secondes, idéalement inférieure à 20 secondes. Elle sera ainsi suffisamment courte pour ne pas demander un temps d'attention trop long au spectateur ou à la spectatrice.
+- **Simple**&nbsp;: On essaiera de garder un cheminement simple avec 2 à 4 fragments distincts pour que les étapes soient faciles à suivre.
+- **Silencieuse**&nbsp;: Le son permet d'avoir des vidéos plus impactantes mais demande également plus de temps pour la réalisation et l'implication d'un spectateur ou d'une spectatrice qui peut ne pas pouvoir écouter au moment où il/elle regarde la vidéo. Cela peut également rallonger la vidéo et rajoute des coûts de maintenance et de localisation.
 
 Pour expliquer quelque chose de complexe, on pourra utiliser un ensemble de vidéos courtes et de captures d'écran avec du texte. Le texte permettra ainsi d'insister sur les notions vues dans les vidéos et la personne qui consulte le contenu pourra alors choisir de suivre le texte et/ou la vidéo.
 
@@ -159,23 +184,20 @@ Si vous utilisez macOS, Quicktime Player est disponible et dispose de quelques f
 
 #### Autres ressources
 
-- [Comment ajouter des boîtes de légende personnalisées aux <i lang="en">screencasts</i> dans Screenflow (en anglais)](https://photography.tutsplus.com/tutorials/how-to-add-custom-callouts-to-screencast-videos-in-screenflow--cms-27122)
+- [Comment ajouter des boîtes de légende personnalisées aux <i lang="en">screencasts</i> dans Screenflow <sup>(angl.)</sup>](https://photography.tutsplus.com/tutorials/how-to-add-custom-callouts-to-screencast-videos-in-screenflow--cms-27122)
 
 ### Étapes de création d'une vidéo
 
 Les sections qui suivent décrivent les étapes principales à suivre pour créer une vidéo et l'intégrer à une page MDN.
 
-#### Préparation
-
 Tout d'abord, planifiez la suite d'actions que vous souhaitez enregistrer et choisissez les meilleures façons de commencer et de finir.
-
-Assurez-vous que votre arrière-plan de bureau et votre profil de navigateur soient vierges. Planifier les tailles et le positionnement des fenêtres, notamment si vous utilisez plusieurs fenêtres.
+Assurez-vous que votre arrière-plan de bureau et votre profil de navigateur soient vierges.
+Planifiez les tailles et le positionnement des fenêtres, notamment si vous utilisez plusieurs fenêtres.
 
 Planifiez soigneusement les étapes que vous allez enregistrer et pratiquez cette séquence d'actions plusieurs fois avant d'enregistrer&nbsp;:
 
 - Ne commencez pas une vidéo au milieu d'une suite d'étape. Veillez à ce qu'il y ait suffisamment de contexte pour que les actions illustrées aient du sens.
 - Pour chacune de vos actions, assurez-vous de les réaliser suffisamment lentement et de les mettre en évidence. Par exemple, lorsqu'on doit cliquer quelque part on pourra&nbsp;:
-
   - Déplacer la souris sur l'icône
   - Mettre en évidence ou zoomer (selon ce qui est le plus pertinent)
   - Suspendre le mouvement pendant un instant
@@ -183,7 +205,8 @@ Planifiez soigneusement les étapes que vous allez enregistrer et pratiquez cett
 
 - Planifiez les niveaux de zoom pour les portions de l'interface utilisateur que vous afficherez. Tout le monde ne pourra pas forcément consulter la vidéo en haute définition. Vous pourrez également zoomer sur certaines parties en post-production mais ça peut être une bonne idée de zoomer dès l'enregistrement.
 
-> **Note :** Ne zoomez pas au point que les éléments d'interfaces soient déformés ou semblent étranges.
+> [!NOTE]
+> Ne zoomez pas au point que les éléments d'interfaces soient déformés ou semblent étranges.
 
 #### Enregistrement
 
@@ -191,7 +214,8 @@ Lorsque vous enregistrez, avancez dans les étapes de façon calme et régulièr
 
 N'oubliez pas de faire une pause d'une ou deux secondes à la fin pour montrer le résultat final de la séquence d'actions.
 
-> **Note :** Si vous utilisez un outil simple comme QuickTime Player ou que vous ne pouvez pas effectuer de post-production, veillez à ce que la fenêtre soit de la bonne taille pour ce que vous voulez montrer.
+> [!NOTE]
+> Si vous utilisez un outil simple comme QuickTime Player ou que vous ne pouvez pas effectuer de post-production, veillez à ce que la fenêtre soit de la bonne taille pour ce que vous voulez montrer.
 
 #### Post-production
 
@@ -206,11 +230,12 @@ Attention à ne pas abuser de ces effets, on ne veut pas que les spectateurs aie
 
 Si besoin, redimensionnez la vidéo aux proportions souhaitées.
 
-#### <i lang="en">Upload</i>
+#### Téléverser et intégrer une vidéo
 
 Actuellement, les vidéos doivent être uploadées sur YouTube afin d'être affichées sur MDN, par exemple sur la chaîne [mozhacks](https://www.youtube.com/user/mozhacks/videos). Demandez à un membre de l'équipe MDN de téléverser la vidéo si vous n'avez pas un meilleur endroit où la stocker.
 
-> **Note :** Marquez la vidéo en «&nbsp;non répertoriée&nbsp;» si celle-ci n'a pas de sens particulier en dehors du contexte de la page MDN.
+> [!NOTE]
+> Marquez la vidéo en «&nbsp;non répertoriée&nbsp;» si celle-ci n'a pas de sens particulier en dehors du contexte de la page MDN.
 
 #### Intégration
 
@@ -225,3 +250,7 @@ Cette macro utilise un seul argument qui correspond à la fin de l'URL de la vid
 ```plain
 \{{EmbedYouTube("ELS2OOUvxIw")}}
 ```
+
+## Voir aussi
+
+- [Utiliser le format SVG à la place des images .png <sup>(angl.)</sup>](https://github.com/orgs/mdn/discussions/631) Discussion GitHub MDN

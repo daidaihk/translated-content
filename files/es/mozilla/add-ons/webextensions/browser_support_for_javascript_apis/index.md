@@ -9,8 +9,6 @@ l10n:
 
 {{WebExtAllCompatTables}}
 
-> **Nota:** Los datos de compatibilidad de Microsoft Edge son proporcionados por Microsoft Corporation y se incluyen aquí bajo la licencia Creative Commons Attribution 3.0 United States License.
-
 ## Véase también
 
-- [Compatibilidad del navegador para manifest.json](/es/docs/Mozilla/Add-ons/WebExtensions/Browser_compatibility_for_manifest.json)
+- [Compatibilidad del navegador para manifest.json](/es/docs/Mozilla/Add-ons/WebExtensions/manifest.json)

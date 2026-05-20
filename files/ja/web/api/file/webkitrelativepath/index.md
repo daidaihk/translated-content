@@ -3,12 +3,12 @@ title: "File: webkitRelativePath プロパティ"
 short-title: webkitRelativePath
 slug: Web/API/File/webkitRelativePath
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: e9b6cd1b7fa8612257b72b2a85a96dd7d45c0200
 ---
 
-{{APIRef("File API")}}
+{{APIRef("File and Directory Entries API")}}{{AvailableInWorkers}}
 
-**`File.webkitRelativePath`** は、[`webkitdirectory`](/ja/docs/Web/HTML/Element/input#webkitdirectory) 属性が設定された {{HTMLElement("input")}} 要素で、ユーザーが選択したディレクトリーに対するファイルのパスを指定する文字列を持つ読み取り専用のプロパティです。
+**`webkitRelativePath`** は {{domxref("File")}} インターフェイスの読み取り専用プロパティで、{{HTMLElement("input")}} 要素に [`webkitdirectory`](/ja/docs/Web/HTML/Reference/Elements/input#webkitdirectory) 属性が設定されている場合に、ユーザーが選択したディレクトリーに対するファイルのパスを指定する文字列を保持します。
 
 ## 値
 
@@ -16,12 +16,12 @@ l10n:
 
 ## 例
 
-この例では、ユーザーが 1 つまたは複数のディレクトリーを選択することができるディレクトリーピッカーが表示されます。 {{domxref("HTMLElement/change_event", "change")}} イベントが発生すると、選択されたディレクトリ階層に含まれるすべてのファイルのリストが生成され、表示されます。
+この例では、ユーザーが 1 つまたは複数のディレクトリーを選択することができるディレクトリーピッカーが表示されます。 {{domxref("HTMLElement/change_event", "change")}} イベントが発生すると、選択されたディレクトリー階層に含まれるすべてのファイルのリストが生成され、表示されます。
 
 ### HTML
 
 ```html
-<input type="file" id="filepicker" name="fileList" webkitdirectory multiple />
+<input type="file" id="file-picker" name="fileList" webkitdirectory multiple />
 <output id="output"></output>
 ```
 
@@ -36,9 +36,9 @@ output {
 
 ```js
 const output = document.getElementById("output");
-const filepicker = document.getElementById("filepicker");
+const filePicker = document.getElementById("file-picker");
 
-filepicker.addEventListener("change", (event) => {
+filePicker.addEventListener("change", (event) => {
   const files = event.target.files;
 
   for (const file of files) {

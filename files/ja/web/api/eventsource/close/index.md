@@ -1,15 +1,17 @@
 ---
-title: EventSource.close()
+title: "EventSource: close() メソッド"
+short-title: close()
 slug: Web/API/EventSource/close
 l10n:
-  sourceCommit: 4e233c16c6f0d347972c5c762f5b836318a46124
+  sourceCommit: a166ba48ceb8bccb37c67a0a8856b0e5b12e0135
 ---
 
-{{APIRef('WebSockets API')}}
+{{APIRef("Server Sent Events")}}{{AvailableInWorkers}}
 
 **`close()`** は {{domxref("EventSource")}} インターフェイスのメソッドで、コネクションが構築されていればそれを閉じ、 {{domxref("EventSource.readyState")}} 属性を `2` （接続終了）に設定します。
 
-> **メモ:** コネクションが既に閉じられていた場合、このメソッドは何も行いません。
+> [!NOTE]
+> コネクションが既に閉じられていた場合、このメソッドは何も行いません。
 
 ## 構文
 
@@ -37,7 +39,8 @@ button.onclick = () => {
 };
 ```
 
-> **メモ:** 完全な例は GitHub で見られます。 [PHP を用いた簡単な SSE のデモ](https://github.com/mdn/dom-examples/tree/main/server-sent-events) を参照してください。
+> [!NOTE]
+> 完全な例は GitHub で見られます。 [PHP を用いた簡単な SSE のデモ](https://github.com/mdn/dom-examples/tree/main/server-sent-events) を参照してください。
 
 ## 仕様書
 

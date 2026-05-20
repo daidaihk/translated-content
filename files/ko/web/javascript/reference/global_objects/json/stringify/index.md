@@ -7,7 +7,23 @@ slug: Web/JavaScript/Reference/Global_Objects/JSON/stringify
 
 **`JSON.stringify()`** 메서드는 JavaScript 값이나 객체를 JSON 문자열로 변환합니다. 선택적으로, `replacer`를 함수로 전달할 경우 변환 전 값을 변형할 수 있고, 배열로 전달할 경우 지정한 속성만 결과에 포함합니다.
 
-{{EmbedInteractiveExample("pages/js/json-stringify.html")}}
+{{InteractiveExample("JavaScript Demo: JSON.stringify()")}}
+
+```js interactive-example
+console.log(JSON.stringify({ x: 5, y: 6 }));
+// Expected output: '{"x":5,"y":6}'
+
+console.log(
+  JSON.stringify([new Number(3), new String("false"), new Boolean(false)]),
+);
+// Expected output: '[3,"false",false]'
+
+console.log(JSON.stringify({ x: [10, undefined, function () {}, Symbol("")] }));
+// Expected output: '{"x":[10,null,null,null]}'
+
+console.log(JSON.stringify(new Date(2006, 0, 2, 15, 4, 5)));
+// Expected output: '"2006-01-02T15:04:05.000Z"'
+```
 
 ## 구문
 
@@ -91,7 +107,8 @@ JSON.stringify(
 - 다른 객체를 반환하면, 그 객체는 `replacer` 함수를 각각의 속성에 대해 호출하며 순환적으로 JSON 문자열로 문자열화된다. 그 객체가 함수인 경우에는 JSON 문자열에 아무것도 추가되지 않는다.
 - `undefined` 를 반환하면, 그 속성은 JSON 문자열 결과에 포함되지 않는다.
 
-> **참고:** **유의:** `replacer` 함수를 배열로부터 값을 제거하기위해 사용할 수 없다. 만약 `undefined` 나 함수를 반환한다면 `null` 이 대신 사용될 것이다.
+> [!NOTE]
+> **유의:** `replacer` 함수를 배열로부터 값을 제거하기위해 사용할 수 없다. 만약 `undefined` 나 함수를 반환한다면 `null` 이 대신 사용될 것이다.
 
 #### 함수에 대한 예제
 
@@ -165,7 +182,8 @@ JSON.stringify({ x: obj }); // '{"x":"bar"}'
 
 In a case where you want to store an object created by your user and allowing it to be restored even after the browser has been closed, the following example is a model for the applicability of `JSON.stringify()`:
 
-> **경고:** Functions are not a valid JSON data type so they will not work. However, they can be displayed if first converted to a string (e.g. in the replacer), via the function's toString method. Also, some objects like {{jsxref("Date")}} will be a string after {{jsxref("JSON.parse()")}}.
+> [!WARNING]
+> Functions are not a valid JSON data type so they will not work. However, they can be displayed if first converted to a string (e.g. in the replacer), via the function's toString method. Also, some objects like {{jsxref("Date")}} will be a string after {{jsxref("JSON.parse()")}}.
 
 ```js
 // Creating an example of JSON

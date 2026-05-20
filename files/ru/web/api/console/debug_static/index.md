@@ -1,7 +1,6 @@
 ---
 title: Console.debug()
 slug: Web/API/console/debug_static
-original_slug: Web/API/console/debug
 ---
 
 {{APIRef("Console API")}}
@@ -26,7 +25,7 @@ console.debug(msg [, subst1, ..., substN]);
 - `subst1` ... `substN`
   - : JavaScript-объекты, с помощью которых произойдёт замена подстановочных символов в `msg`. Это даст вам дополнительный контроль над форматом вывода. (см. [Преобразование строк с использованием масок](/ru/docs/Web/API/console#преобразование_строк_с_использованием_масок)).
 
-Читайте [Вывод текста в консоль](/ru/docs/Web/API/Console#Outputting_text_to_the_console) в документации {{domxref("console")}} для получения дополнительной информации.
+Читайте [Вывод текста в консоль](/ru/docs/Web/API/console#outputting_text_to_the_console) в документации {{domxref("console")}} для получения дополнительной информации.
 
 ## Спецификации
 

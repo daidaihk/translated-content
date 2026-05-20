@@ -19,13 +19,15 @@ l10n:
 - このレスポンス
 - 要求を検証するためのクライアントの拡張機能 （{{domxref("PublicKeyCredential.getClientExtensionResults()")}} で指定されたもの）
 
-> **メモ:** 既存の資格情報の取得を検証する場合、 `PublicKeyCredential` オブジェクト全体とクライアント拡張機能が依存している側のサーバーに必要です。
+> [!NOTE]
+> 既存の資格情報の取得を検証する場合、 `PublicKeyCredential` オブジェクト全体とクライアント拡張機能が依存している側のサーバーに必要です。
 
-> **メモ:** このプロパティは最上位のコンテキストでのみ使用することができます。例えば {{HTMLElement("iframe")}} では使用することができません。
+> [!NOTE]
+> このプロパティは最上位のコンテキストでのみ使用することができます。例えば {{HTMLElement("iframe")}} では使用することができません。
 
 ## 値
 
-作成または取得の要求を検証するために、依存する側のスクリプトが受信し、依存する側がのサーバーに送信されるべきデータを含む {{domxref("AuthenticatorResponse")}} オブジェクトです。このオブジェクトには、クライアントからのデータ ({{domxref("AuthenticatorResponse/clientDataJSON")}}) と認証器からのデータが含まれます。
+作成または取得の要求を検証するために、依存する側のスクリプトが受信し、依存する側のサーバーに送信されるべきデータを含む {{domxref("AuthenticatorResponse")}} オブジェクトです。このオブジェクトには、クライアントからのデータ ({{domxref("AuthenticatorResponse/clientDataJSON")}}) と認証器からのデータが含まれます。
 
 ## 例
 

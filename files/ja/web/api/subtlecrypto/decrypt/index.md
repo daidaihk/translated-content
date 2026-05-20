@@ -21,7 +21,6 @@ decrypt(algorithm, key, data)
 ### 引数
 
 - `algorithm`
-
   - : 使用する[アルゴリズム](#対応しているアルゴリズム)と、必要に応じて追加の引数を指定するオブジェクトです。
     追加引数に指定された値は、対応する {{domxref("SubtleCrypto.encrypt()", "encrypt()")}} 呼び出しに渡された値と一致しなければなりません。
     - [RSA-OAEP](#rsa-oaep) を使用するには、 {{domxref("RsaOaepParams")}} を渡してください。
@@ -54,7 +53,8 @@ decrypt(algorithm, key, data)
 
 ## 例
 
-> **メモ:** GitHub 上の[動作例を試してみてください](https://mdn.github.io/dom-examples/web-crypto/encrypt-decrypt/index.html)。
+> [!NOTE]
+> GitHub 上の[動作例を試してみてください](https://mdn.github.io/dom-examples/web-crypto/encrypt-decrypt/index.html)。
 
 ### RSA-OAEP
 

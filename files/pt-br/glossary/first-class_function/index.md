@@ -21,7 +21,8 @@ foo();
 
 Nós atribuímos uma `Função Anônima` à uma `Variável`, então usamos a variável pra chamar a função adicionando parênteses `()` no fim.
 
-> **Nota:** **Mesmo se sua função for nomeada,** você pode usar o nome da variável pra chamá-la. Nomeá-la será útil quando for debugar seu código. _Mas não afetará a maneira que à chamamos._
+> [!NOTE]
+> **Mesmo se sua função for nomeada,** você pode usar o nome da variável pra chamá-la. Nomeá-la será útil quando for debugar seu código. _Mas não afetará a maneira que à chamamos._
 
 ## Exemplo | Passar uma função como um Argumento
 
@@ -40,7 +41,8 @@ greeting(sayHello, "JavaScript!");
 
 Nós estamos passando a função `sayHello()` como um argumento pra função `greeting()`, isso explica como estamos tratando a função como um `valor`.
 
-> **Nota:** A função que passamos como um argumento pra outra função, chamou uma **[Função Callback](/pt-BR/docs/Glossary/Callback_function).** _`sayHello` é uma Função Callback._
+> [!NOTE]
+> A função que passamos como um argumento pra outra função, chamou uma **[Função Callback](/pt-BR/docs/Glossary/Callback_function).** _`sayHello` é uma Função Callback._
 
 ## Exemplo | Retornar uma função
 
@@ -56,7 +58,8 @@ function sayHello() {
 
 Neste exemplo; Precisamos retornar uma função de outra função - _Podemos retornar uma função porque tratamos função em JavaScript como um **`valor`**._
 
-> **Nota:** Uma função que retorna uma função é chamada de **Higher-Order Function**
+> [!NOTE]
+> Uma função que retorna uma função é chamada de **Higher-Order Function**
 
 De volta ao nosso exemplo; Agora, precisamos chamar a função `sayHello` e a `Função anônima` retornada. Existem duas maneiras para fazermos isso:
 
@@ -74,7 +77,8 @@ myFunc();
 
 Dessa maneira, ela retorna a mensagem `Hello!`.
 
-> **Nota:** Você tem que usar outra variável. Se você fosse chamar `sayHello` diretamente, ela retornaria a função em si **sem chamar a função retornada**.
+> [!NOTE]
+> Você tem que usar outra variável. Se você fosse chamar `sayHello` diretamente, ela retornaria a função em si **sem chamar a função retornada**.
 
 ### 2- Usando parênteses duplo
 

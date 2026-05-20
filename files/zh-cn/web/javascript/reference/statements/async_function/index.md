@@ -5,13 +5,30 @@ l10n:
   sourceCommit: b15c892914bbaa51a8c8f288426ebc6d5c1d57f8
 ---
 
-{{jsSidebar("Statements")}}
-
 **`async function`** 声明创建一个{{Glossary("binding", "绑定")}}到给定名称的新异步函数。函数体内允许使用 `await` 关键字，这使得我们可以更简洁地编写基于 promise 的异步代码，并且避免了显式地配置 promise 链的需要。
 
 你也可以使用 [`async function` 表达式](/zh-CN/docs/Web/JavaScript/Reference/Operators/async_function)来定义异步函数。
 
-{{EmbedInteractiveExample("pages/js/statement-async.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Statement - Async", "taller")}}
+
+```js interactive-example
+function resolveAfter2Seconds() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("resolved");
+    }, 2000);
+  });
+}
+
+async function asyncCall() {
+  console.log("calling");
+  const result = await resolveAfter2Seconds();
+  console.log(result);
+  // Expected output: "resolved"
+}
+
+asyncCall();
+```
 
 ## 语法
 
@@ -27,7 +44,8 @@ async function name(param0, param1, /* …, */ paramN) {
 }
 ```
 
-> **备注：** `async` 和 `function` 之间不能有行终止符，否则 JavaScript 会[自动插入](/zh-CN/docs/Web/JavaScript/Reference/Lexical_grammar#自动分号补全)分号，导致 `async` 成为标识符，而剩余部分成为 `function` 声明。
+> [!NOTE]
+> `async` 和 `function` 之间不能有行终止符，否则 JavaScript 会[自动插入](/zh-CN/docs/Web/JavaScript/Reference/Lexical_grammar#自动分号补全)分号，导致 `async` 成为标识符，而剩余部分成为 `function` 声明。
 
 ### 参数
 
@@ -44,11 +62,13 @@ async function name(param0, param1, /* …, */ paramN) {
 
 异步函数可以包含零个或者多个 {{jsxref("Operators/await", "await")}} 表达式。await 表达式通过暂停执行使返回 promise 的函数表现得像同步函数一样，直到返回的 promise 被兑现或拒绝。返回的 promise 的解决值会被当作该 await 表达式的返回值。使用 `async`/`await` 关键字就可以使用普通的 `try`/`catch` 代码块捕获异步代码中的错误。
 
-> **备注：** `await` 关键字只在常规 JavaScript 代码中的异步函数内有效。如果你在异步函数体之外使用它，则会抛出 {{jsxref("SyntaxError")}}。
+> [!NOTE]
+> `await` 关键字只在常规 JavaScript 代码中的异步函数内有效。如果你在异步函数体之外使用它，则会抛出 {{jsxref("SyntaxError")}}。
 >
 > `await` 可以单独与 [JavaScript 模块](/zh-CN/docs/Web/JavaScript/Guide/Modules)一起使用。
 
-> **备注：** `async`/`await` 的目的在于简化使用基于 promise 的 API 时所需的语法。`async`/`await` 的行为就好像搭配使用了[生成器](/zh-CN/docs/Web/JavaScript/Guide/Iterators_and_generators)和 promise。
+> [!NOTE]
+> `async`/`await` 的目的在于简化使用基于 promise 的 API 时所需的语法。`async`/`await` 的行为就好像搭配使用了[生成器](/zh-CN/docs/Web/JavaScript/Guide/Iterators_and_generators)和 promise。
 
 异步函数总是返回一个 promise。如果一个异步函数的返回值看起来不是 promise，那么它将会被隐式地包装在一个 promise 中。
 
@@ -68,7 +88,7 @@ function foo() {
 }
 ```
 
-> **备注：**
+> [!NOTE]
 >
 > 即使异步函数的返回值看起来像是被包装在了一个 `Promise.resolve` 中，但它们不是等价的。
 >
@@ -248,7 +268,8 @@ setTimeout(concurrent2, 10000); // 1 秒后，打印“fast”，然后过 1 秒
 
 如果你希望在并发执行的两个或多个任务完成后安全地执行其他任务，那么在这些任务开始前，你必须等待对 {{jsxref("Promise.all()")}} 或 {{jsxref("Promise.allSettled()")}} 的调用。
 
-> **警告：** 函数 `sequentialWait` 和 `concurrent1` 在功能上并非等价的。
+> [!WARNING]
+> 函数 `sequentialWait` 和 `concurrent1` 在功能上并非等价的。
 >
 > 在 `sequentialWait` 中，如果较快的 promise 先于较慢的 promise 兑现前拒绝，则会出现未处理的 promise 拒绝错误，无论调用者是否配置了 catch 子句。
 >

@@ -3,14 +3,16 @@ title: keypress
 slug: Web/API/Element/keypress_event
 ---
 
+{{APIRef}}
+
 Событие `keypress` происходит когда нажимается символьная клавиша, то есть клавиша которая создаёт символ. Пример таких клавиш это буквы, цифры, знаки пунктуации и т.д. Примеры клавиш которые не создают символы, это клавиши модификаторы, такие как: <kbd>Alt</kbd>, <kbd>Shift</kbd>, <kbd>Ctrl</kbd>, or <kbd>Meta</kbd>.
 
 ## Общая информация
 
 - Спецификация
-  - : [DOM L3](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-keypress) {{deprecated_inline()}}
+  - : [DOM L3](https://www.w3.org/TR/DOM-Level-3-Events/#event-type-keypress) {{deprecated_inline()}}
 - Интерфейс
-  - : [KeyboardEvent](/ru/docs/DOM/KeyboardEvent)
+  - : [KeyboardEvent](/ru/docs/Web/API/KeyboardEvent)
 - Bubbles
   - : Yes
 - Cancelable
@@ -104,7 +106,7 @@ slug: Web/API/Element/keypress_event
           printed representation, this attribute's value is the same as the
           <code>char</code> property. Otherwise, it's one of the key value
           strings specified in
-          <a href="/ru/docs/Web/API/KeyboardEvent/key/Key_Values"
+          <a href="/ru/docs/Web/API/UI_Events/Keyboard_event_key_values"
             >Key values</a
           >. If the key can't be identified, its value is the string
           "Unidentified". See
@@ -130,7 +132,7 @@ slug: Web/API/Element/keypress_event
       <td>
         The Unicode reference number of the key; this attribute is used only by
         the
-        <a href="/ru/docs/Mozilla_event_reference/keypress"
+        <a href="/ru/docs/Web/API/Element/keypress_event"
           ><code>keypress</code></a
         >
         event. For keys whose <code>char</code> attribute contains multiple
@@ -232,10 +234,10 @@ Chrome не запускает событие `keypress` для известны
 
 ## Связанные события
 
-- {{event("keydown")}}
-- {{event("keyup")}}
-- {{event("keypress")}}
-- {{event("input")}}
+- [`keydown`](/ru/docs/Web/API/Element/keydown_event)
+- [`keyup`](/ru/docs/Web/API/Element/keyup_event)
+- [`keypress`](/ru/docs/Web/API/Element/keypress_event)
+- [`input`](/ru/docs/Web/API/Element/input_event)
 
 ## Пример
 

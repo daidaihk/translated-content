@@ -26,7 +26,7 @@ getScreenDetails()
 ### 例外
 
 - `NotAllowedError` {{domxref("DOMException")}}
-  - : [Permissions-Policy](/ja/docs/Web/HTTP/Permissions_Policy) によって [Window Management API](/ja/docs/Web/API/Window_Management_API) の使用がブロックされている場合、またはユーザーが明示的にブラウザのパーミッションリクエストを拒否した場合にスローされます。
+  - : [Permissions-Policy](/ja/docs/Web/HTTP/Guides/Permissions_Policy) によって [Window Management API](/ja/docs/Web/API/Window_Management_API) の使用がブロックされている場合、またはユーザーが明示的にブラウザーのパーミッションリクエストを拒否した場合にスローされます。
 
 ## 例
 
@@ -50,7 +50,8 @@ for (const screen of screenDetails.screens) {
 }
 ```
 
-> **メモ:** 完全な例については、[マルチウィンドウ学習環境](https://mdn.github.io/dom-examples/window-management-api/)を参照してください([ソースコード](https://github.com/mdn/dom-examples/tree/main/window-management-api)も参照してください。)
+> [!NOTE]
+> 完全な例については、[マルチウィンドウ学習環境](https://mdn.github.io/dom-examples/window-management-api/)を参照してください([ソースコード](https://github.com/mdn/dom-examples/tree/main/window-management-api)も参照してください。)
 
 ## 仕様書
 

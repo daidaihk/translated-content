@@ -3,13 +3,29 @@ title: Symbol
 slug: Web/JavaScript/Reference/Global_Objects/Symbol
 ---
 
-{{JSRef}}
-
-**symbol** 是一种基本数据类型（{{Glossary("Primitive", "primitive data type")}}）。`Symbol()` 函数会返回 **symbol** 类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的 symbol 注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法："`new Symbol()`"。
+**symbol** 是一种{{Glossary("Primitive", "原始数据类型")}}。`Symbol()` 函数会返回 **symbol** 类型的值，该类型具有静态属性和静态方法。它的静态属性会暴露几个内建的成员对象；它的静态方法会暴露全局的 symbol 注册，且类似于内建对象类，但作为构造函数来说它并不完整，因为它不支持语法："`new Symbol()`"。
 
 每个从 `Symbol()` 返回的 symbol 值都是唯一的。一个 symbol 值能作为对象属性的标识符；这是该数据类型仅有的目的。更进一步的解析见——[glossary entry for Symbol](/zh-CN/docs/Glossary/Symbol)。
 
-{{EmbedInteractiveExample("pages/js/symbol-constructor.html")}}
+{{InteractiveExample("JavaScript Demo: Symbol - Constructor")}}
+
+```js interactive-example
+const symbol1 = Symbol();
+const symbol2 = Symbol(42);
+const symbol3 = Symbol("foo");
+
+console.log(typeof symbol1);
+// Expected output: "symbol"
+
+console.log(symbol2 === 42);
+// Expected output: false
+
+console.log(symbol3.toString());
+// Expected output: "Symbol(foo)"
+
+console.log(Symbol("foo") === Symbol("foo"));
+// Expected output: false
+```
 
 ## 语法
 
@@ -104,7 +120,7 @@ typeof symObj; // "object"
 - {{jsxref("Symbol.for()", "Symbol.for(key)")}}
   - : 使用给定的 key 搜索现有的 symbol，如果找到则返回该 symbol。否则将使用给定的 key 在全局 symbol 注册表中创建一个新的 symbol。
 - {{jsxref("Symbol.keyFor", "Symbol.keyFor(sym)")}}
-  - : 从全局 symbol 注册表中，为给定的 symbol 检索一个共享的？symbol key。
+  - : 从全局 symbol 注册表中，为给定的 symbol 检索一个共享的 symbol key。
 
 ## Symbol 原型
 
@@ -123,7 +139,7 @@ typeof symObj; // "object"
   - : 返回一个包含着该 Symbol 对象描述的字符串。该方法重写了 {{jsxref("Object.prototype.toString")}} 方法
 - {{jsxref("Symbol.prototype.valueOf")}}
   - : 返回该 Symbol 对象。该方法重写了 {{jsxref("Object.prototype.valueOf")}} 方法
-- {{jsxref("Symbol.@@toPrimitive", "Symbol.prototype[@@toPrimitive]")}}
+- [`Symbol.toPrimitive`](/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)
   - : 返回该 Symbol 对象。
 
 ## 示例
@@ -198,5 +214,5 @@ obj[Object(sym)]; // still 1
 
 - [Glossary: Symbol data type](/zh-CN/docs/Glossary/Symbol)
 - {{jsxref("Operators/typeof", "typeof")}}
-- [Data types and data structures](/zh-CN/docs/Web/JavaScript/Data_structures)
+- [Data types and data structures](/zh-CN/docs/Web/JavaScript/Guide/Data_structures)
 - ["ES6 In Depth: Symbols"（深入 ES6 Symbols）on hacks.mozilla.org](https://hacks.mozilla.org/2015/06/es6-in-depth-symbols/)

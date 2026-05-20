@@ -35,7 +35,7 @@ toBlob(callback, type, quality)
 ### 异常
 
 - `SecurityError`
-  - : canvas“[被污染](/zh-CN/docs/Web/HTML/CORS_enabled_image)”的情况下不能使用此方法。
+  - : canvas“[被污染](/zh-CN/docs/Web/HTML/How_to/CORS_enabled_image)”的情况下不能使用此方法。
 
 ## 示例
 
@@ -107,7 +107,8 @@ canvas.toBlob(
 
 ### 使用 OS.File 保存图像到本地（chrome/add-on context only）
 
-> **备注：** 此方法可将 toBlob 生成的图片保存到本地，但仅在 Firefox、Chrome 上下文或带有相关插件的情况下可用，因为 Web 并不存在 OS API。
+> [!NOTE]
+> 此方法可将 toBlob 生成的图片保存到本地，但仅在 Firefox、Chrome 上下文或带有相关插件的情况下可用，因为 Web 并不存在 OS API。
 
 ```js
 const canvas = document.getElementById("canvas");

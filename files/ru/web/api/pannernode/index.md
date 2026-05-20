@@ -94,7 +94,7 @@ slug: Web/API/PannerNode
   - : Это устаревший элемент API и его работа в дальнейшем не гарантируется.
     Определяет вектор распространения звука от источника - как быстро он движется и в каком направлении. В предыдущей версии спецификации, {{domxref("PannerNode")}} имел скорость распространения, которую можно было выдать выше или ниже подключённого потока {{domxref("AudioBufferSourceNode")}}. Эта функция не была чётко оговорена и имела ряд проблем, поэтому была удалена из спецификации.
 
-## Specifications
+## Спецификации
 
 {{Specifications}}
 
@@ -104,5 +104,5 @@ slug: Web/API/PannerNode
 
 ## Смотрите также
 
-- [Using the Web Audio API](/ru/docs/Web_Audio_API/Using_Web_Audio_API)
+- [Using the Web Audio API](/ru/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
 - [Основы панорамирования. Расположение звуков в виртуальном пространстве.](http://musiconnect.ru/publ/mixmaster/osnovy-panoramirovaniya-raspolozhenie-zvukov-v-virtualnom-prostranstve-ch-1/)

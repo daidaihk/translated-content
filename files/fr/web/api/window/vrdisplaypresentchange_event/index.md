@@ -25,7 +25,7 @@ L'événement **`vrdisplaypresentchange`** de l'[API WebVR](/fr/docs/Web/API/Web
       <th scope="row">Propriété de gestionnaire d'événements</th>
       <td>
         <code
-          ><a href="/fr/docs/Web/API/Window/onvrdisplaypresentchange"
+          ><a href="/fr/docs/Web/API/Window/vrdisplaypresentchange_event"
             >onvrdisplaypresentchange</a
           ></code
         >
@@ -49,7 +49,7 @@ window.addEventListener("vrdisplaypresentchange", function () {
 });
 ```
 
-Ou utilisez la propriété de gestionnaire d'événements [`onvrdisplaypresentchange`](/fr/docs/Web/API/Window/onvrdisplaypresentchange) :
+Ou utilisez la propriété de gestionnaire d'événements [`onvrdisplaypresentchange`](/fr/docs/Web/API/Window/vrdisplaypresentchange_event) :
 
 ```js
 window.onvrdisplaypresentchange = function () {

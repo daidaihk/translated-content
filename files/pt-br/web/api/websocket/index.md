@@ -81,7 +81,7 @@ void close(
 #### Parametros
 
 - `code` {{optional_inline}}
-  - : Um valor numérico que indica o código de status explicando por que a conexão está sendo fechada. Se esse parâmetro não for especificado, é assumido um valor padrão de 1000 (indicando um fechamento "completo da transação"). Veja a [lista de status de códigos](/pt-BR/docs/Web/API/CloseEvent#Status_codes) na [`CloseEvent`](/pt-BR/docs/Web/API/CloseEvent) página de valores permitidos.
+  - : Um valor numérico que indica o código de status explicando por que a conexão está sendo fechada. Se esse parâmetro não for especificado, é assumido um valor padrão de 1000 (indicando um fechamento "completo da transação"). Veja a [lista de status de códigos](/pt-BR/docs/Web/API/CloseEvent#status_codes) na [`CloseEvent`](/pt-BR/docs/Web/API/CloseEvent) página de valores permitidos.
 - `reason` {{optional_inline}}
   - : Uma string legível para humanos que explica por que a conexão está se fechando. Esta seqüência de caracteres não deve ter mais de 123 bytes de texto UTF-8 (**não** caracteres).
 
@@ -92,7 +92,8 @@ void close(
 - `SYNTAX_ERR`
   - : A string `reason é muito longa ou contém substitutos não comparados.`
 
-> **Nota:** `Note: No Gecko, este método não suporta nenhum parâmetro antes do Gecko 8.0.`
+> [!NOTE]
+> `Note: No Gecko, este método não suporta nenhum parâmetro antes do Gecko 8.0.`
 
 ### `send()`
 
@@ -125,7 +126,8 @@ void send(
 - `SYNTAX_ERR`
   - : `Os dados são uma string que tem substituto não comparado.`
 
-> **Nota:** `Nota: A implementação do método send () de Gecko difere um pouco da especificação em Gecko 6.0. Gecko retorna um boolean indicando se a conexão ainda está aberta (por extensão, ou os dados estão em fila ou transmitidos com sucesso). Isso é corrigido em Gecko 8.0.`
+> [!NOTE]
+> `Nota: A implementação do método send () de Gecko difere um pouco da especificação em Gecko 6.0. Gecko retorna um boolean indicando se a conexão ainda está aberta (por extensão, ou os dados estão em fila ou transmitidos com sucesso). Isso é corrigido em Gecko 8.0.`
 >
 > `A partir de Gecko 11.0, o suporte para {{jsxref ("ArrayBuffer")}} está implementado, mas não {{domxref("Blob")}} tipos de dados.`
 

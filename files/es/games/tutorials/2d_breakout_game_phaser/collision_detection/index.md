@@ -3,11 +3,9 @@ title: Collision detection
 slug: Games/Tutorials/2D_breakout_game_Phaser/Collision_detection
 ---
 
-{{GamesSidebar}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Build_the_brick_field", "Games/Tutorials/2D_breakout_game_Phaser/The_score")}}
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Build_the_brick_field", "Games/Workflows/2D_Breakout_game_Phaser/The_score")}}
-
-Este es el **paso 10** de un total de 16, del tutorial de [Gamedev Phaser](/es/docs/Games/Workflows/2D_Breakout_game_Phaser). Puedes encontrar el código fuente tal y cómo queda al completar la lección en [Gamedev-Phaser-Content-Kit/demos/lesson10.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson10.html).
+Este es el **paso 10** de un total de 16, del tutorial de [Gamedev Phaser](/es/docs/Games/Tutorials/2D_breakout_game_Phaser). Puedes encontrar el código fuente tal y cómo queda al completar la lección en [Gamedev-Phaser-Content-Kit/demos/lesson10.html](https://github.com/end3r/Gamedev-Phaser-Content-Kit/blob/gh-pages/demos/lesson10.html).
 
 Ahora en el próximo desafío: la detección de colisiones entre la bola y los ladrillos. Por suerte, podemos usar el motor de física para verificar las colisiones no solo entre objetos individuales (como la pelota y la paleta), sino también entre un objeto y el grupo.
 
@@ -35,7 +33,7 @@ function ballHitBrick(ball, brick) {
 
 Gracias a Phaser, se pasan dos parámetros a la función: el primero es la bola, que definimos explícitamente en el método de colisión, y el segundo es el único bloque del grupo de ladrillos con el que la bola está colisionando. Dentro de la función, eliminamos el bloque en cuestión de la pantalla ejecutando el método `kill()` en él.
 
-Seguro que esperarabas tener que escribir muchos más cálculos para implementar la detección de colisiones cuando se utiliza [JavaScript](/es/docs/Games/Workflows/2D_Breakout_game_pure_JavaScript/Collision_detection) puro. Esa es la belleza de usar el marco: puedes dejar un montón de código aburrido a Phaser, y enfocarte en las partes más divertidas e interesantes de hacer un juego.
+Seguro que esperarabas tener que escribir muchos más cálculos para implementar la detección de colisiones cuando se utiliza [JavaScript](/es/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Collision_detection) puro. Esa es la belleza de usar el marco: puedes dejar un montón de código aburrido a Phaser, y enfocarte en las partes más divertidas e interesantes de hacer un juego.
 
 ## Compara tu código
 
@@ -47,4 +45,4 @@ Puedes consultar el código terminado para esta lección en la demo que aparece 
 
 Podemos golpear los ladrillos y eliminarlos, lo cual sería una buena adición al juego. Sería incluso mejor contar los ladrillos destruidos incrementando la puntuación como resultado.
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Build_the_brick_field", "Games/Workflows/2D_Breakout_game_Phaser/The_score")}}
+{{PreviousNext("Games/Tutorials/2D_breakout_game_Phaser/Build_the_brick_field", "Games/Tutorials/2D_breakout_game_Phaser/The_score")}}

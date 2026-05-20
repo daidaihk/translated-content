@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 088b56a895d22b6df854a9f26400af7d399f289f
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{SeeCompatTable}}
 
 {{jsxref("Iterator")}} 实例的 **`flatMap()`** 方法返回一个新的[迭代器辅助方法](/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Iterator#迭代器辅助方法)，该迭代器辅助方法将原始迭代器中的每个元素映射到一个函数中，并生成由映射函数返回的元素（这些元素包含在另一个迭代器或可迭代对象中）。
 
@@ -35,7 +35,7 @@ flatMap(callbackFn)
 
 ## 描述
 
-`flatMap` 接受 `callbackFn` 两种类型的返回值：迭代器或可迭代对象。它们与 {{jsxref("Iterator.from()")}} 处理方式相同：如果返回值是可迭代的，则调用 `@@iterator` 方法，并使用其返回值；否则，将返回值视为一个迭代器，并调用其 `next()` 方法。
+`flatMap` 接受 `callbackFn` 两种类型的返回值：迭代器或可迭代对象。它们与 {{jsxref("Iterator.from()")}} 处理方式相同：如果返回值是可迭代的，则调用 `[Symbol.iterator]()` 方法，并使用其返回值；否则，将返回值视为一个迭代器，并调用其 `next()` 方法。
 
 ```js
 [1, 2, 3]
@@ -63,14 +63,14 @@ flatMap(callbackFn)
         return {
           ...it,
           [Symbol.iterator]() {
-            console.log("@@iterator 被调用了");
+            console.log("[Symbol.iterator]() 被调用了");
             return it;
           },
         };
     }
   })
   .toArray();
-// 输出“@@iterator 被调用了”
+// 输出“[Symbol.iterator]() 被调用了”
 // 返回 [1, 2, 3]
 ```
 

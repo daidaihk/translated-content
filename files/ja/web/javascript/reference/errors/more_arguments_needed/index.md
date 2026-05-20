@@ -38,7 +38,7 @@ var obj = Object.setPrototypeOf({});
 // TypeError: Object.setPrototypeOf requires at least 2 arguments, but only 1 were passed
 ```
 
-たとえば、{{jsxref("null")}} を prototype として設定することで修正できます。
+たとえば、[`null`](/ja/docs/Web/JavaScript/Reference/Operators/null) を prototype として設定することで修正できます。
 
 ```js example-good
 var obj = Object.create(null);
@@ -46,6 +46,6 @@ var obj = Object.create(null);
 var obj = Object.setPrototypeOf({}, null);
 ```
 
-## 関連項目
+## 関連情報
 
 - [関数](/ja/docs/Web/JavaScript/Guide/Functions)

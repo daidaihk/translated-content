@@ -5,8 +5,6 @@ l10n:
   sourceCommit: 4f86aad2b0b66c0d2041354ec81400c574ab56ca
 ---
 
-{{jsSidebar}}
-
 **正则表达式**（简称 _regex_）允许开发人员根据模式匹配字符串、提取子匹配信息，或简单地测试字符串是否符合该模式。正则表达式在许多编程语言中都有使用，JavaScript 的语法受 [Perl](https://www.perl.org/) 的启发。
 
 我们建议你阅读[正则表达式指南](/zh-CN/docs/Web/JavaScript/Guide/Regular_expressions)，以全面了解可用的正则表达式语法及其工作原理。
@@ -22,7 +20,8 @@ l10n:
 
 假设有一个有限的字母表（如 26 个英文字母或整个 Unicode 字符集），那么所有正则表达式语言都可以通过上述特征生成。当然，许多模式用这种方式来表达非常繁琐（如“10 位数字”或“一个非空格的字符”），因此 JavaScript 正则表达式包含许多速记符号，下面将一一介绍。
 
-> **备注：** 由于存在[反向引用](/zh-CN/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)（正则表达式必须具有有限状态），JavaScript 正则表达式实际上并不“正则”。不过，反向引用仍然是一个非常有用的特性。
+> [!NOTE]
+> 由于存在[反向引用](/zh-CN/docs/Web/JavaScript/Reference/Regular_expressions/Backreference)（正则表达式必须具有有限状态），JavaScript 正则表达式实际上并不“正则”。不过，反向引用仍然是一个非常有用的特性。
 
 ### 创建正则表达式
 

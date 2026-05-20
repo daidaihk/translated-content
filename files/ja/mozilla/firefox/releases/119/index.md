@@ -5,8 +5,6 @@ l10n:
   sourceCommit: 7c6b02283df15120126fd174f91519c9a76d81c9
 ---
 
-{{FirefoxSidebar}}
-
 このページでは、開発者に影響する Firefox 119 の変更点をまとめています。Firefox 119 は、2023 年 10 月 24 日にリリースされました。
 
 ## ウェブ開発者向けの変更点一覧
@@ -15,11 +13,11 @@ l10n:
 
 #### 廃止
 
-- {{HTMLElement('input')}} 要素で、非標準の `mozactionhint` 属性のサポートを廃止しました。代わりに [`enterkeyhint`](/ja/docs/Web/HTML/Global_attributes/enterkeyhint) を使用してください (詳しくは [Firefox bug 1735980](https://bugzil.la/1735980) をご覧ください)。
+- {{HTMLElement('input')}} 要素で、非標準の `mozactionhint` 属性のサポートを廃止しました。代わりに [`enterkeyhint`](/ja/docs/Web/HTML/Reference/Global_attributes/enterkeyhint) を使用してください (詳しくは [Firefox bug 1735980](https://bugzil.la/1735980) をご覧ください)。
 
 ### CSS
 
-- {{cssxref("attr")}} CSS 関数の代替値をサポートしました。これは [グローバル属性](/ja/docs/Web/HTML/Global_attributes) が見つからない場合に、代替値の設定を使用することができます ([Firefox bug 1448248](https://bugzil.la/1448248))。
+- {{cssxref("attr")}} CSS 関数の代替値をサポートしました。これは [グローバル属性](/ja/docs/Web/HTML/Reference/Global_attributes) が見つからない場合に、代替値の設定を使用することができます ([Firefox bug 1448248](https://bugzil.la/1448248))。
 
 ### JavaScript
 
@@ -28,11 +26,11 @@ l10n:
 
 ### SVG
 
-- すべての SVG 要素で、[`<length>`](/ja/docs/Web/SVG/Content_type#length) の値を受け入れる [SVG 属性](/ja/docs/Web/SVG/Attribute) が [level 3](https://www.w3.org/TR/css-values-3/#lengths) [length](/ja/docs/Web/CSS/length) [CSS データ型](/ja/docs/Web/CSS/CSS_Types) をサポートしました。これはフォントサイズ (`cap`、`rem` など) やビューポート (`vh`、`vw`、`vmin` など) に基づくサイズや、絶対的な長さ (`px`、`cm` など) で SVG 要素のサイズを決めることを可能にします。例: `<line x1="10vw" y1="10vh" x2="50vw" y2="50vh"/>` (詳しくは [Firefox bug 1287054](https://bugzil.la/1287054) をご覧ください)
+- すべての SVG 要素で、[`<length>`](/ja/docs/Web/SVG/Guides/Content_type#length) の値を受け入れる [SVG 属性](/ja/docs/Web/SVG/Reference/Attribute) が [level 3](https://www.w3.org/TR/css-values-3/#lengths) [length](/ja/docs/Web/CSS/Reference/Values/length) [CSS データ型](/ja/docs/Web/CSS/Reference/Values/Data_types) をサポートしました。これはフォントサイズ (`cap`、`rem` など) やビューポート (`vh`、`vw`、`vmin` など) に基づくサイズや、絶対的な長さ (`px`、`cm` など) で SVG 要素のサイズを決めることを可能にします。例: `<line x1="10vw" y1="10vh" x2="50vw" y2="50vh"/>` (詳しくは [Firefox bug 1287054](https://bugzil.la/1287054) をご覧ください)
 
 ### HTTP
 
-- {{HTTPHeader("Cross-Origin-Embedder-Policy")}} HTTP レスポンスヘッダーの [`credentialless`](/ja/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy#credentialless) をデスクトッププラットフォーム (および Android を除くモバイルプラットフォーム) でサポートしました。Cookie やほかの資格情報がない場合でも、明示的に許可していない外部オリジンのサーバーへリソースの `no-cors` 要求を行えます ([Firefox bug 1851467](https://bugzil.la/1851467))。
+- {{HTTPHeader("Cross-Origin-Embedder-Policy")}} HTTP レスポンスヘッダーの [`credentialless`](/ja/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#credentialless) をデスクトッププラットフォーム (および Android を除くモバイルプラットフォーム) でサポートしました。Cookie やほかの資格情報がない場合でも、明示的に許可していない外部オリジンのサーバーへリソースの `no-cors` 要求を行えます ([Firefox bug 1851467](https://bugzil.la/1851467))。
 
 ### API
 
@@ -57,17 +55,17 @@ l10n:
 
 #### WebDriver BiDi
 
-- 指定したブラウジングコンテキストで現在表示されているページまたはフレームを再読み込みできるコマンド [`browsingContext.reload`](https://w3c.github.io/webdriver-bidi/#command-browsingContext-reload) を追加しました ([Firefox bug 1830859](https://bugzil.la/1830859))。
+- 指定した閲覧コンテキストで現在表示されているページまたはフレームを再読み込みできるコマンド [`browsingContext.reload`](https://w3c.github.io/webdriver-bidi/#command-browsingContext-reload) を追加しました ([Firefox bug 1830859](https://bugzil.la/1830859))。
 
 - `alert`、`confirm`、`prompt` 型のユーザープロンプトが閉じられたときに発生するイベント [`browsingContext.userPromptClosed`](https://w3c.github.io/webdriver-bidi/#event-browsingContext-userPromptClosed) を追加しました ([Firefox bug 1824221](https://bugzil.la/1824221))。
 
 - Firefox によって新しいナビゲーションが開始されたときに発生するイベント [`browsingContext.navigationStarted`](https://w3c.github.io/webdriver-bidi/#event-browsingContext-navigationStarted) を追加しました ([Firefox bug 1756595](https://bugzil.la/1756595))。
 
-- 指定したブラウジングコンテキストで JavaScript Realm のライフタイムを監視できるイベント [`script.realmCreated`](https://w3c.github.io/webdriver-bidi/#event-script-realmCreated) および [`script.realmDestroyed`](https://w3c.github.io/webdriver-bidi/#event-script-realmDestroyed) を追加しました。Realm は基本的に、独自のグローバルオブジェクト (window) を持つ分離された実行環境 (`sandbox`) です ([Firefox bug 1788657](https://bugzil.la/1788657)、[Firefox bug 1788659](https://bugzil.la/1788659))。
+- 指定した閲覧コンテキストで JavaScript Realm のライフタイムを監視できるイベント [`script.realmCreated`](https://w3c.github.io/webdriver-bidi/#event-script-realmCreated) および [`script.realmDestroyed`](https://w3c.github.io/webdriver-bidi/#event-script-realmDestroyed) を追加しました。Realm は基本的に、独自のグローバルオブジェクト (window) を持つ分離された実行環境 (`sandbox`) です ([Firefox bug 1788657](https://bugzil.la/1788657)、[Firefox bug 1788659](https://bugzil.la/1788659))。
 
 - HTTP 認証のダイアログボックスが表示されたときに、`browsingContext.userPromptOpened` イベントが誤って発生していた不具合を修正しました ([Firefox bug 1853302](https://bugzil.la/1853302))。
 
-- `context` フィールドが `null` に設定された不必要なイベントが発生しないようになりました。基礎となるブラウジングコンテキストが閉じられたため、このようなイベントは有効ではありません ([Firefox bug 1847563](https://bugzil.la/1847563))。
+- `context` フィールドが `null` に設定された不必要なイベントが発生しないようになりました。基礎となる閲覧コンテキストが閉じられたため、このようなイベントは有効ではありません ([Firefox bug 1847563](https://bugzil.la/1847563))。
 
 #### Marionette
 

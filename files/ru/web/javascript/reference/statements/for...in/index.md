@@ -29,7 +29,8 @@ for (variable in object) {...
 
 ### `Проход по массиву и for...in`
 
-> **Примечание:** `for...in` не следует использовать для {{jsxref("Array")}}, где важен порядок индексов.
+> [!NOTE]
+> `for...in` не следует использовать для {{jsxref("Array")}}, где важен порядок индексов.
 
 Индексы массива - это перечисляемые свойства с целочисленными именами, в остальном они аналогичны свойствам объектов. Нет гарантии, что `for...in` будет возвращать индексы в конкретном порядке. Цикл `for...in` возвращает все перечисляемые свойства, включая имеющие нецелочислиненные имена и наследуемые.
 
@@ -89,11 +90,11 @@ for (var prop in obj) {
 
 ## Поддержка: инициализатор переменных
 
-До SpiderMonkey 40, можно было инициализировать переменные (`i=0`) в цикле `for...in`:
+До SpiderMonkey 40, можно было инициализировать переменные (`i = 0`) в цикле `for...in`:
 
-```js example-bad
-var obj = {a:1, b:2, c:3};
-for(var i=0 in obj) {
+```js-nolint example-bad
+var obj = { a: 1, b: 2, c: 3 };
+for (var i = 0 in obj) {
   console.log(obj[i]);
 }
 // 1
@@ -110,8 +111,8 @@ for(var i=0 in obj) {
 - {{jsxref("Statements/for...of", "for...of")}} - похожий цикл, проходящий по значениям свойств
 - {{jsxref("Statements/for_each...in", "for each in")}} - похожее выражение, но перебирает значения свойств, а не их имена (устарело)
 - {{jsxref("Statements/for", "for")}}
-- [Генераторы](/ru/docs/Web/JavaScript/Guide/Iterators_and_Generators) (использующие синтаксис `for...in`)
-- [Перечислимость и владение свойствами](/ru/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
+- [Генераторы](/ru/docs/Web/JavaScript/Guide/Iterators_and_generators) (использующие синтаксис `for...in`)
+- [Перечислимость и владение свойствами](/ru/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
 - {{jsxref("Object.getOwnPropertyNames()")}}
 - {{jsxref("Object.prototype.hasOwnProperty()")}}
 - {{jsxref("Array.prototype.forEach()")}}

@@ -1,15 +1,17 @@
 ---
-title: MediaStreamAudioSourceNode()
+title: "MediaStreamAudioSourceNode: MediaStreamAudioSourceNode() コンストラクター"
+short-title: MediaStreamAudioSourceNode()
 slug: Web/API/MediaStreamAudioSourceNode/MediaStreamAudioSourceNode
 l10n:
-  sourceCommit: 2ba2c0efbdf0c34b1da02203e4e84b571c883629
+  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
 ---
 
 {{APIRef("Web Audio API")}}
 
 [ウェブオーディオ API](/ja/docs/Web/API/Web_Audio_API) の **`MediaStreamAudioSourceNode()`** コンストラクターは、指定された {{domxref("MediaStream")}} の最初の音声トラックを音源として用いる新しい {{domxref("MediaStreamAudioSourceNode")}} オブジェクトを作成して返します。
 
-> **メモ:** `MediaStreamAudioSourceNode` を作成するもう一つの方法は、音声の取得元のストリームを指定して {{domxref("AudioContext.createMediaStreamSource()")}} メソッドを呼ぶことです。
+> [!NOTE]
+> `MediaStreamAudioSourceNode` を作成するもう一つの方法は、音声の取得元のストリームを指定して {{domxref("AudioContext.createMediaStreamSource()")}} メソッドを呼ぶことです。
 
 ## 構文
 
@@ -22,9 +24,7 @@ new MediaStreamAudioSourceNode(context, options)
 - `context`
   - : ノードを関連付ける音声コンテキストを表す {{domxref("AudioContext")}} です。
 - `options`
-
   - : `MediaStreamAudioSourceNode` に持たせるプロパティを定義するオブジェクトです。
-
     - `mediaStream`
       - : 必須のプロパティで、ノードが用いる音声の取得元となる {{domxref("MediaStream")}} を指定します。
 

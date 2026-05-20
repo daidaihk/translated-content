@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 1511e914c6b1ce6f88056bfefd48a6aa585cebce
 ---
 
-{{ apiref("DOM Events") }}
+{{APIRef("UI Events")}}
 
 **`FocusEvent.relatedTarget`** は読み取り専用プロパティで、イベントの種類に応じた副ターゲットを表します。
 
@@ -43,7 +43,7 @@ l10n:
   </tbody>
 </table>
 
-なお、[多くの要素はフォーカスを受け取ることができない](https://stackoverflow.com/questions/42764494/blur-event-relatedtarget-returns-null/42764495)ことが、 `relatedTarget` が `null` になる良くある理由です。 `relatedTarget` はタブ移動でページをでたり入ったりする場合など、セキュリティ上の理由で `null` になることもあります。
+なお、[多くの要素はフォーカスを受け取ることができない](https://stackoverflow.com/questions/42764494/blur-event-relatedtarget-returns-null/42764495)ことが、 `relatedTarget` が `null` になる良くある理由です。 `relatedTarget` はタブ移動でページを出たり入ったりする場合など、セキュリティ上の理由で `null` になることもあります。
 
 {{domxref("MouseEvent.relatedTarget")}} はマウスイベントにおける同様のプロパティです。
 

@@ -1,7 +1,6 @@
 ---
 title: Console.dir()
 slug: Web/API/console/dir_static
-original_slug: Web/API/console/dir
 ---
 
 {{ APIRef("Console API") }}{{Non-standard_header}}
@@ -35,5 +34,5 @@ console.dir(object);
 
 ## Ver também
 
-- [Documentação Opera Dragonfly: Console](http://www.opera.com/dragonfly/documentation/console/)
+- [Documentação Opera Dragonfly: Console](https://www.opera.com/dragonfly/documentation/console/)
 - [MSDN: usando o F12 Ferramentas de Console para exibir erros e status](http://msdn.microsoft.com/library/gg589530)

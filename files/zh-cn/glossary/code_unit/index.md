@@ -1,9 +1,7 @@
 ---
-title: 码元（Code unit）
+title: 码元
 slug: Glossary/Code_unit
 ---
-
-{{GlossarySidebar}}
 
 **码元**是字符编码系统（例如 UTF-8 或 UTF-16）使用的基本组成部分。字符编码系统将一个 Unicode {{Glossary("code point", "码位")}}编码为一个或者多个码元。
 

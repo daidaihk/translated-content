@@ -5,11 +5,12 @@ l10n:
   sourceCommit: cf05364b23bc44af37a350319a1dd47485746a9c
 ---
 
-{{ApiRef("Battery API")}}{{securecontext_header}}
+{{APIRef("Battery API")}} {{SecureContext_Header}}
 
 Метод `getBattery` предоставляет информацию о батарее устройства. Он возвращает промис, результатом обработки которого будет объект {{domxref("BatteryManager")}}, содержащий свойства с информацией о состоянии батареи и события, которые можно обрабатывать для его контроля. Для получения более подробной информации и примеров смотрите {{domxref("Battery Status API")}}.
 
-> **Примечание:** Доступ к этой функциональности контролируется директивой {{HTTPHeader("Permissions-Policy/battery", "battery")}} из {{HTTPHeader("Permissions-Policy")}}.
+> [!NOTE]
+> Доступ к этой функциональности контролируется директивой {{HTTPHeader("Permissions-Policy/battery", "battery")}} из {{HTTPHeader("Permissions-Policy")}}.
 
 ## Синтаксис
 
@@ -28,8 +29,7 @@ getBattery()
 ### Исключения
 
 - `NotAllowedError` {{domxref("DOMException")}}
-
-  - : Использование этой функциональности заблокировано [Permissions Policy](/ru/docs/Web/HTTP/Permissions_Policy).
+  - : Использование этой функциональности заблокировано [Permissions Policy](/ru/docs/Web/HTTP/Guides/Permissions_Policy).
 
 - `SecurityError` {{domxref("DOMException")}}
   - : Агент пользователя не предоставляет информацию о батарее в небезопасном контексте, и этот метод был вызван из такого контекста.

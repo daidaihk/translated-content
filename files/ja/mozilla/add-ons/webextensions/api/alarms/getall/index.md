@@ -18,9 +18,7 @@ browser.alarms.getAll(
 ### 引数
 
 - `callback`
-
   - : `function`. この関数には以下の引数が渡ります。
-
     - `alarms`
       - : 予約されたアラームすべてを含む `{{WebExtAPIRef('alarms.Alarm')}}` の配列です。予約されたアラームがない場合は空の配列となります。
 
@@ -57,6 +55,6 @@ getAlarms.then(gotAll);
 
 {{WebExtExamples}}
 
-> **メモ:**
+> [!NOTE]
 >
-> この API は Chromium の [`chrome.alarms`](https://developer.chrome.com/extensions/alarms) API に基づいています。
+> この API は Chromium の [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API に基づいています。

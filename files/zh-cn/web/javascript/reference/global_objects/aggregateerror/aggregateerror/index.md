@@ -3,8 +3,6 @@ title: AggregateError() 构造函数
 slug: Web/JavaScript/Reference/Global_Objects/AggregateError/AggregateError
 ---
 
-{{JSRef}}
-
 **`AggregateError()`** 构造函数创建了一个包装了多个错误对象的单个错误对象。
 
 ## 语法
@@ -19,7 +17,8 @@ AggregateError(errors, message)
 AggregateError(errors, message, options)
 ```
 
-> **备注：** 调用 `AggregateError()` 可以使用或不使用 [`new`](/zh-CN/docs/Web/JavaScript/Reference/Operators/new)，两种方法都会创建一个新的 `AggregateError` 实例。
+> [!NOTE]
+> 调用 `AggregateError()` 可以使用或不使用 [`new`](/zh-CN/docs/Web/JavaScript/Reference/Operators/new)，两种方法都会创建一个新的 `AggregateError` 实例。
 
 ### 参数
 

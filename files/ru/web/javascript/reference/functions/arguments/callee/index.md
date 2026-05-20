@@ -9,7 +9,8 @@ slug: Web/JavaScript/Reference/Functions/arguments/callee
 
 ## Описание
 
-> **Предупреждение:** **Внимание:** В ES5 [strict mode](/ru/docs/JavaScript/Reference/Functions_and_function_scope/Strict_mode) использование `arguments.callee` запрещено.
+> [!WARNING]
+> В ES5 [strict mode](/ru/docs/Web/JavaScript/Reference/Strict_mode) использование `arguments.callee` запрещено.
 
 ### Зачем вообще использовать `arguments.callee`?
 
@@ -48,7 +49,7 @@ var factorial = function (n) {
 factorial(7);
 ```
 
-## Specifications
+## Спецификации
 
 {{Specifications}}
 
@@ -56,6 +57,6 @@ factorial(7);
 
 {{Compat}}
 
-## See also
+## Смотрите также
 
 - {{jsxref("Function")}}

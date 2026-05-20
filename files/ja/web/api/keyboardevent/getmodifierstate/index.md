@@ -176,7 +176,8 @@ Firefox で `getModifierState()` が true を返すときです。
 
 ## `"Accel"` 仮想修飾子
 
-> **メモ:** `"Accel"` 仮想修飾子は、 DOM3 Events 仕様の現在のドラフトでは、事実上**非推奨**とされています。
+> [!NOTE]
+> `"Accel"` 仮想修飾子は、 DOM3 Events 仕様の現在のドラフトでは、事実上**非推奨**とされています。
 
 `getModifierState()` は `"Accel"` という名前の非推奨の仮想修飾子も受け入れます。`event.getModifierState("Accel")` は {{domxref("KeyboardEvent.ctrlKey")}} または {{domxref("KeyboardEvent.metaKey")}} の少なくともどちらかが `true` である場合に `true` を返します。
 
@@ -261,7 +262,8 @@ function handleKeyboardEvent(event) {
 }
 ```
 
-> **メモ:** この例は `.getModifierState()` を `"Alt"`,
+> [!NOTE]
+> この例は `.getModifierState()` を `"Alt"`,
 > `"Control"`, `"Meta"`, `"Shift"` で使用していますが、
 > `event.altKey`, `event.ctrlKey`, `event.metaKey`,
 > `event.shiftKey` の方がよりお勧めです。

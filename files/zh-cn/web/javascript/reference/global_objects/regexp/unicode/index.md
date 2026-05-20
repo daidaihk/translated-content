@@ -3,8 +3,6 @@ title: RegExp.prototype.unicode
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/unicode
 ---
 
-{{JSRef}}
-
 **`unicode`** 属性表明正则表达式带有"`u`" 标志。 `unicode` 是正则表达式独立实例的只读属性。
 
 {{js_property_attributes(0, 0, 1)}}
@@ -33,7 +31,7 @@ console.log(regex.unicode); // true
 
 {{Compat}}
 
-## 另见
+## 参见
 
 - {{jsxref("RegExp.lastIndex")}}
 - {{jsxref("RegExp.prototype.global")}}

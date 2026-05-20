@@ -72,7 +72,7 @@ slug: Web/API/Response
 
 ### Fetching an image
 
-In our [basic fetch example](https://github.com/mdn/fetch-examples/tree/master/basic-fetch) ([run example live](http://mdn.github.io/fetch-examples/basic-fetch/)) we use a simple `fetch()` call to grab an image and display it in an {{htmlelement("img")}} element. The `fetch()` call returns a promise, which resolves to the `Response` object associated with the resource fetch operation.
+In our [basic fetch example](https://github.com/mdn/fetch-examples/tree/master/basic-fetch) ([run example live](https://mdn.github.io/fetch-examples/basic-fetch/)) we use a simple `fetch()` call to grab an image and display it in an {{htmlelement("img")}} element. The `fetch()` call returns a promise, which resolves to the `Response` object associated with the resource fetch operation.
 
 You'll notice that since we are requesting an image, we need to run {{domxref("Body.blob")}} ({{domxref("Response")}} implements Body) to give the response its correct MIME type.
 
@@ -115,7 +115,7 @@ const doAjax = async () => {
 doAjax().then(console.log).catch(console.log);
 ```
 
-## Specifications
+## Спецификации
 
 {{Specifications}}
 
@@ -123,8 +123,8 @@ doAjax().then(console.log).catch(console.log);
 
 {{Compat}}
 
-## See also
+## Смотрите также
 
-- [ServiceWorker API](/ru/docs/Web/API/ServiceWorker_API)
-- [HTTP access control (CORS)](/ru/docs/Web/HTTP/Access_control_CORS)
+- [ServiceWorker API](/ru/docs/Web/API/Service_Worker_API)
+- [HTTP access control (CORS)](/ru/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/ru/docs/Web/HTTP)

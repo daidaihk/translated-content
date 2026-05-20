@@ -1,15 +1,17 @@
 ---
-title: Request.referrer
+title: "Request: referrer プロパティ"
+short-title: referrer
 slug: Web/API/Request/referrer
 l10n:
-  sourceCommit: e0e09b1df51489867f2e74c18586d168ba5e00d1
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-**`referrer`** は {{domxref("Request")}} インターフェイスの読み取り専用プロパティで、ユーザーエージェントによってリクエストのリファラーが設定されます（`about:client` や `no-referrer`、URL、など）。
+**`referrer`** は {{domxref("Request")}} インターフェイスの読み取り専用プロパティで、ユーザーエージェントによってリクエストのリファラーが設定されます（`client` や `no-referrer`、URL、など）。
 
-> **メモ:** `referrerPolicy` の値が `no-referrer` だった場合、空文字が返されます。
+> [!NOTE]
+> `referrer` の値が `no-referrer` だった場合、空文字が返されます。
 
 ## 値
 
@@ -21,7 +23,7 @@ l10n:
 
 ```js
 const myRequest = new Request("flowers.jpg");
-const myReferrer = myRequest.referrer; // returns "about:client" by default
+const myReferrer = myRequest.referrer; // 既定では "about:client" を返す
 ```
 
 ## 仕様書
@@ -32,8 +34,8 @@ const myReferrer = myRequest.referrer; // returns "about:client" by default
 
 {{Compat}}
 
-## 関連項目
+## 関連情報
 
 - [サービスワーカー API](/ja/docs/Web/API/Service_Worker_API)
-- [HTTP アクセス制御 (CORS)](/ja/docs/Web/HTTP/CORS)
+- [HTTP アクセス制御 (CORS)](/ja/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/ja/docs/Web/HTTP)

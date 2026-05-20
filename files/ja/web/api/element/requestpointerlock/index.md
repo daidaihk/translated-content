@@ -30,7 +30,8 @@ requestPointerLock(options)
 
 {{jsxref("Promise")}} で、{{jsxref("undefined")}} に解決します。
 
-> **メモ:** ブラウザーによっては、プロミスバージョンの `requestPointerLock()` に対応していないものもあります。
+> [!NOTE]
+> ブラウザーによっては、プロミスバージョンの `requestPointerLock()` に対応していないものもあります。
 
 ## 例
 
@@ -64,7 +65,7 @@ canvas.addEventListener("click", async () => {
 
 ## セキュリティ
 
-[単発のユーザーによる有効化](/ja/docs/Web/Security/User_activation)が必要です。この機能が動作するためには、ユーザーがページまたは UI 要素を操作する必要があります。
+[単発のユーザーによる有効化](/ja/docs/Web/Security/Defenses/User_activation)が必要です。この機能が動作するためには、ユーザーがページまたは UI 要素を操作する必要があります。
 
 ## 仕様書
 

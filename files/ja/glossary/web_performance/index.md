@@ -2,7 +2,7 @@
 title: Web performance (ウェブの性能)
 slug: Glossary/Web_performance
 l10n:
-  sourceCommit: 4a9f9d2e9c1811ce3519a7061e906db9200a5e97
+  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
 ---
 
 {{GlossarySidebar}}
@@ -13,5 +13,6 @@ l10n:
 
 ## 関連情報
 
-- [ウェブの性能について知る](/ja/docs/Learn/Performance)
-- [知覚パフォーマンス](/ja/docs/Glossary/Perceived_performance)
+- [ウェブの性能について知る](/ja/docs/Learn_web_development/Extensions/Performance)
+- 関連用語項目:
+  - {{Glossary("Perceived performance", "知覚パフォーマンス")}}

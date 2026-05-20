@@ -2,12 +2,14 @@
 title: ファイルシステム API
 slug: Web/API/File_System_API
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: ab7254fb329302ddc101fc2d09947429077368e6
 ---
 
-{{securecontext_header}}{{DefaultAPISidebar("File System API")}}
+{{securecontext_header}}{{DefaultAPISidebar("File System API")}}{{AvailableInWorkers}}
 
-ファイルシステム API は - [ファイルシステムアクセス API](https://wicg.github.io/file-system-access/) を介して提供される拡張機能により - 端末のファイルシステム上のファイルにアクセスし、読み取り、書き込み、ファイル管理機能を使用することができます。
+**ファイルシステム API** は - [**ファイルシステムアクセス API**](https://wicg.github.io/file-system-access/) を介して提供される拡張機能により - 端末のファイルシステム上のファイルにアクセスし、読み取り、書き込み、ファイル管理機能を使用することができます。
+
+[ファイル関連のその他の API との関係](/ja/docs/Web/API/File_API#relationship_to_other_file-related_apis)では、この API と、[ファイルとディレクトリー項目 API](/ja/docs/Web/API/File_and_Directory_Entries_API)、[ファイル API](/ja/docs/Web/API/File_API)との比較を行っています。
 
 ## 概念と使用法
 
@@ -20,37 +22,77 @@ l10n:
 以下の方法によりファイルハンドルへのアクセス権を得ることもできます。
 
 - {{domxref('HTML Drag and Drop API', 'HTML ドラッグ＆ドロップ API', '', 'nocode')}} の {{domxref('DataTransferItem.getAsFileSystemHandle()')}} メソッド
-- [ファイルハンドリング API](https://developer.chrome.com/en/articles/file-handling/)
+- [ファイルハンドリング API](https://developer.chrome.com/docs/capabilities/web-apis/file-handling)
 
 それぞれのハンドルが自身の機能を提供し、どっちを使っているかによって少し違いがあります（詳細は、[インターフェイス](#%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9)の節を参照してください）。ファイルのデータや、選択されたディレクトリーの情報（子を含む）にアクセスできます。この API により、ウェブに欠けていた潜在的な機能への道が開きます。それでも、セキュリティは API の設計時に最大限考慮するべきことであり、ファイルやディレクトリーのデータへのアクセスはユーザーが特に許可しない限り禁止されています（これは、ユーザーから見えない[オリジンプライベートファイルシステム](#オリジンプライベートファイルシステム)の場合とは異なります）。
 
-> **メモ:** API の機能を使う際に投げられる可能性がある例外は、仕様書での定義に沿って関連するページに一覧が載っています。しかし、 API と下層のオペレーティングシステムの相互作用により、状況はより複雑になります。[仕様書でエラーの対応関係を一覧にする](https://github.com/whatwg/fs/issues/57)ための提案がなされており、ここに有用な関連情報があります。
+> [!NOTE]
+> API の機能を使う際に投げられる可能性がある例外は、仕様書での定義に沿って関連するページに一覧が載っています。しかし、 API と下層のオペレーティングシステムの相互作用により、状況はより複雑になります。[仕様書でエラーの対応関係を一覧にする](https://github.com/whatwg/fs/issues/57)ための提案がなされており、ここに有用な関連情報があります。
 
-> **メモ:** {{domxref("FileSystemHandle")}} をベースとするオブジェクトは、{{domxref("IndexedDB API", "IndexedDB", "", "nocode")}} のデータベースのインスタンスにシリアライズしたり、{{domxref("window.postMessage", "postMessage()")}} を介して転送したりできます。
+> [!NOTE]
+> {{domxref("FileSystemHandle")}} をベースとするオブジェクトは、{{domxref("IndexedDB API", "IndexedDB", "", "nocode")}} のデータベースのインスタンスにシリアライズしたり、{{domxref("window.postMessage", "postMessage()")}} を介して転送したりできます。
 
 ### オリジンプライベートファイルシステム
 
 オリジンプライベートファイルシステム (OPFS) は、ページのオリジン固有のストレージのエンドポイントであり、パフォーマンスに高度に最適化された特別な種類のファイルへのアクセスを選択可能です。例えば、ファイルの内容をその場 (in-place) で排他的に書き換えることができます。
 
+考えられる使用例は次のとおりです。
+
+- 常時アップローダーを備えたアプリ
+  - ファイルまたはディレクトリーをアップロード用に選択すると、そのファイルをローカルのサンドボックスにコピーし、分割してアップロードできます。
+  - アプリは、ブラウザーが閉じたりクラッシュしたり、接続が切断されたり、コンピューターがシャットダウンされたりして中断された後でも、アップロードを再開することが可能です。
+
+- メディア資産を大量に有するビデオゲームやその他のアプリ
+  - アプリは 1 つまたは複数の大きな tarball をダウンロードし、ローカルでディレクトリー構造に展開します。
+  - アプリはバックグラウンドで資産を事前取得するため、ユーザーはダウンロードを待たずに次のタスクやゲームレベルに進むことが可能です。
+
+- オフラインアクセスまたはローカルキャッシュ機能を備えた音声または写真エディター（パフォーマンスと速度に優れる）
+  - このアプリはファイルをその場で書き換えることができます（例えば、ID3/EXIF タグのみを上書きし、ファイル全体を上書きしないなど）。
+
+- オフライン動画ビューアー
+  - このアプリは、後で閲覧するために大容量ファイル（1GB 以上）をダウンロードできます。
+  - アプリは部分的にダウンロードされたファイルにアクセスできます（そのため、アプリのダウンロードが完了していなくても、あるいは電車に間に合うために急いでアプリを閉じたためにダウンロードが完了していなくても、DVD の最初のチャプターを視聴できます）。
+
+- オフラインウェブメールクライアント
+  - クライアントは添付ファイルをダウンロードし、ローカルに格納します。
+  - クライアントは添付ファイルを後でアップロードするためにキャッシュします。
+
 使い方の説明は、[オリジンプライベートファイルシステム](/ja/docs/Web/API/File_System_API/Origin_private_file_system)を読んでください。
 
 ### ファイルの保存
 
-- 非同期ハンドルでは、{{domxref('FileSystemWritableFileStream')}} インターフェイスを使います。保存したいデータを {{domxref('Blob')}}、{{jsxref("String")}} オブエクト、文字列リテラル、{{jsxref('ArrayBuffer', 'buffer')}} のいずれかの形式にしたら、ストリームを開いてデータをファイルに保存できます。既存のファイルも新しいファイルも保存先にできます。
+- 非同期ハンドルでは、{{domxref('FileSystemWritableFileStream')}} インターフェイスを使います。保存したいデータを {{domxref('Blob')}}、{{jsxref("String")}} オブジェクト、文字列リテラル、{{jsxref('ArrayBuffer', 'buffer')}} のいずれかの形式にしたら、ストリームを開いてデータをファイルに保存できます。既存のファイルも新しいファイルも保存先にできます。
 - 同期的に {{domxref('FileSystemSyncAccessHandle')}} では、{{domxref('FileSystemSyncAccessHandle.write', 'write()')}} メソッドを用いて変更をファイルに書き込みます。特定のタイミングで変更をディスクに書き込みたい場合は、{{domxref('FileSystemSyncAccessHandle.flush', 'flush()')}} を呼ぶことができます。(これを呼ばない場合、下層のオペレーティングシステムに任せて都合のいいときに処理させることができ、ほとんどの場合はこれでいいでしょう)
 
 ## インターフェイス
 
+- {{domxref("FileSystemChangeRecord")}} {{experimental_inline}}
+  - : {{domxref("FileSystemObserver")}} によって監視された単一の変更の詳細が含まれています。
 - {{domxref("FileSystemHandle")}}
-  - : **`FileSystemHandle`** インターフェイスは、項目を表すオブジェクトです。複数のハンドルが同じ項目を表すことがあります。ほとんどの場面では、`FileSystemHandle` を直接扱うことはなく、子インターフェイスの {{domxref('FileSystemFileHandle')}} や {{domxref('FileSystemDirectoryHandle')}} を扱うことになるでしょう。
+  - : ファイルまたはディレクトリー項目を表すオブジェクトです。複数のハンドルが同じ項目を表すことがあります。ほとんどの場面では、`FileSystemHandle` を直接扱うことはなく、子インターフェイスの {{domxref('FileSystemFileHandle')}} や {{domxref('FileSystemDirectoryHandle')}} を扱うことになるでしょう。
 - {{domxref("FileSystemFileHandle")}}
   - : ファイルシステムの項目を表すハンドルを提供します。
 - {{domxref("FileSystemDirectoryHandle")}}
   - : ファイルシステムのディレクトリーを表すハンドルを提供します。
+- {{domxref("FileSystemObserver")}} {{experimental_inline}}
+  - : 選択したファイルやディレクトリーへの変更を監視する仕組みを提供します。
 - {{domxref("FileSystemSyncAccessHandle")}}
   - : ディスク上の単一のファイルをその場 (in-place) で操作する、ファイルシステムの項目への同期的にハンドルを提供します。このファイルの読み書きを同期的に行える性質は、[WebAssembly](/ja/docs/WebAssembly) などの非同期操作が大きなオーバーヘッドに繋がる場面における重要なメソッドで処理効率を高めることを可能にします。このクラスは、それ用の[ウェブワーカー](/ja/docs/Web/API/Web_Workers_API)内で[オリジンプライベートファイルシステム](#オリジンプライベートファイルシステム)内のファイルを扱う場合のみ使用可能です。
 - {{domxref("FileSystemWritableFileStream")}}
   - : ディスク上の単一のファイルを操作する便利な関数が追加された {{domxref('WritableStream')}} です。
+
+### 他のインターフェイスへの拡張
+
+- {{domxref("Window.showDirectoryPicker()")}}
+  - : ディレクトリーピッカーを表示させ、ユーザーがディレクトリーを選択することができるようにします。
+- {{domxref("Window.showOpenFilePicker()")}}
+  - : ファイルピッカーを表示させ、ユーザーが 1 つまたは複数のファイルを選択することができるようにします。
+- {{domxref("Window.showSaveFilePicker()")}}
+  - : ユーザーがファイルを保存することができるファイルピッカーを表示させます。
+- {{domxref("DataTransferItem.getAsFileSystemHandle()")}}
+  - : ドラッグされたアイテムがファイルの場合、{{domxref('FileSystemFileHandle')}} で履行される、ドラッグされたアイテムがディレクトリーの場合、{{domxref('FileSystemDirectoryHandle')}} で履行される {{jsxref('Promise')}} を返します。
+- {{domxref("StorageManager.getDirectory()")}}
+  - : {{domxref("FileSystemDirectoryHandle")}} オブジェクトへの参照を取得するために使用されます。これにより、[オリジンプライベートファイルシステム](/ja/docs/Web/API/File_System_API/Origin_private_file_system)に格納されているディレクトリーとそのコンテンツにアクセスすることができます。{{jsxref('Promise')}} を返し、これは {{domxref("FileSystemDirectoryHandle")}} オブジェクトで履行されます。
 
 ## 例
 
@@ -100,7 +142,9 @@ async function getTheFile() {
 const dirName = "directoryToGetName";
 
 // 'currentDirHandle' というディレクトリーハンドルがあると仮定している
-const subDir = currentDirHandle.getDirectoryHandle(dirName, { create: true });
+const subDir = await currentDirHandle.getDirectoryHandle(dirName, {
+  create: true,
+});
 ```
 
 以下の非同期関数は、`resolve()` を用いて選ばれたファイルの指定のディレクトリーからの相対パスを求めます。
@@ -210,7 +254,8 @@ onmessage = async (e) => {
 };
 ```
 
-> **メモ:** 仕様書の以前のバージョンでは、{{domxref("FileSystemSyncAccessHandle.close()", "close()")}}、{{domxref("FileSystemSyncAccessHandle.flush()", "flush()")}}、{{domxref("FileSystemSyncAccessHandle.getSize()", "getSize()")}}、{{domxref("FileSystemSyncAccessHandle.truncate()", "truncate()")}} は人間工学に反して非同期メソッドとされていました。これは現在では[変更されています](https://github.com/whatwg/fs/issues/7)が、まだ非同期バージョンをサポートしているブラウザーもあります。
+> [!NOTE]
+> 仕様書の以前のバージョンでは、{{domxref("FileSystemSyncAccessHandle.close()", "close()")}}、{{domxref("FileSystemSyncAccessHandle.flush()", "flush()")}}、{{domxref("FileSystemSyncAccessHandle.getSize()", "getSize()")}}、{{domxref("FileSystemSyncAccessHandle.truncate()", "truncate()")}} は人間工学に反して非同期メソッドとされていました。これは現在では[変更されています](https://github.com/whatwg/fs/issues/7)が、まだ非同期バージョンをサポートしているブラウザーもあります。
 
 ## 仕様書
 
@@ -222,5 +267,5 @@ onmessage = async (e) => {
 
 ## 関連情報
 
-- [The File System Access API: simplifying access to local files](https://developer.chrome.com/articles/file-system-access/) (web.dev)
-- [The origin private file system](https://web.dev/articles/origin-private-file-system) (web.dev)
+- [The File System Access API: simplifying access to local files](https://developer.chrome.com/docs/capabilities/web-apis/file-system-access)
+- [The origin private file system](https://web.dev/articles/origin-private-file-system)

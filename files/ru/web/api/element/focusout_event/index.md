@@ -3,12 +3,14 @@ title: focusout
 slug: Web/API/Element/focusout_event
 ---
 
-Событие `focusout` вызывается перед потерей элементом фокуса. Главное отличие между этим событием и [`blur`](</ru/docs/Mozilla_event_reference/blur_(event)>) в том, что у последнего нет фазы всплытия.
+{{APIRef}}
+
+Событие `focusout` вызывается перед потерей элементом фокуса. Главное отличие между этим событием и [`blur`](/ru/docs/Web/API/Element/blur_event) в том, что у последнего нет фазы всплытия.
 
 Основная информация
 
 - Спецификация
-  - : [DOM L3](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusout)
+  - : [DOM L3](https://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusout)
 - Интерфейс
   - : {{domxref("FocusEvent")}}
 - Всплытие
@@ -36,6 +38,6 @@ slug: Web/API/Element/focusout_event
 
 ## Related Events
 
-- {{event("focus")}}
-- {{event("blur")}}
-- {{event("focusin")}}
+- [`focus`](/ru/docs/Web/API/Element/focus_event)
+- [`blur`](/ru/docs/Web/API/Element/blur_event)
+- [`focusin`](/ru/docs/Web/API/Element/focusin_event)

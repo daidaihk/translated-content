@@ -1,9 +1,9 @@
 ---
 title: 滚动容器
 slug: Glossary/Scroll_container
+l10n:
+  sourceCommit: dfad9eccce7c2f11c195003ec1cbd7b0fd9db577
 ---
-
-{{GlossarySidebar}}
 
 **滚动容器**为一种元素盒。无论滚动条是否存在，滚动容器中的内容均可滚动。当 CSS 属性 {{CSSXref("overflow")}} 设置为 `scroll`，或者 `overflow` 设置为 `auto` *且*内容溢出滚动容器时，用户代理将为元素盒添加滚动条，使其成为滚动容器。
 

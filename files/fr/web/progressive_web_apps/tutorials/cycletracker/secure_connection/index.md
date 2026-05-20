@@ -24,7 +24,8 @@ Avec le fichier `index.html` mis à jour et le fichier `style.css` dans le même
 
 Ici, on voit la page à l'aide du protocole `file://`. Cela fonctionne bien pour notre projet dans l'état actuel, et suffira encore lorsque [nous ajouterons des fonctionnalités à l'aide de JavaScript](/fr/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality). Toutefois, les fichiers de manifeste et les <i lang="en">service workers</i>, qui sont des composants clés d'une PWA, ne fonctionnent qu'avec une connexion sécurisée (comme d'autres API). Une PWA doit donc être servie depuis un serveur web en HTTPS ou dans un environnement de développement local avec un hôte comme `localhost` ou `127.0.0.1` (avec ou sans numéro de port). Si nous consultons l'application finalisée avec le protocole `file://`, notre [manifeste](/fr/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file) sera ignoré et [les <i lang="en">service workers</i>](/fr/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers) ajoutés échoueront.
 
-> **Note :** Servir l'application avec HTTPS est une bonne chose, qu'il s'agisse d'une PWA ou d'un site web. Cela permet que l'information qui transite entre le serveur web et le navigateur de la personne soit chiffrée de bout en bout. [Plusieurs API web ne fonctionnent qu'avec un contexte sécurisé](/fr/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts). Autrement dit, même si on ne crée par de PWA installable, on pourra avoir besoin d'un contexte sécurisé lorsqu'on ajoute des fonctionnalités.
+> [!NOTE]
+> Servir l'application avec HTTPS est une bonne chose, qu'il s'agisse d'une PWA ou d'un site web. Cela permet que l'information qui transite entre le serveur web et le navigateur de la personne soit chiffrée de bout en bout. [Plusieurs API web ne fonctionnent qu'avec un contexte sécurisé](/fr/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts). Autrement dit, même si on ne crée par de PWA installable, on pourra avoir besoin d'un contexte sécurisé lorsqu'on ajoute des fonctionnalités.
 
 Il nous faut un environnement de développement local pour suivre ce tutoriel. Pour que [notre PWA soit installable](/fr/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable), il nous faut un serveur sécurisé. Les fichiers nécessaires devront être servis via une connexion sécurisée sur le Web pour tirer parti des avantages d'une PWA et pour distribuer l'application comme telle.
 
@@ -40,13 +41,14 @@ Le serveur web par défaut du système d'exploitation fournit certes un nom d'h�
 
 Il existe plusieurs extensions d'[IDE](/fr/docs/Glossary/IDE) et paquets propres à certains langages de programmation qui vous permettent de démarrer un environnement de développement à l'aide d'un clic ou d'une commande. Vous pouvez même démarrer plusieurs serveurs locaux, chacun ayant un numéro de port différent.
 
-Vous pouvez lancer un serveur HTTP local à [l'aide d'une extension Visual Studio Code plugin](/fr/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server#using_an_extension_in_your_code_editor), qui permet d'exécuter un serveur local sur un port donné.[L'extension <i lang="en">Preview on Web Server</i>](https://marketplace.visualstudio.com/items?itemName=yuichinukiyama.vscode-preview-server) de l'IDE [Visual Studio Code](https://code.visualstudio.com/download) permet de créer un serveur à la racine du répertoire ouvert dans l'éditeur, en utilisant le port `8080` oar défaut. Les extensions peuvent être configurées et on pourra donc changer le paramètre `previewServer.port` pour utiliser un autre port. Par défaut, si on saisit `localhost:8080` dans la barre d'URL du navigateur, on pourra voir la page.
+Vous pouvez lancer un serveur HTTP local à [l'aide d'une extension Visual Studio Code plugin](/fr/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server#using_an_extension_in_your_code_editor), qui permet d'exécuter un serveur local sur un port donné.[L'extension <i lang="en">Preview on Web Server</i>](https://marketplace.visualstudio.com/items?itemName=yuichinukiyama.vscode-preview-server) de l'IDE [Visual Studio Code](https://code.visualstudio.com/download) permet de créer un serveur à la racine du répertoire ouvert dans l'éditeur, en utilisant le port `8080` oar défaut. Les extensions peuvent être configurées et on pourra donc changer le paramètre `previewServer.port` pour utiliser un autre port. Par défaut, si on saisit `localhost:8080` dans la barre d'URL du navigateur, on pourra voir la page.
 
-> **Note :** L'extension <i lang="en">Preview on Web Server</i> utilise [Browsersync](https://browsersync.io/). Lorsque vous avez un environnement de développement démarré avec cette extension, l'adresse `localhost:3001` vous permet d'accéder à l'interface utilisateur de Browsersync.
+> [!NOTE]
+> L'extension <i lang="en">Preview on Web Server</i> utilise [Browsersync](https://browsersync.io/). Lorsque vous avez un environnement de développement démarré avec cette extension, l'adresse `localhost:3001` vous permet d'accéder à l'interface utilisateur de Browsersync.
 
 Vous pouvez également créer [un serveur local avec l'IDE IntelliJ](https://www.jetbrains.com/help/idea/creating-local-server-configuration.html), qui intègre un [serveur web PHP configurable](https://www.jetbrains.com/help/idea/php-built-in-web-server.html#configuring-built-in-web-server).
 
-Sur MDN, vous pouvez consulter d'autres guides pour apprendre à [mettre en place un serveur de test local](/fr/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server) avec [Python](/fr/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server#using_python) ou avec [un langage de programmation serveur](/fr/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server#running_server-side_languages_locally) comme PHP.
+Sur MDN, vous pouvez consulter d'autres guides pour apprendre à [mettre en place un serveur de test local](/fr/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) avec [Python](/fr/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server#using_python) ou avec [un langage de programmation serveur](/fr/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server#running_server-side_languages_locally) comme PHP.
 
 ## `localhost` avec npx
 
@@ -66,7 +68,8 @@ ws --https
 
 Vous devrez peut-être utiliser `sudo` pour la commande d'installation globale précédente.
 
-> **Note :** Si vous faites attention à la confidentialité et à la vie privée, vous verrez ici que vous pouvez construire votre PWA vous-même et l'installer sur votre machine depuis votre propre environnement de développement, sans jamais avoir besoin d'Internet. Cette application ne contient aucun pistage et aussi respectueuse de la vie privée que possible.
+> [!NOTE]
+> Si vous faites attention à la confidentialité et à la vie privée, vous verrez ici que vous pouvez construire votre PWA vous-même et l'installer sur votre machine depuis votre propre environnement de développement, sans jamais avoir besoin d'Internet. Cette application ne contient aucun pistage et aussi respectueuse de la vie privée que possible.
 
 ## Serveurs externes sécurisés
 
@@ -74,7 +77,7 @@ Les options précédentes sont acceptables et nécessaires pour tester une appli
 
 Pour bénéficier des fonctionnalités propres aux PWA comme l'installation rapide, une interface utilisateur dédiée et une éventuelle publication sur un magasin d'application, l'application doit être une PWA, ce qui signifie qu'elle doit utiliser un <i lang="en">service worker</i>, ce qui implique d'utiliser une connexion sécurisée. Pour distribuer votre application et permettre à d'autres de la voir, de l'utiliser et de l'installer, vous aurez besoin que votre contenu soit hébergé et disponible sur un serveur _distant_.
 
-Pour publier officiellement une PWA, vous souhaiterez peut-être investir dans [un nom de domaine et un hébergement web](/fr/docs/Learn/Common_questions/Tools_and_setup/How_much_does_it_cost#hébergement). Pour les projets <i lang="en">open source</i>, où le code est disponible publiquement pour que toutes et tous puissent l'étudier et y contribuer, vous pouvez héberger votre projet sur [GitHub Pages](https://pages.github.com/).
+Pour publier officiellement une PWA, vous souhaiterez peut-être investir dans [un nom de domaine et un hébergement web](/fr/docs/Learn_web_development/Howto/Tools_and_setup/How_much_does_it_cost#hébergement). Pour les projets <i lang="en">open source</i>, où le code est disponible publiquement pour que toutes et tous puissent l'étudier et y contribuer, vous pouvez héberger votre projet sur [GitHub Pages](https://pages.github.com/).
 
 ## GitHub Pages
 
@@ -88,7 +91,8 @@ Si vous ne souhaitez pas que votre PWA soit disponible à la racine de votre pag
 
 Pour le cas de l'application de démonstration CycleTracker au fur et à mesure des différentes étapes du développement, `<nomutilisateur>` sera `mdn` et le dépôt est `pwa-examples`. Comme ce dépôt contient plusieurs exemples de PWA, chacune avec le code correspondant à différentes étapes du processus de développement, les fichiers (et donc les PWA correspondantes) sont disponibles avec des URL ayant plusieurs niveaux de profondeur.
 
-> **Note :** [Vous pouvez configurer un domaine personnalisé pour les sites GitHub Pages](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+> [!NOTE]
+> [Vous pouvez configurer un domaine personnalisé pour les sites GitHub Pages](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
 
 ## Pour la suite
 

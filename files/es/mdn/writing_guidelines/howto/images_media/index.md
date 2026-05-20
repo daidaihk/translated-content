@@ -39,7 +39,7 @@ Veamos un ejemplo:
    yarn filecheck files/es/web/css/mi-imagen-genial.png
    ```
 
-4. Referencia tu imagen en el documento usando la sintaxis de Markdown para imágenes, proporcionando [texto descriptivo para el atributo `alt`](/es/docs/Learn/Accessibility/HTML#text_alternatives) entre corchetes que describan la imagen, o incluye un elemento {{htmlelement("img")}} con atributo `alt` dentro de `files/es/web/css/index.md`:
+4. Referencia tu imagen en el documento usando la sintaxis de Markdown para imágenes, proporcionando [texto descriptivo para el atributo `alt`](/es/docs/Learn_web_development/Core/Accessibility/HTML#text_alternatives) entre corchetes que describan la imagen, o incluye un elemento {{htmlelement("img")}} con atributo `alt` dentro de `files/es/web/css/index.md`:
 
    ```md
    ![Mi genial imagen](mi-imagen-genial.png)
@@ -121,7 +121,8 @@ Existen varios argumentos en contra de usar contenido de video para la documenta
 - El video tiene problemas de accesibilidad: es más costoso de producir en general que el texto, pero especialmente para localizarlo o hacerlo utilizable para los usuarios de lectores de pantalla.
 - Siguiendo con el último punto, el video es mucho más difícil de editar/actualizar/mantener que el contenido de texto.
 
-> **Nota:** Vale la pena tener estos problemas en mente incluso cuando estás haciendo videos, para que puedas tratar de mitigar algunos de ellos.
+> [!NOTE]
+> Vale la pena tener estos problemas en mente incluso cuando estás haciendo videos, para que puedas tratar de mitigar algunos de ellos.
 
 Hay muchos sitios de video populares que proporcionan muchos tutoriales en video.
 MDN Web Docs no es un sitio impulsado por video, pero el video tiene un lugar en MDN Web Docs en ciertos contextos.
@@ -209,7 +210,6 @@ Planea cuidadosamente lo que realmente vas a grabar y practica los pasos varias 
 
 - No comiences un video en medio de un proceso, considera si el espectador tendrá suficiente contexto para que tus acciones tengan sentido. Por ejemplo, en un video breve de DevTools, es una buena idea comenzar abriendo las DevTools para permitir que el espectador se oriente.
 - Considera cuáles son tus acciones, ralentízalas y hazlas obvias. Siempre que tengas que realizar una acción (digamos, hacer clic en un ícono), hazlo lento y hazlo obvio. Entonces, por ejemplo:
-
   - Mueve el mouse sobre el ícono.
   - Resalta o haz zoom (no siempre, dependiendo de si se siente necesario).
   - Haz una pausa por un momento.
@@ -217,7 +217,8 @@ Planea cuidadosamente lo que realmente vas a grabar y practica los pasos varias 
 
 - Planea niveles de zoom para las partes de la interfaz de usuario que vas a mostrar. No todos podrán ver tu video en alta definición. Podrás hacer zoom en partes específicas en la postproducción, pero también es una buena idea hacer zoom en la aplicación de antemano.
 
-> **Nota:** No hagas zoom tan lejos que las interfaces de usuario que estás mostrando comiencen a verse poco familiares o feas.
+> [!NOTE]
+> No hagas zoom tan lejos que las interfaces de usuario que estás mostrando comiencen a verse poco familiares o feas.
 
 ### Grabación
 
@@ -225,7 +226,8 @@ Cuando grabes el flujo de trabajo que deseas mostrar, pasa por el flujo suavemen
 
 Recuerda hacer una pausa durante uno o dos segundos al final para mostrar el resultado del flujo.
 
-> **Nota:** Si estás usando una herramienta realmente simple como QuickTime Player y la postproducción no es una opción por alguna razón, debes configurar tus ventanas en el tamaño correcto para mostrar el área que deseas mostrar. En las DevTools de Firefox, puedes usar la [Herramienta de reglas](https://firefox-source-docs.mozilla.org/devtools-user/rulers/index.html) para asegurarte de que el área de visualización tenga la relación de aspecto correcta para la grabación.
+> [!NOTE]
+> Si estás usando una herramienta realmente simple como QuickTime Player y la postproducción no es una opción por alguna razón, debes configurar tus ventanas en el tamaño correcto para mostrar el área que deseas mostrar. En las DevTools de Firefox, puedes usar la [Herramienta de reglas](https://firefox-source-docs.mozilla.org/devtools-user/rulers/index.html) para asegurarte de que el área de visualización tenga la relación de aspecto correcta para la grabación.
 
 ### Post-procesamiento
 
@@ -244,7 +246,8 @@ Recorta el video al formato de aspecto deseado, si es necesario.
 
 Los videos actualmente tienen que cargarse en YouTube para mostrarse en MDN Web Docs, por ejemplo, en el canal [mozhacks](https://www.youtube.com/user/mozhacks/videos). Pídele a un miembro del equipo de MDN Web Docs que cargue el video si no tienes un lugar adecuado para ponerlo.
 
-> **Nota:** Marca el video como "no listado" si no tiene sentido fuera del contexto de la página (si es un video corto, entonces probablemente no lo tenga).
+> [!NOTE]
+> Marca el video como "no listado" si no tiene sentido fuera del contexto de la página (si es un video corto, entonces probablemente no lo tenga).
 
 ### Incrustación
 

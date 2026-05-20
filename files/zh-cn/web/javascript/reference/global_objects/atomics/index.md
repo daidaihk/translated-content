@@ -5,8 +5,6 @@ l10n:
   sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
 ---
 
-{{JSRef}}
-
 **`Atomics`** 命名空间对象包含对 {{jsxref("SharedArrayBuffer")}} 和 {{jsxref("ArrayBuffer")}} 对象执行原子操作的静态方法。
 
 ## 描述
@@ -23,8 +21,8 @@ l10n:
 
 ## 静态属性
 
-- `Atomics[@@toStringTag]`
-  - : [`@@toStringTag`](/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) 属性的初始值是字符串 `"Atomics"`。这个属性在 {{jsxref("Object.prototype.toString()")}} 中使用。
+- `Atomics[Symbol.toStringTag]`
+  - : [`[Symbol.toStringTag]`](/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) 属性的初始值是字符串 `"Atomics"`。这个属性在 {{jsxref("Object.prototype.toString()")}} 中使用。
 
 ## 静态方法
 

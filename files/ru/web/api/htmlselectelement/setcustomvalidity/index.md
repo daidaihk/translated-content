@@ -17,7 +17,7 @@ selectElt.setCustomValidity(string);
 
 - _Строка_ {{domxref("DOMString")}} содержащая сообщение об ошибке.
 
-## Спецификация
+## Спецификации
 
 {{Specifications}}
 
@@ -27,4 +27,4 @@ selectElt.setCustomValidity(string);
 
 ## Смотрите также
 
-- [Проверка(валидация) форм.](/ru/docs/Web/Guide/HTML/HTML5/Constraint_validation)
+- [Проверка(валидация) форм.](/ru/docs/Web/HTML/Guides/Constraint_validation)

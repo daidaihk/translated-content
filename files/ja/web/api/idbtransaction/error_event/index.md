@@ -9,7 +9,8 @@ l10n:
 
 `error` イベントは、リクエストがエラーを返し、そのイベントがトランザクションオブジェクトにバブリングしたとき `IDBTransaction` で発火します。
 
-> **メモ:** トランザクションのすべての失敗を扱うには、かわりに {{domxref("IDBTransaction.abort_event", "abort")}} イベントを監視することを検討してください。
+> [!NOTE]
+> トランザクションのすべての失敗を扱うには、かわりに {{domxref("IDBTransaction.abort_event", "abort")}} イベントを監視することを検討してください。
 
 ## 構文
 
@@ -28,7 +29,7 @@ onerror = (event) => {};
 
 このイベントは {{domxref("IDBDatabase")}} にバブリングします。`event.target` プロパティは、バブリング元の {{domxref('IDBTransaction')}} オブジェクトへの参照です。
 
-詳しくは、[イベントのバブリングとキャプチャリング](/ja/docs/Learn/JavaScript/Building_blocks/Events#イベントのバブリングとキャプチャリング)を参照してください。
+詳しくは、[イベントのバブリングとキャプチャリング](/ja/docs/Learn_web_development/Core/Scripting/Events#イベントのバブリングとキャプチャリング)を参照してください。
 
 ## 例
 

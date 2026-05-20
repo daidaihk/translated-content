@@ -14,21 +14,21 @@ l10n:
 ウェブストレージには、以下の 2 種類の仕組みがあります。
 
 - `sessionStorage` は、ページのセッション中（ページの再読み込みや復元を含む、ブラウザーを開いている間）に使用可能な、{{glossary("origin","オリジン")}}ごとに区切られた保存領域を管理します。
-
   - 1 セッションのデータのみを保存します。つまり、データはブラウザー（またはタブ）が閉じられるまで保存されます。
   - データがサーバーに転送されることはありません。
   - ストレージの上限が Cookie よりも大きいです（最大 5MB）。
 
 - `localStorage` も同様ですが、こちらはブラウザーを閉じたり再び開いたりしても持続します。
-
   - 有効期限なしでデータを保存し、JavaScript によるクリア、もしくは、ブラウザーキャッシュ/ローカルに保存したデータのクリアによってのみクリアされます。
   - ストレージ制限は 2 つの中で最大です。
 
 これらの仕組みは {{domxref("Window.sessionStorage")}} および {{domxref("Window.localStorage")}} プロパティ（正確には、サポートするブラウザーは `Window` オブジェクトが `WindowLocalStorage` および `WindowSessionStorage` オブジェクトを実装しており、これらに `localStorage` および `sessionStorage` プロパティがあります）を通して使用でき、いずれかのプロパティを使用すると {{domxref("Storage")}} オブジェクトのインスタンスを生成して、データアイテムの保存、取り出し、削除ができます。 同じオリジンに対して `sessionStorage` と `localStorage` は、別の `Storage` オブジェクトを使用します。 これらは別々に制御されて機能します。
 
-> **メモ:** Firefox では、ブラウザーがクラッシュまたは再起動したとき、オリジンごとに保存されるデータ量は 10MB に制限されます。詳しくは、[ブラウザーのストレージ制限と削除基準](/ja/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#firefox)を参照してください。
+> [!NOTE]
+> Firefox では、ブラウザーがクラッシュまたは再起動したとき、オリジンごとに保存されるデータ量は 10MB に制限されます。詳しくは、[ブラウザーのストレージ制限と削除基準](/ja/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#firefox)を参照してください。
 
-> **メモ:** ユーザーが[サードパーティの Cookie を禁止している](https://support.mozilla.org/ja/kb/third-party-cookies-firefox-tracking-protection)（英語）場合は、サードパーティの iframe からウェブストレージにアクセスできません。
+> [!NOTE]
+> ユーザーが[サードパーティの Cookie を禁止している](https://support.mozilla.org/ja/kb/third-party-cookies-firefox-tracking-protection)（英語）場合は、サードパーティの iframe からウェブストレージにアクセスできません。
 
 ## ウェブストレージインターフェイス
 

@@ -3,7 +3,7 @@ title: RegExp.leftContext ($`)
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/leftContext
 ---
 
-{{JSRef}} {{non-standard_header}}
+{{non-standard_header}}
 
 **leftContext** 非标准属性是正则表达式的静态和只读属性，含有最新匹配的左侧子串。 `` RegExp.$` `` 是这个属性的别名。
 
@@ -41,7 +41,7 @@ RegExp["$`"]; // "hello "
 
 {{Compat}}
 
-## 另见
+## 参见
 
 - {{non-standard_inline}} {{jsxref("RegExp.input", "RegExp.input ($_)")}}
 - {{non-standard_inline}} {{jsxref("RegExp.lastMatch", "RegExp.lastMatch ($&amp;)")}}

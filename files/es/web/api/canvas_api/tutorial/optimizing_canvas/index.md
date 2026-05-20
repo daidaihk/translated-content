@@ -3,6 +3,8 @@ title: Optimizing canvas
 slug: Web/API/Canvas_API/Tutorial/Optimizing_canvas
 ---
 
+{{DefaultAPISidebar("Canvas API")}}
+
 {{HTMLElement("canvas")}} es uno de los estándares más utilizados para la representación de gráficos 2D en la Web. Se utiliza ampliamente en los juegos y visualizaciones complejas. Sin embargo, as Web sites and apps push canvas to the limits, el rendimiento comienza a sufrir. This article aims to provide suggestions for optimizing your use of the canvas element, to ensure that your Web site or app performs well.
 
 A continuación una lista de tips par mejorar el rendimiento:
@@ -17,4 +19,4 @@ A continuación una lista de tips par mejorar el rendimiento:
 - Con las animaciones, use {{domxref("window.requestAnimationFrame()")}}.
 - Probar el rendimiento con [JSPerf](http://jsperf.com).
 
-{{PreviousNext("Web/Guide/HTML/Canvas_tutorial/Basic_animations")}}
+{{PreviousNext("Web/API/Canvas_API/Tutorial/Basic_animations")}}

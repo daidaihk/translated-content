@@ -5,13 +5,11 @@ l10n:
   sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
 ---
 
-{{AddonSidebar}}
-
 将图像复制到剪贴板。在将图像写入剪贴板之前，会对图像进行重新编码。如果图像无效，则不会修改剪贴板。
 
 图像被作为包含经过编码的图像的 [`ArrayBuffer`](/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) 提供。支持 JPEG 和 PNG 格式。
 
-虽然此 API 基于 Chrome 浏览器的 [`clipboard.setImageData()`](https://developer.chrome.com/docs/extensions/reference/clipboard/) API，但两者还是有一些区别：
+虽然此 API 基于 Chrome 浏览器的 [`clipboard.setImageData()`](https://developer.chrome.google.cn/docs/apps/reference/clipboard) API，但两者还是有一些区别：
 
 - Chrome API 仅适用于应用，不适用于扩展程序。
 - 此 API 仅需要 `"clipboardWrite"` 权限，Chrome 版本还需要 `"clipboard"` 权限。
@@ -47,10 +45,10 @@ browser.clipboard.setImageData(imageData, imageType)
 
 ```js
 // 需要：
-// * "https://cdn.mdn.mozilla.net/*" 的主机权限
+// * "https://mdn.github.io/*" 的主机权限
 // * API 权限 "clipboardWrite"
 
-fetch("https://cdn.mdn.mozilla.net/static/img/favicon144.png")
+fetch("https://mdn.github.io/shared-assets/images/examples/favicon144.png")
   .then((response) => response.arrayBuffer())
   .then((buffer) => browser.clipboard.setImageData(buffer, "png"));
 ```
@@ -67,4 +65,5 @@ fetch(browser.runtime.getURL("image.png"))
 
 {{WebExtExamples}}
 
-> **备注：** 此 API 基于 Chromium 的 [`chrome.clipboard`](https://developer.chrome.com/docs/extensions/reference/clipboard/) API。
+> [!NOTE]
+> 此 API 基于 Chromium 的 [`chrome.clipboard`](https://developer.chrome.google.cn/docs/apps/reference/clipboard) API。

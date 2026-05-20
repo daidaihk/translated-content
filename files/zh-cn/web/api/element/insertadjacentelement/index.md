@@ -16,9 +16,7 @@ insertAdjacentElement(position, element)
 ```
 
 - `position`
-
   - : 表示相对于 `targetElement` 的位置的字符串；必须是以下字符串之一（大小写不敏感）：
-
     - `'beforebegin'`：`targetElement` 之前。
     - `'afterbegin'`：`targetElement` 内部的第一个子节点之前。
     - `'beforeend'`：`targetElement` 内部的最后一个子节点之后。
@@ -50,7 +48,8 @@ insertAdjacentElement(position, element)
 <!-- afterend -->
 ```
 
-> **备注：** 只有当节点处于 DOM 树中且有一个父元素时 `beforebegin` 和 `afterend` 才会生效。
+> [!NOTE]
+> 只有当节点处于 DOM 树中且有一个父元素时 `beforebegin` 和 `afterend` 才会生效。
 
 ## 示例
 

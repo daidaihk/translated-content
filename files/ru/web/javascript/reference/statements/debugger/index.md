@@ -28,7 +28,7 @@ function potentiallyBuggyCode() {
 
 [![Paused at a debugger statement.](screen_shot_2014-02-07_at_9.14.35_am.png)](screen_shot_2014-02-07_at_9.14.35_am.png)
 
-## Спецификация
+## Спецификации
 
 {{Specifications}}
 
@@ -39,4 +39,4 @@ function potentiallyBuggyCode() {
 ## Смотрите также
 
 - [Debugging JavaScript](/ru/docs/Debugging_JavaScript)
-- [The Debugger in the Firefox Developer Tools](/ru/docs/Tools/Debugger)
+- [The Debugger in the Firefox Developer Tools](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html)

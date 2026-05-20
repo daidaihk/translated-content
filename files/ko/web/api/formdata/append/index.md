@@ -3,13 +3,16 @@ title: FormData.append()
 slug: Web/API/FormData/append
 ---
 
-{{APIRef("XMLHttpRequest")}}
+{{AvailableInWorkers}}
+
+{{APIRef("XMLHttpRequest API")}}
 
 {{domxref("FormData")}} 인터페이스의 **`append()`** 메서드는 `FormData` 객체의 기존 키에 새 값을 추가하거나, 키가 없는 경우 키를 추가합니다.
 
 {{domxref("FormData.set")}} 과 `append()` 의 차이점은 지정된 키가 이미 있으면, {{domxref("FormData.set")}} 은 모든 기존 값을 새 값으로 덮어쓰기를 합니다. 반면 `append()` 는 기존 값 집합의 끝에 새로운 값을 추가합니다.
 
-> **참고:** 이 메서드는 [Web Worker](/ko/docs/Web/API/Web_Workers_API)에서 사용할 수 있습니다.
+> [!NOTE]
+> 이 메서드는 [Web Worker](/ko/docs/Web/API/Web_Workers_API)에서 사용할 수 있습니다.
 
 ## Syntax
 
@@ -29,7 +32,8 @@ formData.append(name, value, filename);
 - `filename` {{optional_inline}}
   - : {{domxref("Blob")}} 또는 {{domxref("File")}} 이 두 번째 매개 변수로 전달될 때, 서버에 리포트하는 파일 이름(a {{domxref("USVString")}})입니다. {{domxref("Blob")}} 객체의 기본 파일 이름은 "blob" 입니다. {{domxref("File")}} 객체의 기본 파일 이름은 파일의 이름이 됩니다.
 
-> **참고:** {{domxref("Blob")}} 을 `FormData` 객체에 추가할 데이터로 지정하면, "Content-Disposition" 헤더에서 서버에 리포트하는 파일 이름이 브라우저마다 다를 수 있습니다.
+> [!NOTE]
+> {{domxref("Blob")}} 을 `FormData` 객체에 추가할 데이터로 지정하면, "Content-Disposition" 헤더에서 서버에 리포트하는 파일 이름이 브라우저마다 다를 수 있습니다.
 
 ### Returns
 
@@ -70,6 +74,6 @@ formData.append("userpic[]", myFileInput.files[1], "chris2.jpg");
 ## See also
 
 - {{domxref("XMLHTTPRequest")}}
-- [Using XMLHttpRequest](/ko/docs/DOM/XMLHttpRequest/Using_XMLHttpRequest)
-- [Using FormData objects](/ko/docs/DOM/XMLHttpRequest/FormData/Using_FormData_Objects)
+- [Using XMLHttpRequest](/ko/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
+- [Using FormData objects](/ko/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

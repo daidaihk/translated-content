@@ -3,8 +3,6 @@ title: Error() 构造函数
 slug: Web/JavaScript/Reference/Global_Objects/Error/Error
 ---
 
-{{JSRef}}
-
 **`Error()`** 构造函数能够创建一个包含错误信息的对象。
 
 ## 语法
@@ -22,7 +20,8 @@ Error(message, fileName)
 Error(message, fileName, lineNumber)
 ```
 
-> **备注：** 调用 `Error()` 时，可以使用关键字 [`new`](/zh-CN/docs/Web/JavaScript/Reference/Operators/new)，也可以不使用。两种声明方式均能创建一个新的 `Error` 实例。
+> [!NOTE]
+> 调用 `Error()` 时，可以使用关键字 [`new`](/zh-CN/docs/Web/JavaScript/Reference/Operators/new)，也可以不使用。两种声明方式均能创建一个新的 `Error` 实例。
 
 ### 参数
 

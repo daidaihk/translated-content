@@ -3,12 +3,14 @@ title: blur (event)
 slug: Web/API/Element/blur_event
 ---
 
-Событие `blur` вызывается когда элемент теряет фокус. Главное отличие между этим событием и [`focusout`](/ru/docs/Mozilla_event_reference/focusout) только в том что у последнего есть фаза всплытия.
+{{APIRef}}
+
+Событие `blur` вызывается когда элемент теряет фокус. Главное отличие между этим событием и [`focusout`](/ru/docs/Web/API/Element/focusout_event) только в том что у последнего есть фаза всплытия.
 
 ## Основная информация
 
 - Спецификация
-  - : [DOM L3](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-blur)
+  - : [DOM L3](https://www.w3.org/TR/DOM-Level-3-Events/#event-type-blur)
 - Интерфейс
   - : {{domxref("FocusEvent")}}
 - Всплытие
@@ -34,7 +36,7 @@ slug: Web/API/Element/blur_event
 
 ## Делегирование события
 
-Есть два способа реализовать делегирование этого события: использовать событие `focusout` в браузерах которые поддерживают его (все браузеры, Firefox с 52+), или установить параметр "useCapture" метода [`addEventListener`](/ru/docs/DOM/element.addEventListener) на `true`:
+Есть два способа реализовать делегирование этого события: использовать событие `focusout` в браузерах которые поддерживают его (все браузеры, Firefox с 52+), или установить параметр "useCapture" метода [`addEventListener`](/ru/docs/Web/API/EventTarget/addEventListener) на `true`:
 
 ### HTML Content
 
@@ -77,7 +79,7 @@ form.addEventListener(
 
 ## Похожие события
 
-- {{event("focus")}}
-- {{event("blur")}}
-- {{event("focusin")}}
-- {{event("focusout")}}
+- [`focus`](/ru/docs/Web/API/Element/focus_event)
+- [`blur`](/ru/docs/Web/API/Element/blur_event)
+- [`focusin`](/ru/docs/Web/API/Element/focusin_event)
+- [`focusout`](/ru/docs/Web/API/Element/focusout_event)

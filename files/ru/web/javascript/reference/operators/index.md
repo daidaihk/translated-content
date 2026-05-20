@@ -122,7 +122,8 @@ slug: Web/JavaScript/Reference/Operators
 - {{jsxref("Operators/Comparison_Operators", "&gt;=", "#Greater_than_or_equal_operator")}}
   - : Оператор больше или равно.
 
-> **Примечание:** => это не оператор. Это нотация для [Стрелочных функций](/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+> [!NOTE]
+> Это не оператор. Это нотация для [Стрелочных функций](/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
 ### Операторы равенства
 
@@ -213,7 +214,6 @@ slug: Web/JavaScript/Reference/Operators
 ### Нестандартные особенности
 
 - {{non-standard_inline}} {{jsxref("Operators/Legacy_generator_function", "Legacy generator function", "", 1)}}
-
   - : Ключевое слово `function` может быть использовано для определения устаревших функций-генераторов в одном выражении. Для того, чтобы сделать такую функцию, её тело должно содержать хотя бы одно выражение {{jsxref("Operators/yield", "yield")}}.
 
 - {{non-standard_inline}} {{jsxref("Operators/Expression_closures", "Expression closures", "", 1)}}

@@ -9,7 +9,7 @@ l10n:
 
 WebDriver は、ユーザーエージェントの観察と制御を可能にする遠隔制御インターフェイスです。プロセスの外のプログラムがウェブブラウザーの動作を遠隔で指示する方法として、プラットフォームと言語に中立なワイヤープロトコルを提供します。
 
-ユーザーに一貫した使い勝手を提供するには、異なるプラットフォーム上の多くのブラウザーで相互に実行できる命令セットを書くことができることが重要です。ウェブプラットフォームでの新しい開発の波、端末の多様性の増加、テクノロジー間の実際の相互運用性の要求を背景に、 WebDriver は[クロスブラウザーテスト](/ja/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction)のためののツールを提供します。
+ユーザーに一貫した使い勝手を提供するには、異なるプラットフォーム上の多くのブラウザーで相互に実行できる命令セットを書くことができることが重要です。ウェブプラットフォームでの新しい開発の波、端末の多様性の増加、テクノロジー間の実際の相互運用性の要求を背景に、 WebDriver は[クロスブラウザーテスト](/ja/docs/Learn_web_development/Extensions/Testing/Introduction)のためののツールを提供します。
 
 提供されるものは、ウェブ文書内の DOM 要素を検出したり操作したり、ユーザーエージェントの動作を制御したりするためのインターフェイスです。これは主に、ユーザーエージェントを別な制御プロセスから自動制御するテストを、ウェブ作者が書くことができるようにすることが目的ですが、場合によってはブラウザー内のスクリプトが — おそらく他の — ブラウザーを制御するために使用することもできます。
 
@@ -51,7 +51,7 @@ with webdriver.Firefox() as driver:
 
 ### コマンド
 
-[コマンド](/ja/docs/Web/WebDriver/Commands)
+[コマンド](/ja/docs/Web/WebDriver/Reference/Classic/Commands)
 
 {{ListSubpages("/ja/docs/Web/WebDriver/Commands")}}
 
@@ -59,20 +59,20 @@ with webdriver.Firefox() as driver:
 
 [種類](/ja/docs/Web/WebDriver/Types)
 
-- [Error object](/ja/docs/Web/WebDriver/Errors#payload)
+- [Error object](/ja/docs/Web/WebDriver/Reference/Errors#payload)
 - [Timeouts object](/ja/docs/Web/WebDriver/Timeouts)
 - [WebElement](/ja/docs/Web/WebDriver/WebElement)
 - [WebWindow](/ja/docs/Web/WebDriver/WebWindow)
 
 ### 能力
 
-[能力](/ja/docs/Web/WebDriver/Capabilities)
+[能力](/ja/docs/Web/WebDriver/Reference/Capabilities)
 
 {{ListSubpages("/ja/docs/Web/WebDriver/Capabilities")}}
 
 ### エラー
 
-[エラー](/ja/docs/Web/WebDriver/Errors)
+[エラー](/ja/docs/Web/WebDriver/Reference/Errors)
 
 {{ListSubpages("/ja/docs/Web/WebDriver/Errors")}}
 
@@ -82,5 +82,5 @@ with webdriver.Firefox() as driver:
 
 ## 関連情報
 
-- [クロスブラウザーテスト](/ja/docs/Learn/Tools_and_testing/Cross_browser_testing)
+- [クロスブラウザーテスト](/ja/docs/Learn_web_development/Extensions/Testing)
 - [Selenium documentation](https://www.selenium.dev/documentation/)

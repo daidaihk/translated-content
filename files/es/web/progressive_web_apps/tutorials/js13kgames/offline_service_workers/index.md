@@ -3,7 +3,7 @@ title: Hacer que las PWAs trabajen desconectadas con servicio workers
 slug: Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers
 ---
 
-{{PreviousMenuNext("Web/Progressive_web_apps/App_structure", "Web/Progressive_web_apps/Installable_PWAs", "Web/Progressive_web_apps")}}
+{{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames/App_structure", "Web/Progressive_web_apps/Tutorials/js13kGames/Installable_PWAs", "Web/Progressive_web_apps")}}
 
 Ahora que hemos visto cómo se ve la estructura de js13kPWA y hemos visto el intérprete básico en funcionamiento, veamos cómo se implementan las capacidades sin conexión con el Servicio _Worker_. En este artículo, analizamos cómo se usa en nuestro [ejemplo de js13kPWA](https://mdn.github.io/pwa-examples/js13kpwa/) ([ve el código fuente también](<https: //github.com/mdn/pwa-examples/tree/master/js13kpwa>)). Examinamos cómo agregar funcionalidad fuera de línea.
 
@@ -213,7 +213,7 @@ self.addEventListener("activate", (e) => {
 });
 ```
 
-Esto asegura que solo tengamos los archivos que necesitamos en la caché, por lo que no dejamos basura; el [espacio de caché disponible en el navegador es limitado](/es/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria), por lo que es una buena idea limpiarlo nosotros mismos después.
+Esto asegura que solo tengamos los archivos que necesitamos en la caché, por lo que no dejamos basura; el [espacio de caché disponible en el navegador es limitado](/es/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria), por lo que es una buena idea limpiarlo nosotros mismos después.
 
 ## Otros casos de uso
 
@@ -225,6 +225,6 @@ En este artículo, analizamos cómo puedes hacer que tu PWA funcione sin conexi�
 
 El servicio _workers_ también se utilizan cuando se trata de [notificaciones push](/es/docs/Web/API/Push_API); esto se explicará en un artículo posterior.
 
-{{PreviousMenuNext("Web/Progressive_web_apps/App_structure", "Web/Progressive_web_apps/Installable_PWAs", "Web/Progressive_web_apps")}}
+{{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames/App_structure", "Web/Progressive_web_apps/Tutorials/js13kGames/Installable_PWAs", "Web/Progressive_web_apps")}}
 
 {{QuickLinksWithSubpages("/es/docs/Web/Progressive_web_apps/")}}

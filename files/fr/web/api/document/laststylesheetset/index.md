@@ -1,39 +1,41 @@
 ---
-title: Document.lastStyleSheetSet
+title: "Document : propriété lastStyleSheetSet"
+short-title: lastStyleSheetSet
 slug: Web/API/Document/lastStyleSheetSet
+l10n:
+  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
 ---
 
-{{ APIRef("DOM") }}
+{{APIRef("DOM")}}{{Non-standard_Header}}{{Deprecated_Header}}
 
-Renvoie le dernier jeu de feuilles de styles activé ; cette valeur de la propriété change chaque fois que la propriété {{ domxref("document.selectedStyleSheetSet") }} est modifiée.
+La propriété **`lastStyleSheetSet`** de l'interface {{DOMxRef("Document")}} retourne le dernier jeu de feuilles de styles activé. La valeur de cette propriété change chaque fois que la propriété {{DOMxRef("document.selectedStyleSheetSet")}} est modifiée.
 
-## Syntaxe
+## Valeur
 
-```js
-lastStyleSheetSet = document.lastStyleSheetSet;
-```
+Le jeu de feuilles de styles qui a été défini le plus récemment. Si le jeu de feuilles de styles en cours n'a pas été modifié en définissant {{DOMxRef("document.selectedStyleSheetSet")}}, la valeur retournée est `null`.
 
-En retour, `lastStyleSheetSet` indique le jeu de feuilles de styles qui a été défini le plus récemment. Si le jeu de feuilles de style en cours n'a pas été modifié en définissant {{ domxref("document.selectedStyleSheetSet") }}, la valeur retournée est `null`.
+> [!NOTE]
+> Cette valeur ne change pas lorsque {{DOMxRef("document.enableStyleSheetsForSet()")}} est appelée.
 
-> **Note :** Cette valeur ne doit pas changer lorsque {{ domxref("document.enableStyleSheetsForSet()") }} est appelé.
-
-## Exemple
+## Exemples
 
 ```js
-var lastSheetSet = document.lastStyleSheetSet;
+let lastSheetSet = document.lastStyleSheetSet;
+
 if (!lastSheetSet) {
-  lastSheetSet = "Sheet not yet changed";
+  lastSheetSet = "Le jeu de feuilles de styles n'a pas encore été modifié";
+} else {
+  console.log(`Le dernier jeu de feuilles de styles est : ${lastSheetSet}`);
 }
-console.log("The last sheet set is: " + lastSheetSet);
 ```
+
+## Compatibilité des navigateurs
+
+{{Compat}}
 
 ## Voir aussi
 
-- {{ domxref("document.preferredStyleSheetSet") }}
-- {{ domxref("document.selectedStyleSheetSet") }}
-- {{ domxref("document.styleSheetSets") }}
-- {{ domxref("document.enableStyleSheetsForSet()") }}
-
-## Spécifications
-
-- [HTML5: Alternate Style Sheets](http://www.whatwg.org/specs/web-apps/current-work/#alternate-style-sheets)
+- La propriété {{DOMxRef("document.preferredStyleSheetSet")}}
+- La propriété {{DOMxRef("document.selectedStyleSheetSet")}}
+- La propriété {{DOMxRef("document.styleSheetSets")}}
+- La méthode {{DOMxRef("document.enableStyleSheetsForSet()")}}

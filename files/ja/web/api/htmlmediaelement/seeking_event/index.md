@@ -1,8 +1,9 @@
 ---
 title: "HTMLMediaElement: seeking イベント"
+short-title: seeking
 slug: Web/API/HTMLMediaElement/seeking_event
 l10n:
-  sourceCommit: 277e5969c63b97cfb55ab4a0e612e8040810f49b
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
 {{APIRef("HTMLMediaElement")}}
@@ -15,10 +16,10 @@ l10n:
 
 このイベントを {{domxref("EventTarget.addEventListener", "addEventListener()")}} などのメソッドで使用するか、イベントハンドラープロパティを設定するかしてください。
 
-```js
-addEventListener("seeking", (event) => {});
+```js-nolint
+addEventListener("seeking", (event) => { })
 
-onseeking = (event) => {};
+onseeking = (event) => { }
 ```
 
 ## イベント型
@@ -27,7 +28,7 @@ onseeking = (event) => {};
 
 ## 例
 
-これらの例では、`HTMLMediaElement` の `seeking` イベントのイベントリスナーを追加し、そのイベントハンドラがイベントの発生に反応したときにメッセージを投稿します。
+これらの例では、`HTMLMediaElement` の `seeking` イベントのイベントリスナーを追加し、そのイベントハンドラーがイベントの発生に反応したときにメッセージを投稿します。
 
 `addEventListener()` を使用する場合:
 
@@ -61,7 +62,6 @@ video.onseeking = (event) => {
 
 - HTMLMediaElement {{domxref("HTMLMediaElement.playing_event", 'playing')}} イベント
 - HTMLMediaElement {{domxref("HTMLMediaElement.waiting_event", 'waiting')}} イベント
-- HTMLMediaElement {{domxref("HTMLMediaElement.seeking_event", 'seeking')}} イベント
 - HTMLMediaElement {{domxref("HTMLMediaElement.seeked_event", 'seeked')}} イベント
 - HTMLMediaElement {{domxref("HTMLMediaElement.ended_event", 'ended')}} イベント
 - HTMLMediaElement {{domxref("HTMLMediaElement.loadedmetadata_event", 'loadedmetadata')}} イベント

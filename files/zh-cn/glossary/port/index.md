@@ -1,9 +1,9 @@
 ---
 title: 端口
 slug: Glossary/Port
+l10n:
+  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
 ---
-
-{{GlossarySidebar}}
 
 对于使用 {{Glossary("IP address", "IP 地址")}}连接到网络的计算机，**端口**（port）是通信的端点。端口由数字指定，且在 1024 以下的每个端口默认与特定的{{Glossary("protocol", "协议")}}相关联。
 

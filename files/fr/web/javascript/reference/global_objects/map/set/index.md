@@ -1,37 +1,49 @@
 ---
-title: Map.prototype.set()
+title: "Map : méthode set()"
+short-title: set()
 slug: Web/JavaScript/Reference/Global_Objects/Map/set
+l10n:
+  sourceCommit: 7b63b90d24ad8945977bb9dc2735d75f72829bc1
 ---
 
-{{JSRef}}
+La méthode **`set()`** des instances de {{JSxRef("Map")}} ajoute une nouvelle entrée avec une clé et une valeur définies à cette `Map`, ou met à jour une entrée existante si la clé existe déjà.
 
-La méthode **`set()`** ajoute un nouvel élément avec une `clé` et une `valeur` données à un objet `Map`.
+{{InteractiveExample("Démonstration JavaScript&nbsp;: Map.prototype.set()")}}
 
-{{EmbedInteractiveExample("pages/js/map-prototype-set.html")}}
+```js interactive-example
+const map = new Map();
+map.set("tata", "toto");
+
+console.log(map.get("tata"));
+// Sortie attendue : "toto"
+
+console.log(map.get("truc"));
+// Sortie attendue : undefined
+```
 
 ## Syntaxe
 
-```js
-maMap.set(clé, valeur);
+```js-nolint
+set(key, value)
 ```
 
 ### Paramètres
 
-- `clé`
-  - : Ce paramètre représente la clé de l'élément à ajouter à l'objet `Map`.
-- `valeur`
-  - : Ce paramètre représente la valeur de l'élément à ajouter à l'objet `Map`.
+- `key`
+  - : La clé de l'entrée à ajouter ou à modifier dans l'objet `Map`. Peut être n'importe quelle valeur. Les clés des objets sont comparées par {{Glossary("Object_reference", "référence")}}, et pas par valeur.
+- `value`
+  - : La valeur de l'entrée à ajouter ou à modifier dans l'objet `Map`. Peut être n'importe quelle valeur.
 
 ### Valeur de retour
 
-L'objet `Map` courant (auquel l'élément a été ajouté).
+L'objet `Map` concerné.
 
 ## Exemples
 
 ### Utiliser la méthode `set()`
 
 ```js
-var maMap = new Map();
+const maMap = new Map();
 
 // On ajoute de nouveaux éléments à l'objet map
 maMap.set("truc", "toto");
@@ -43,11 +55,10 @@ maMap.set("truc", "fuuu");
 
 ### Utiliser la méthode `set()` avec un enchaînement
 
-La méthode `set()` renvoie le même objet `Map` et on peut donc la « chaîner » pour des opérations successives :
+La méthode `set()` renvoie le même objet `Map` et on peut donc la chaîner pour des opérations successives&nbsp;:
 
 ```js
-// On ajoute de nouveaux éléments
-// en enchaînant les appels à set()
+// Ajouter de nouveaux éléments au tableau associatif avec chaînage.
 maMap.set("truc", "toto").set(1, "tototruc").set(2, "bidule");
 ```
 
@@ -61,6 +72,7 @@ maMap.set("truc", "toto").set(1, "tototruc").set(2, "bidule");
 
 ## Voir aussi
 
-- {{jsxref("Map")}}
-- {{jsxref("Map.prototype.get()")}}
-- {{jsxref("Map.prototype.has()")}}
+- L'objet {{JSxRef("Map")}}
+- La méthode {{JSxRef("Map.prototype.delete()")}}
+- La méthode {{JSxRef("Map.prototype.get()")}}
+- La méthode {{JSxRef("Map.prototype.has()")}}

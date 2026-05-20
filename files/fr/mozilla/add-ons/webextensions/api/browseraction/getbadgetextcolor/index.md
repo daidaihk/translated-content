@@ -24,9 +24,7 @@ browser.browserAction.getBadgeTextColor(
 ### Paramètres
 
 - `details`
-
   - : `object`
-
     - `tabId`{{optional_inline}}
       - : `integer`. Spécifie l'onglet pour obtenir la couleur du texte du badge.
     - `windowId`{{optional_inline}}
@@ -63,7 +61,7 @@ browser.browserAction.getBadgeTextColor({}).then(onGot, onFailure);
 
 {{WebExtExamples}}
 
-> **Note :**
+> [!NOTE]
 >
 > Cette API est basée sur l'API Chromium [`chrome.browserAction`](https://developer.chrome.com/extensions/browserAction). Cette documentation est dérivée de [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) dans le code de Chromium code.
 

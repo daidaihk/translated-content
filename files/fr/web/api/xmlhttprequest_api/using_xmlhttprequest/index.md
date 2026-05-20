@@ -17,7 +17,7 @@ Pour envoyer une requête HTTP, on pourra&nbsp;:
 2. Ouvrir une URL
 3. Envoyer la requête
 
-Lorsque la transaction sera terminée, l'objet `XMLHttpRequest` contiendra les informations de la réponse, comme son corps et le [statut HTTP](/fr/docs/Web/HTTP/Status) résultant.
+Lorsque la transaction sera terminée, l'objet `XMLHttpRequest` contiendra les informations de la réponse, comme son corps et le [statut HTTP](/fr/docs/Web/HTTP/Reference/Status) résultant.
 
 ```js
 function reqListener() {
@@ -32,9 +32,10 @@ req.send();
 
 ## Types de requêtes
 
-Une requête envoyée avec `XMLHttpRequest` peut récupérer les données de façon asynchrone ou de façon synchrone. Le comportement obtenu est choisi avec le troisième argument optionnel `async` de la méthode [`XMLHttpRequest.open()`](/fr/docs/Web/API/XMLHttpRequest/open). Lorsque cet argument vaut `true` ou s'il n'est pas fourni, la requête est traitée de façon asynchrone. Sinon, le processus est géré de façon synchrone. Pour en savoir plus sur ces différents types de requêtes, vous pouvez consulter l'article [Requêtes synchrones et asynchrones](/fr/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests). Les requêtes synchrones ne peuvent pas être utilisées en dehors des <i lang="en">workers</i>, car elles bloqueraient l'interface principale.
+Une requête envoyée avec `XMLHttpRequest` peut récupérer les données de façon asynchrone ou de façon synchrone. Le comportement obtenu est choisi avec le troisième argument optionnel `async` de la méthode [`XMLHttpRequest.open()`](/fr/docs/Web/API/XMLHttpRequest/open). Lorsque cet argument vaut `true` ou s'il n'est pas fourni, la requête est traitée de façon asynchrone. Sinon, le processus est géré de façon synchrone. Pour en savoir plus sur ces différents types de requêtes, vous pouvez consulter l'article [Requêtes synchrones et asynchrones](/fr/docs/Web/API/XMLHttpRequest_API/Synchronous_and_Asynchronous_Requests). Les requêtes synchrones ne peuvent pas être utilisées en dehors des <i lang="en">workers</i>, car elles bloqueraient l'interface principale.
 
-> **Note :** Le constructeur `XMLHttpRequest` ne se limite pas aux seuls documents XML. Son nom commence par **"XML"**, car il a été créé lorsque le format d'échange principal était XML.
+> [!NOTE]
+> Le constructeur `XMLHttpRequest` ne se limite pas aux seuls documents XML. Son nom commence par **"XML"**, car il a été créé lorsque le format d'échange principal était XML.
 
 ## Gérer les réponses
 
@@ -44,18 +45,19 @@ Il existe plusieurs types [d'attributs de réponse](https://xhr.spec.whatwg.org/
 
 Lorsqu'on utilise `XMLHttpRequest` pour obtenir le contenu d'un document XML distant, la propriété [`responseXML`](/fr/docs/Web/API/XMLHttpRequest/responseXML) sera un objet DOM qui contient le document XML analysé. La manipulation et l'analyse d'un tel résultat n'est pas nécessairement simple. Il existe quatre méthodes principales pour analyser un tel document XML&nbsp;:
 
-1. Utiliser [XPath](/fr/docs/Web/XPath) afin de cibler certains emplacements du document.
-2. [Analyser et sérialiser manuellement le XML](/fr/docs/Web/Guide/Parsing_and_serializing_XML) afin d'obtenir des chaînes de caractères ou des objets.
+1. Utiliser [XPath](/fr/docs/Web/XML/XPath) afin de cibler certains emplacements du document.
+2. [Analyser et sérialiser manuellement le XML](/fr/docs/Web/XML/Parsing_and_serializing_XML) afin d'obtenir des chaînes de caractères ou des objets.
 3. Utiliser [`XMLSerializer`](/fr/docs/Web/API/XMLSerializer) afin de sérialiser **des arbres DOM en chaînes de caractères ou en fichiers**.
 4. [Les expressions rationnelles](/fr/docs/Web/JavaScript/Reference/Global_Objects/RegExp) peuvent être utilisées pour scanner le document si on ne connaît pas son contenu au préalable. On peut ainsi retirer les sauts de ligne par exemple. Attention, cette méthode n'est à utiliser qu'en dernier recours, car si le code XML change légèrement, il faudra revoir la méthode.
 
-> **Note :** `XMLHttpRequest` peut également interpréter un document HTML avec la propriété [`responseXML`](/fr/docs/Web/API/XMLHttpRequest/responseXML). Voir l'article à propos de [la prise en charge de HTML dans `XMLHttpRequest`](/fr/docs/Web/API/XMLHttpRequest/HTML_in_XMLHttpRequest) pour apprendre comment faire.
+> [!NOTE]
+> `XMLHttpRequest` peut également interpréter un document HTML avec la propriété [`responseXML`](/fr/docs/Web/API/XMLHttpRequest/responseXML). Voir l'article à propos de [la prise en charge de HTML dans `XMLHttpRequest`](/fr/docs/Web/API/XMLHttpRequest_API/HTML_in_XMLHttpRequest) pour apprendre comment faire.
 
 ### Traiter une propriété `responseText` contenant un document HTML
 
 Lorsqu'on utilise `XMLHttpRequest` afin d'obtenir le contenu d'une page HTML distante, la propriété [`responseText`](/fr/docs/Web/API/XMLHttpRequest/responseText) sera une chaîne de caractères contenant le document HTML brut. La manipulation et l'analyse d'un tel résultat n'est pas nécessairement simple. Il existe trois méthodes principales pour analyser un tel document HTML&nbsp;:
 
-1. Utiliser la propriété `XMLHttpRequest.responseXML` comme indiqué dans l'article [Prise en charge de HTML dans `XMLHttpRequest`](/fr/docs/Web/API/XMLHttpRequest/HTML_in_XMLHttpRequest).
+1. Utiliser la propriété `XMLHttpRequest.responseXML` comme indiqué dans l'article [Prise en charge de HTML dans `XMLHttpRequest`](/fr/docs/Web/API/XMLHttpRequest_API/HTML_in_XMLHttpRequest).
 2. Injecter le contenu dans le corps d'un [fragment de document](/fr/docs/Web/API/DocumentFragment) à l'aide de `fragment.body.innerHTML` et traverser le DOM de ce fragment.
 3. [Les expressions rationnelles](/fr/docs/Web/JavaScript/Reference/Global_Objects/RegExp) peuvent être utilisées pour scanner le document si on ne connaît pas son contenu au préalable. On peut ainsi retirer les sauts de ligne par exemple. Attention, cette méthode n'est à utiliser qu'en dernier recours, car si le code HTML change légèrement, il faudra revoir la méthode.
 
@@ -87,7 +89,7 @@ req.responseType = "arraybuffer";
 req.send();
 ```
 
-Pour plus d'exemples, voir la page [Envoyer et recevoir des données binaires](/fr/docs/Web/API/XMLHttpRequest/Sending_and_Receiving_Binary_Data).
+Pour plus d'exemples, voir la page [Envoyer et recevoir des données binaires](/fr/docs/Web/API/XMLHttpRequest_API/Sending_and_Receiving_Binary_Data).
 
 ## Connaître l'avancement
 
@@ -138,7 +140,8 @@ function transferCanceled(evt) {
 
 Les lignes 3 à 6 du fragment ci-avant ajoutent les gestionnaires d'évènements pour les différents évènements émis à propos du transfert des données à l'aide de `XMLHttpRequest`.
 
-> **Note :** Ces gestionnaires d'évènements doivent être ajoutés avant d'appeler `open()` sur la requête. Sinon, les évènements `progress` ne seront pas captés.
+> [!NOTE]
+> Ces gestionnaires d'évènements doivent être ajoutés avant d'appeler `open()` sur la requête. Sinon, les évènements `progress` ne seront pas captés.
 
 Le gestionnaire d'évènement pour l'avancement, porté par la fonction `updateProgress()` dans l'exemple, reçoit le nombre total d'octets à transférer (`total`) ainsi que le nombre d'octets transférés jusqu'à présent (`loaded`). Toutefois, si le champ `lengthComputable` vaut `false`, la longueur totale est inconnue et vaudra `0` par défaut.
 
@@ -155,7 +158,8 @@ req.upload.addEventListener("abort", transferCanceled);
 oReq.open();
 ```
 
-> **Note :** Les évènements d'avancement ne sont pas disponibles pour le protocole `file:`.
+> [!NOTE]
+> Les évènements d'avancement ne sont pas disponibles pour le protocole `file:`.
 
 Les évènements d'avancements sont émis à chaque fragment (<i lang="en">chunk</i>) de données reçu, y compris le dernier fragment pour les cas où le paquet est reçu et la connexion fermée avant que l'évènement soit déclenché. Dans ce cas, l'évènement `progress` est automatiquement déclenché lorsque l'évènement `load` se produit pour ce paquet. Cela permet de surveiller l'avancement de façon fiable, à l'aide du seul évènement `progress`.
 
@@ -232,11 +236,11 @@ ifHasChanged("votrepage.html", function (modified, visit) {
 });
 ```
 
-Si vous souhaitez savoir si la page actuelle a changé, voyez l'article [`document.lastModified`](/fr/docs/Web/API/document.lastModified).
+Si vous souhaitez savoir si la page actuelle a changé, voyez l'article [`document.lastModified`](/fr/docs/Web/API/Document/lastModified).
 
 ## Utiliser `XMLHttpRequest` entre différentes origines
 
-Les navigateurs prennent en charge les requêtes entre différents sites/origines en implémentant le standard [CORS (<i lang="en">Cross-Origin Resource Sharing</i> (pour «&nbsp;partage des ressources entre différentes origines&nbsp;»)](/fr/docs/Web/HTTP/CORS). Tant que le serveur est configuré afin d'autoriser les requêtes depuis l'origine de votre application web, `XMLHttpRequest` fonctionnera correctement. Dans le cas contraire, une exception `INVALID_ACCESS_ERR` sera déclenchée.
+Les navigateurs prennent en charge les requêtes entre différents sites/origines en implémentant le standard [CORS (<i lang="en">Cross-Origin Resource Sharing</i> (pour «&nbsp;partage des ressources entre différentes origines&nbsp;»)](/fr/docs/Web/HTTP/Guides/CORS). Tant que le serveur est configuré afin d'autoriser les requêtes depuis l'origine de votre application web, `XMLHttpRequest` fonctionnera correctement. Dans le cas contraire, une exception `INVALID_ACCESS_ERR` sera déclenchée.
 
 ## Outrepasser le cache
 
@@ -260,7 +264,7 @@ req.send(null);
 
 ## Securité
 
-La méthode recommandée pour autoriser les requêtes scriptées entre différentes origines est d'inclure l'en-tête HTTP [`Access-Control-Allow-Origin`](/fr/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) dans la réponse à la requête XHR.
+La méthode recommandée pour autoriser les requêtes scriptées entre différentes origines est d'inclure l'en-tête HTTP [`Access-Control-Allow-Origin`](/fr/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin) dans la réponse à la requête XHR.
 
 ### Interruptions des requêtes XHR
 
@@ -277,6 +281,6 @@ Si votre requête XHR se termine avec `status=0` et `statusText=null`, cela sign
 ## Voir aussi
 
 - [Utiliser l'API <i lang="en">Fetch</i>](/fr/docs/Web/API/Fetch_API/Using_Fetch)
-- [Prise en charge de HTML dans `XMLHttpRequest`](/fr/docs/Web/API/XMLHttpRequest/HTML_in_XMLHttpRequest)
-- [Contrôle d'accès HTTP (CORS)](/fr/docs/Web/HTTP/CORS)
+- [Prise en charge de HTML dans `XMLHttpRequest`](/fr/docs/Web/API/XMLHttpRequest_API/HTML_in_XMLHttpRequest)
+- [Contrôle d'accès HTTP (CORS)](/fr/docs/Web/HTTP/Guides/CORS)
 - [Spécification WHATWG pour l'objet `XMLHttpRequest`](https://xhr.spec.whatwg.org/)

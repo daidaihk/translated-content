@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Fetch API")}}
 
-La interfaz **`Headers`** de la [API Fetch](/es/docs/Web/API/Fetch_API) te permite realizar varias acciones en las [cabeceras de solicitud y respuesta HTTP](/es/docs/Web/HTTP/Headers). Estas acciones incluyen recuperar, establecer, agregar y eliminar cabeceras de la lista de cabeceras de la solicitud.
+La interfaz **`Headers`** de la [API Fetch](/es/docs/Web/API/Fetch_API) te permite realizar varias acciones en las [cabeceras de solicitud y respuesta HTTP](/es/docs/Web/HTTP/Reference/Headers). Estas acciones incluyen recuperar, establecer, agregar y eliminar cabeceras de la lista de cabeceras de la solicitud.
 
 Un objeto `Headers` tiene una lista de cabeceras asociada, que inicialmente está vacía y consta de cero o más pares de nombre y valor. Puedes agregar a esto utilizando métodos como `{{domxref("Headers.append","append()")}}` (ver [Ejemplos](#ejemplos).) En todos los métodos de esta interfaz, los nombres de las cabeceras se comparan mediante secuencias de bytes sin distinción de mayúsculas y minúsculas.
 
@@ -19,7 +19,8 @@ Puedes recuperar un objeto `Headers` a través de las propiedades `{{domxref("Re
 
 Un objeto que implementa `Headers` se puede usar directamente en una estructura `{{jsxref("Statements/for...of", "for...of")}}`, en lugar de `{{domxref('Headers.entries()', 'entries()')}}`: `for (const p of myHeaders)` es equivalente a `for (const p of myHeaders.entries())`.
 
-> **Nota:** puedes obtener más información sobre las cabeceras disponibles leyendo nuestra referencia de [cabeceras HTTP](/es/docs/Web/HTTP/Headers).
+> [!NOTE]
+> Puedes obtener más información sobre las cabeceras disponibles leyendo nuestra referencia de [cabeceras HTTP](/es/docs/Web/HTTP/Reference/Headers).
 
 {{AvailableInWorkers}}
 
@@ -51,11 +52,14 @@ Un objeto que implementa `Headers` se puede usar directamente en una estructura 
 - `{{domxref("Headers.values()")}}`
   - : Devuelve un {{jsxref("Iteration_protocols", "iterator")}} que permite recorrer todos los valores de los pares de clave/valor contenidos en este objeto.
 
-> **Nota:** Para ser claro, la diferencia entre `{{domxref("Headers.set()")}}` y `{{domxref("Headers.append()")}}` es que si la cabecera especificada ya existe y acepta múltiples valores, `{{domxref("Headers.set()")}}` sobrescribirá el valor existente con el nuevo, mientras que `{{domxref("Headers.append()")}}` añadirá el nuevo valor al final del conjunto de valores. Consulta sus páginas dedicadas para ver ejemplos de código.
+> [!NOTE]
+> Para ser claro, la diferencia entre `{{domxref("Headers.set()")}}` y `{{domxref("Headers.append()")}}` es que si la cabecera especificada ya existe y acepta múltiples valores, `{{domxref("Headers.set()")}}` sobrescribirá el valor existente con el nuevo, mientras que `{{domxref("Headers.append()")}}` añadirá el nuevo valor al final del conjunto de valores. Consulta sus páginas dedicadas para ver ejemplos de código.
 
-> **Nota:** Todos los métodos de `Headers` lanzarán un {{jsxref("TypeError")}} si intentas pasar una referencia a un nombre que no es un [nombre de cabecera HTTP válido](https://fetch.spec.whatwg.org/#concept-header-name). Las operaciones de mutación lanzarán un `TypeError` si la cabecera tiene un {{Glossary("Guard")}} inmutable. En cualquier otro caso de fallo, fallarán silenciosamente.
+> [!NOTE]
+> Todos los métodos de `Headers` lanzarán un {{jsxref("TypeError")}} si intentas pasar una referencia a un nombre que no es un [nombre de cabecera HTTP válido](https://fetch.spec.whatwg.org/#concept-header-name). Las operaciones de mutación lanzarán un `TypeError` si la cabecera tiene un {{Glossary("Guard")}} inmutable. En cualquier otro caso de fallo, fallarán silenciosamente.
 
-> **Nota:** Cuando se iteran los valores de las cabeceras, se ordenan automáticamente en orden lexicográfico, y los valores de nombres de cabeceras duplicadas se combinan.
+> [!NOTE]
+> Cuando se iteran los valores de las cabeceras, se ordenan automáticamente en orden lexicográfico, y los valores de nombres de cabeceras duplicadas se combinan.
 
 ## Ejemplos
 
@@ -92,5 +96,5 @@ myHeaders.get("Content-Type"); // debería devolver 'text/xml'
 ## Véase también
 
 - [API de ServiceWorker](/es/docs/Web/API/Service_Worker_API)
-- [Control de Acceso HTTP (CORS)](/es/docs/Web/HTTP/CORS)
+- [Control de Acceso HTTP (CORS)](/es/docs/Web/HTTP/Guides/CORS)
 - [HTTP](/es/docs/Web/HTTP)

@@ -46,7 +46,8 @@ function handleOrientation(event) {
 }
 ```
 
-> **Note :** La bibliothèque tierce [parallax.js](https://github.com/wagerfield/parallax) est une prothèse d'émulation (<i lang="en">polyfill</i>) pour normaliser les données de l'accéléromètre et du gyroscope pour les appareils mobiles. Elle peut s'avérer utile pour gommer certaines différences de prise en charge des appareils.
+> [!NOTE]
+> La bibliothèque tierce [parallax.js](https://github.com/wagerfield/parallax) est une prothèse d'émulation (<i lang="en">polyfill</i>) pour normaliser les données de l'accéléromètre et du gyroscope pour les appareils mobiles. Elle peut s'avérer utile pour gommer certaines différences de prise en charge des appareils.
 
 ### Explication des valeurs relatives à l'orientation
 
@@ -134,7 +135,7 @@ function handleOrientation(event) {
 window.addEventListener("deviceorientation", handleOrientation);
 ```
 
-{{LiveSampleLink("Exemple", "Cliquez ici")}} pour ouvrir cet exemple dans une nouvelle fenêtre (en effet, [`deviceorientation`](/fr/docs/Web/API/Window/deviceorientation_event) ne fonctionne pas pour tous les navigateurs au sein d'une [`<iframe>`](/fr/docs/Web/HTML/Element/iframe) embarquant du contenu d'une autre origine).
+{{LiveSampleLink("Exemple", "Cliquez ici")}} pour ouvrir cet exemple dans une nouvelle fenêtre (en effet, [`deviceorientation`](/fr/docs/Web/API/Window/deviceorientation_event) ne fonctionne pas pour tous les navigateurs au sein d'une [`<iframe>`](/fr/docs/Web/HTML/Reference/Elements/iframe) embarquant du contenu d'une autre origine).
 
 {{EmbedLiveSample('', '230', '260')}}
 

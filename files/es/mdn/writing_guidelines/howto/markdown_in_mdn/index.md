@@ -196,7 +196,8 @@ La cita en bloque puede contener bloques de código u otros elementos de bloque.
 #### Notas
 
 ```md
-> **Nota:** Así es como se escribe una nota.
+> [!NOTE]
+> Así es como se escribe una nota.
 >
 > Puede tener varias líneas.
 ```
@@ -212,14 +213,16 @@ Esto producirá el siguiente HTML:
 
 Este HTML se representará como un cuadro resaltado:
 
-> **Nota:** Así es como se escribe una nota.
+> [!NOTE]
+> Así es como se escribe una nota.
 >
 > Puede tener varias líneas.
 
 #### Advertencias
 
 ```md
-> **Advertencia:** Así es como se escribe una advertencia.
+> [!WARNING]
+> Así es como se escribe una advertencia.
 >
 > Puede tener varios párrafos.
 ```
@@ -235,14 +238,16 @@ Esto producirá el siguiente HTML:
 
 Este HTML se representará como un cuadro resaltado:
 
-> **Advertencia:** Así es como se escribe una advertencia.
+> [!WARNING]
+> Así es como se escribe una advertencia.
 >
 > Puede tener varios párrafos.
 
 #### Observaciones
 
 ```md
-> **Observación:** **Así es como se escribe una observación.**
+> [!CALLOUT]
+> **Así es como se escribe una observación.**
 >
 > Puede tener varios párrafos.
 ```
@@ -258,7 +263,7 @@ Esto producirá el siguiente HTML:
 
 Este HTML se representará como un cuadro resaltado:
 
-> **Observación:**
+> [!CALLOUT]
 >
 > **Así es como se escribe una observación.**
 >
@@ -273,7 +278,8 @@ Las localizaciones se almacenan en [Yari](https://github.com/mdn/yari/tree/main/
 Por ejemplo, si queremos utilizar "Warnung" para "Advertencia" en alemán, entonces en las páginas alemanas escribiríamos:
 
 ```md
-> **Warnung:** So schreibt man eine Warnung.
+> [!WARNING]
+> So schreibt man eine Warnung.
 ```
 
 Y esto producirá:
@@ -289,7 +295,8 @@ Y esto producirá:
 Este ejemplo contiene un bloque de código.
 
 ````md
-> **Nota:** Así es como se escribe una nota.
+> [!NOTE]
+> Así es como se escribe una nota.
 >
 > Puede contener bloques de código.
 >
@@ -313,7 +320,8 @@ Esto producirá el siguiente HTML:
 
 Este HTML se representará como con un bloque de código:
 
-> **Nota:** Así es como se escribe una nota.
+> [!NOTE]
+> Así es como se escribe una nota.
 >
 > Puede contener bloques de código.
 >
@@ -344,11 +352,9 @@ Por ejemplo, esto es un `<dl>`:
 
 ````md
 - term1
-
   - : Mi descripción del term1
 
 - `term2`
-
   - : Mi descripción del term2
 
     Puede tener varios párrafos y también bloques de código:

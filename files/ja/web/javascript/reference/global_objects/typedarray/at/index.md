@@ -1,15 +1,28 @@
 ---
 title: TypedArray.prototype.at()
+short-title: at()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/at
 l10n:
-  sourceCommit: f3df52530f974e26dd3b14f9e8d42061826dea20
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
-
-{{JSRef}}
 
 **`at()`** は {{jsxref("TypedArray")}} インスタンスのメソッドで整数値を受け取り、そのインデックスにある項目を返します。整数値には正の整数と負の整数が使用できます。負の整数の場合は、この型付き配列の末尾の項目から前に数えます。このメソッドは {{jsxref("Array.prototype.at()")}} と同じアルゴリズムです。
 
-{{EmbedInteractiveExample("pages/js/typedarray-at.html")}}
+{{InteractiveExample("JavaScript デモ: TypedArray.prototype.at()")}}
+
+```js interactive-example
+const int8 = new Int8Array([0, 10, -10, 20, -30, 40, -50]);
+
+let index = 1;
+
+console.log(`An index of ${index} returns the item ${int8.at(index)}`);
+// 予想される結果: "An index of 1 returns the item 10"
+
+index = -2;
+
+console.log(`An index of ${index} returns the item ${int8.at(index)}`);
+// 予想される結果: "An index of -2 returns the item 40"
+```
 
 ## 構文
 
@@ -20,7 +33,7 @@ at(index)
 ### 引数
 
 - `index`
-  - : 返される配列要素のゼロ基点のインデックスで、[整数に変換されます](/ja/docs/Web/JavaScript/Reference/Global_Objects/Number#整数への変換)。負の添字を使用した場合は、配列の末尾から逆に数えた位置です。 `index < 0` であれば、 `index + array.length` がアクセスされます。
+  - : 返される型付き配列要素のゼロ基点のインデックスで、[整数に変換されます](/ja/docs/Web/JavaScript/Reference/Global_Objects/Number#整数への変換)。負の添字を使用した場合は、型付き配列の末尾から逆に数えた位置です。 `index < 0` であれば、 `index + array.length` がアクセスされます。
 
 ### 返値
 
@@ -80,6 +93,7 @@ console.log(atWay); // 11
 ## 関連情報
 
 - [`TypedArray.prototype.at` のポリフィル (`core-js`)](https://github.com/zloirock/core-js#relative-indexing-method)
+- [es-shims による `TypedArray.prototype.at` のポリフィル](https://www.npmjs.com/package/typedarray.prototype.at)
 - [JavaScript の型付き配列](/ja/docs/Web/JavaScript/Guide/Typed_arrays)ガイド
 - {{jsxref("TypedArray")}}
 - {{jsxref("TypedArray.prototype.findIndex()")}}

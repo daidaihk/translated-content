@@ -1,57 +1,64 @@
 ---
 title: Symbol.matchAll
+short-title: matchAll
 slug: Web/JavaScript/Reference/Global_Objects/Symbol/matchAll
+l10n:
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+**`Symbol.matchAll`** は静的データプロパティで、[ウェルノウンシンボル](/ja/docs/Web/JavaScript/Reference/Global_Objects/Symbol#ウェルノウンシンボル)の `Symbol.matchAll` を表します。{{jsxref("String.prototype.matchAll()")}} メソッドは最初の引数に対して、文字列に対する現在のオブジェクトの照合を行うイテレーターを返すメソッドを、このシンボルで探します。
 
-**`Symbol.matchAll`** は、文字列に対する正規表現の一致を生成するイテレーターを返します。この関数は {{jsxref("String.prototype.matchAll()")}} メソッドによって呼び出されます。
+詳しくは、[`RegExp.prototype[Symbol.matchAll]()`](/ja/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll) および {{jsxref("String.prototype.matchAll()")}} を参照してください。
 
-{{EmbedInteractiveExample("pages/js/symbol-matchall.html","shorter")}}
+{{InteractiveExample("JavaScript デモ: Symbol.matchAll")}}
 
-## 説明
+```js interactive-example
+const re = /\d+/g;
+const str = "2016-01-02|2019-03-07";
+const result = re[Symbol.matchAll](str);
 
-このシンボルは {{jsxref("String.prototype.matchAll()")}}、特に {{jsxref("RegExp.@@matchAll", "RegExp.prototype[@@matchAll]()")}} で使用されます。以下の 2 つの例は同じ結果を返します。
-
-```js
-"abc".matchAll(/a/);
-
-/a/[Symbol.matchAll]("abc");
+console.log(Array.from(result, (x) => x[0]));
+// 予想される結果: Array ["2016", "01", "02", "2019", "03", "07"]
 ```
 
-このメソッドは、{{jsxref("RegExp")}} サブクラス内の一致動作をカスタマイズするために存在します。
+## 値
 
-{{js_property_attributes(0,0,0)}}
+ウェルノウンシンボル `Symbol.matchAll` です。
+
+{{js_property_attributes(0, 0, 0)}}
 
 ## 例
 
-### Symbol.matchAll を使用する
+### Symbol.matchAll の使用
 
 ```js
-let re = /[0-9]+/g;
-let str = "2016-01-02|2019-03-07";
+const str = "2016-01-02|2019-03-07";
 
 const numbers = {
   *[Symbol.matchAll](str) {
-    for (const n of str.matchAll(/[0-9]+/g)) yield n[0];
+    for (const n of str.matchAll(/\d+/g)) yield n[0];
   },
 };
 
 console.log(Array.from(str.matchAll(numbers)));
-//  Array ["2016", "01", "02", "2019", "03", "07"]
+// ["2016", "01", "02", "2019", "03", "07"]
 ```
 
-その他の例については、{{jsxref("String.prototype.matchAll()")}} と {{jsxref("RegExp.@@matchAll", "RegExp.prototype[@@matchAll]()")}} を参照してください。
-
-## 仕様
+## 仕様書
 
 {{Specifications}}
 
-## ブラウザー実装状況
+## ブラウザーの互換性
 
 {{Compat}}
 
 ## 関連情報
 
+- [`Symbol.matchAll` のポリフィル (`core-js`)](https://github.com/zloirock/core-js#ecmascript-symbol)
+- [es-shims による `Symbol.matchAll` のポリフィル](https://www.npmjs.com/package/string.prototype.matchall)
+- {{jsxref("Symbol.match")}}
+- {{jsxref("Symbol.replace")}}
+- {{jsxref("Symbol.search")}}
+- {{jsxref("Symbol.split")}}
 - {{jsxref("String.prototype.matchAll()")}}
-- {{jsxref("RegExp.@@matchAll", "RegExp.prototype[@@matchAll]()")}}
+- [`RegExp.prototype[Symbol.matchAll]()`](/ja/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.matchAll)

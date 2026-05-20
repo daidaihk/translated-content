@@ -19,9 +19,7 @@ generateKey(algorithm, extractable, keyUsages)
 ### 引数
 
 - `algorithm`
-
   - : 生成する鍵の種類を指定し、アルゴリズム固有の追加パラメータを与えるオブジェクトです。
-
     - [RSASSA-PKCS1-v1_5](/ja/docs/Web/API/SubtleCrypto/sign#rsassa-pkcs1-v1_5), [RSA-PSS](/ja/docs/Web/API/SubtleCrypto/sign#rsa-pss),
       [RSA-OAEP](/ja/docs/Web/API/SubtleCrypto/encrypt#rsa-oaep):
       [`RsaHashedKeyGenParams`](/ja/docs/Web/API/RsaHashedKeyGenParams) オブジェクトを渡します。
@@ -65,7 +63,8 @@ generateKey(algorithm, extractable, keyUsages)
 
 ## 例
 
-> **メモ:** GitHub 上で[動く例を試す](https://mdn.github.io/dom-examples/web-crypto/encrypt-decrypt/index.html)ことができます。
+> [!NOTE]
+> GitHub 上で[動く例を試す](https://mdn.github.io/dom-examples/web-crypto/encrypt-decrypt/index.html)ことができます。
 
 ### RSA 鍵ペアの生成
 

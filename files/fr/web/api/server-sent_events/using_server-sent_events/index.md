@@ -50,7 +50,8 @@ evtSource.addEventListener("ping", function (event) {
 
 Ce fragment de code sera appelé si le serveur envoie un message dont le champ `event` est `ping`&nbsp;; il analysera alors le JSON dans le champ `data` et l'affichera.
 
-> **Attention :** **Lorsque HTTP/2 n'est pas utilisé**, les évènements serveurs sont limités par le nombre maximal de connexion ouvertes, notamment quand on a plusieurs onglets ouverts. La limite est fixée _par le navigateur_ et vaut 6 pour chaque origine (voir les bugs [Chrome](https://bugs.chromium.org/p/chromium/issues/detail?id=275955) et [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=906896)). On pourra avoir 6 connexions pour les évènements serveurs parmi tous les onglets ouverts sur `www.example1.com`, 6 autres pour tous les onglets sur `www.example2.com` (voir cette réponse [Stack Overflow](https://stackoverflow.com/a/5326159/1905229)). Avec HTTP/2, le nombre de flux HTTP simultanés est négocié entre le serveur et le client et vaut 100 par défaut.
+> [!WARNING]
+> **Lorsque HTTP/2 n'est pas utilisé**, les évènements serveurs sont limités par le nombre maximal de connexion ouvertes, notamment quand on a plusieurs onglets ouverts. La limite est fixée _par le navigateur_ et vaut 6 pour chaque origine (voir les bugs [Chrome](https://bugs.chromium.org/p/chromium/issues/detail?id=275955) et [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=906896)). On pourra avoir 6 connexions pour les évènements serveurs parmi tous les onglets ouverts sur `www.example1.com`, 6 autres pour tous les onglets sur `www.example2.com` (voir cette réponse [Stack Overflow](https://stackoverflow.com/a/5326159/1905229)). Avec HTTP/2, le nombre de flux HTTP simultanés est négocié entre le serveur et le client et vaut 100 par défaut.
 
 ## Envoyer un évènement depuis le serveur
 
@@ -97,11 +98,12 @@ Ce code génère un évènement de type «&nbsp;ping&nbsp;» à chaque seconde. 
 
 La boucle s'exécute indépendamment du statut de la connexion, on a donc une vérification pour terminer l'exécution si la connexion a été terminée.
 
-> **Note :** Vous pouvez trouver un exemple complet utilisant le code ci-dessus sur GitHub : voir [Démonstration d'évènements serveur avec PHP.](https://github.com/mdn/dom-examples/tree/master/server-sent-events)
+> [!NOTE]
+> Vous pouvez trouver un exemple complet utilisant le code ci-dessus sur GitHub : voir [Démonstration d'évènements serveur avec PHP.](https://github.com/mdn/dom-examples/tree/master/server-sent-events)
 
 ## Gestion des erreurs
 
-Quand un problème survient (tel qu'un délai de réponse dépassé ou une erreur liée au [contrôle d'accès](/fr/docs/Web/HTTP/CORS)), un évènement `error` est généré. Vous pouvez traiter ces cas d'erreur en implémentant la fonction de rappel `onerror` sur l'objet `EventSource`.
+Quand un problème survient (tel qu'un délai de réponse dépassé ou une erreur liée au [contrôle d'accès](/fr/docs/Web/HTTP/Guides/CORS)), un évènement `error` est généré. Vous pouvez traiter ces cas d'erreur en implémentant la fonction de rappel `onerror` sur l'objet `EventSource`.
 
 ```js
 evtSource.onerror = function (err) {
@@ -121,7 +123,8 @@ evtSource.close();
 
 Le flux d'évènements est un simple flux de données de texte, qui doit être encodé en [UTF-8](/fr/docs/Glossary/UTF-8). Les messages dans le flux d'évènements sont séparés par une paire de sauts de ligne. Un caractère deux-points «&nbsp;:&nbsp;» en début de ligne représente un commentaire, et est ignoré.
 
-> **Note :** Une ligne de commentaire peut être utilisée pour empêcher les connexions d'expirer. Un serveur peut envoyer périodiquement des commentaires afin de garder la connexion ouverte.
+> [!NOTE]
+> Une ligne de commentaire peut être utilisée pour empêcher les connexions d'expirer. Un serveur peut envoyer périodiquement des commentaires afin de garder la connexion ouverte.
 
 Chaque message consiste en une ou plusieurs lignes de texte décrivant les champs de ce message. Chaque champ est représenté par le nom du champ, suivi d'un «&nbsp;:&nbsp;», suivi des données de texte pour la valeur de ce champ.
 
@@ -140,7 +143,8 @@ Chaque message reçu contient un ou plusieurs de ces champs, un par ligne :
 
 Tous les autres noms de champs sont ignorés.
 
-> **Note :** Si une ligne ne contient aucun caractère deux-points, la ligne entière est considérée comme le nom du champ, avec un contenu vide.
+> [!NOTE]
+> Si une ligne ne contient aucun caractère deux-points, la ligne entière est considérée comme le nom du champ, avec un contenu vide.
 
 ### Exemples
 

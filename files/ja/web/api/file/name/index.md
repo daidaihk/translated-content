@@ -3,12 +3,12 @@ title: "File: name プロパティ"
 short-title: name
 slug: Web/API/File/name
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 8fd2ee72038310e3ecc387df235ffac1cb08775c
 ---
 
-{{APIRef("File API")}}
+{{APIRef("File API")}}{{AvailableInWorkers}}
 
-{{domxref("File")}} オブジェクトによって表されるファイルの名前を返します。セキュリティ上の理由から、パスはこのプロパティから除外されます。
+**`name`** は {{domxref("File")}} インターフェイスの読み取り専用プロパティで、この {{domxref("File")}} オブジェクトによって表されるファイルの名前を返します。セキュリティ上の理由から、パスはこのプロパティから除外されます。
 
 ## 値
 
@@ -19,7 +19,7 @@ l10n:
 ### HTML
 
 ```html
-<input type="file" id="filepicker" multiple />
+<input type="file" id="file-picker" multiple />
 <div>
   <p>選択されたファイルのリスト:</p>
   <ul id="output"></ul>
@@ -30,9 +30,9 @@ l10n:
 
 ```js
 const output = document.getElementById("output");
-const filepicker = document.getElementById("filepicker");
+const filePicker = document.getElementById("file-picker");
 
-filepicker.addEventListener("change", (event) => {
+filePicker.addEventListener("change", (event) => {
   const files = event.target.files;
   output.textContent = "";
 

@@ -11,7 +11,8 @@ slug: Web/API/URL/createObjectURL_static
 
 {{AvailableInWorkers}}
 
-> **참고:** 이 기능은 메모리 누수의 가능성으로 인해 [Service Worker](/ko/docs/Web/API/Service_Worker_API)에서 사용할 수 없습니다.
+> [!NOTE]
+> 이 기능은 메모리 누수의 가능성으로 인해 [Service Worker](/ko/docs/Web/API/Service_Worker_API)에서 사용할 수 없습니다.
 
 ## 구문
 
@@ -30,7 +31,7 @@ const objectURL = URL.createObjectURL(object);
 
 ## 예제
 
-[객체 URL을 사용하여 이미지 표시하기](/ko/docs/Web/API/File/Using_files_from_web_applications#예시_객체_URL을_사용하여_이미지_표시하기)를 보세요.
+[객체 URL을 사용하여 이미지 표시하기](/ko/docs/Web/API/File_API/Using_files_from_web_applications#예시_객체_url을_사용하여_이미지_표시하기)를 보세요.
 
 ## 사용 일람
 
@@ -44,7 +45,8 @@ const objectURL = URL.createObjectURL(object);
 
 구 Media Source 명세에서는 {{HTMLElement("video")}} 요소에 스트림을 부착하려면 {{domxref("MediaStream")}}의 객체 URL을 생성했어야 했습니다. 이제 이런 과정은 필수가 아니며, 브라우저도 지원을 중단하고 있습니다.
 
-> **경고:** **중요:** 아직 미디어 요소에 {{domxref("URL.createObjectURL", "createObjectURL()")}}을 사용해 스트림을 부착하고 있다면, {{domxref("HTMLMediaElement.srcObject", "srcObject")}}에 `MediaStream`을 직접 설정하도록 코드를 수정해야 합니다.
+> [!WARNING]
+> **중요:** 아직 미디어 요소에 {{domxref("URL.createObjectURL", "createObjectURL()")}}을 사용해 스트림을 부착하고 있다면, {{domxref("HTMLMediaElement.srcObject", "srcObject")}}에 `MediaStream`을 직접 설정하도록 코드를 수정해야 합니다.
 
 ## 명세
 
@@ -56,7 +58,7 @@ const objectURL = URL.createObjectURL(object);
 
 ## 같이 보기
 
-- [웹 애플리케이션에서 파일 사용하기](/ko/docs/Web/API/File/Using_files_from_web_applications)
+- [웹 애플리케이션에서 파일 사용하기](/ko/docs/Web/API/File_API/Using_files_from_web_applications)
 - {{domxref("URL.revokeObjectURL()")}}
 - {{domxref("HTMLMediaElement.srcObject")}}
 - {{domxref("FileReader.readAsDataURL()")}}

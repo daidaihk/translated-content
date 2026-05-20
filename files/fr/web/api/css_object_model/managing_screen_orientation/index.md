@@ -7,11 +7,11 @@ slug: Web/API/CSS_Object_Model/Managing_screen_orientation
 
 ## Sommaire
 
-L'orientation de l'écran est quelque chose de légèrement différent de [l'orientation de l'appareil](/fr/docs/WebAPI/Detecting_device_orientation). Même si un appareil n'a pas la capacité de détecter sa propre orientation, un écran en possède toujours une. Et si on est capable de connaître son orientation, il est bon d'avoir la possibilité de contrôler l'orientation de l'écran afin de préserver ou d'adapter l'interface d'une application web.
+L'orientation de l'écran est quelque chose de légèrement différent de [l'orientation de l'appareil](/fr/docs/Web/API/Device_orientation_events/Detecting_device_orientation). Même si un appareil n'a pas la capacité de détecter sa propre orientation, un écran en possède toujours une. Et si on est capable de connaître son orientation, il est bon d'avoir la possibilité de contrôler l'orientation de l'écran afin de préserver ou d'adapter l'interface d'une application web.
 
 Il y a plusieurs manières de gérer l'orientation de l'écran, à la fois avec CSS et JavaScript:
 
-- La première est la [media query orientation](/fr/docs/Web/CSS/Requêtes_média/Utiliser_les_Media_queries#orientation). Cela permet au contenu d'ajuster sa mise en forme à l'aide de CSS, selon que la fenêtre soit en mode paysage (c'est à dire que la largeur est plus grande que la hauteur) ou en mode portrait (que sa hauteur est plus grande que sa largeur).
+- La première est la [media query orientation](/fr/docs/Web/CSS/Guides/Media_queries/Using#orientation). Cela permet au contenu d'ajuster sa mise en forme à l'aide de CSS, selon que la fenêtre soit en mode paysage (c'est à dire que la largeur est plus grande que la hauteur) ou en mode portrait (que sa hauteur est plus grande que sa largeur).
 - La deuxième est l'API JavaScript d'orientation d'écran, qui peut être utilisée pour récupérer l'orientation en cours de l'écran et éventuellement de la verrouiller.
 
 ## Ajuster la mise en page selon l'orientation
@@ -116,11 +116,13 @@ Et voici le résultat:
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | {{ EmbedLiveSample("Ajuster_la_mise_en_page_selon_l'orientation", 180, 350) }} | {{ EmbedLiveSample("Ajuster_la_mise_en_page_selon_l'orientation", 350, 180) }} |
 
-> **Note :** La media query orientation s'applique en vérité selon l'orientation de la fenêtre du navigateur (ou iframe) et non l'orientation de l'appareil.
+> [!NOTE]
+> La media query orientation s'applique en vérité selon l'orientation de la fenêtre du navigateur (ou iframe) et non l'orientation de l'appareil.
 
 ## Verrouiller l'orientation de l'écran
 
-> **Attention :** Cette API est expérimentale et est actuellement disponible sur [Firefox OS](/fr/docs/Mozilla/Firefox_OS) et [Firefox pour Android](/fr/docs/Mozilla/Firefox_for_Android) avec le préfixe `moz`, et sur Internet Explorer pour Windows 8.1 et plus avec le préfixe `ms`.
+> [!WARNING]
+> Cette API est expérimentale et est actuellement disponible sur [Firefox OS](/fr/docs/Mozilla/Firefox_OS) et [Firefox pour Android](/fr/docs/Mozilla/Firefox_for_Android) avec le préfixe `moz`, et sur Internet Explorer pour Windows 8.1 et plus avec le préfixe `ms`.
 
 Certains appareils (principalement les appareils mobiles) peuvent changer dynamiquement d'orientation d'écran selon leur propre orientation, garantissant que l'utilisateur sera toujours capable de lire ce qu'il y a sur l'écran. Bien que ce comportement soit parfaitement adapté au contenu texte, certains contenus peuvent être affectés négativement par ce changement. Par exemple, les jeux basés sur l'orientation de l'appareil être gachés par un tel changement.
 
@@ -146,13 +148,14 @@ Toute application web peut verrouiller l'écran dans une orientation pour répon
 screen.lockOrientation("landscape");
 ```
 
-> **Note :** Un verrouillage d'écran est dépendant de l'application web. Si une a application A est verrouillée à `landscape` et l'application B est verrouillée à `portrait`, passer de l'application A à B ou à A ne va pas déclencher un événement [`orientationchange`](/fr/docs/Web/API/Window/orientationchange_event) parce que les deux applications gardent l'orientation qu'elles avaient.
+> [!NOTE]
+> Un verrouillage d'écran est dépendant de l'application web. Si une a application A est verrouillée à `landscape` et l'application B est verrouillée à `portrait`, passer de l'application A à B ou à A ne va pas déclencher un événement [`orientationchange`](/fr/docs/Web/API/Window/orientationchange_event) parce que les deux applications gardent l'orientation qu'elles avaient.
 >
 > En revanche, verrouiller l'orientation peut décléncher l'événement [`orientationchange`](/fr/docs/Web/API/Window/orientationchange_event) si l'orientation a dû être changée pour satisfaire aux critères du verrouillage.
 
 ## Firefox OS et Android: Verrouiller l'orientation avec le manifeste
 
-Pour Firefox OS et Firefox Android (bientôt pour la version bureau de Firefox également), vous pouvez le champ [orientation](/fr/Apps/Build/Manifest#orientation) dans le fichier manifeste de votre application, par exemple:
+Pour Firefox OS et Firefox Android (bientôt pour la version bureau de Firefox également), vous pouvez le champ [orientation](/fr/docs/Web/Apps/Build/Manifest#orientation) dans le fichier manifeste de votre application, par exemple:
 
 ```json
 "orientation": "portrait"
@@ -164,5 +167,5 @@ Pour Firefox OS et Firefox Android (bientôt pour la version bureau de Firefox �
 - {{domxref("Screen.lockOrientation()")}}
 - {{domxref("Screen.unlockOrientation()")}}
 - {{domxref("Screen.onorientationchange")}}
-- [Media query orientation](/fr/docs/Web/CSS/Requêtes_média/Utiliser_les_Media_queries#orientation)
-- [A short introduction to media queries in Firefox 3.5](http://hacks.mozilla.org/2009/06/media-queries/)
+- [Media query orientation](/fr/docs/Web/CSS/Guides/Media_queries/Using#orientation)
+- [A short introduction to media queries in Firefox 3.5](https://hacks.mozilla.org/2009/06/media-queries/)

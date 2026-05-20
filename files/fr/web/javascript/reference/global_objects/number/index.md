@@ -16,7 +16,7 @@ Le constructeur `Number()` contient des constantes et des méthodes pour manipul
 Les nombres sont généralement exprimés sous leur forme littérale comme `255` ou `3.14159`. La [grammaire lexicale](/fr/docs/Web/JavaScript/Reference/Lexical_grammar#littéraux_numériques) contient une référence plus détaillée à ce sujet.
 
 ```js
-255; // deux cent vingt-cinq
+255; // deux cent cinquante-cinq
 255.0; // le même nombre
 255 === 255.0; // true
 255 === 0xff; // true (notation hexadécimale)
@@ -73,7 +73,7 @@ De nombreuses opérations natives qui s'attendent à manipuler des nombres appli
   - [Les séparateurs numériques](/fr/docs/Web/JavaScript/Reference/Lexical_grammar#séparateurs_numériques) (le tiret bas dans `1_050.95`) ne sont pas autorisés.
 - [Les grands entiers (<i lang="en">BigInts</i>)](/fr/docs/Web/JavaScript/Reference/Global_Objects/BigInt) déclenchent une exception [`TypeError`](/fr/docs/Web/JavaScript/Reference/Global_Objects/TypeError) pour empêcher une perte de précision involontaire lors de la conversion implicite.
 - [Les symboles](/fr/docs/Web/JavaScript/Reference/Global_Objects/Symbol) déclenchent une exception [`TypeError`](/fr/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
-- Les objets sont d'abord [convertis en une valeur primitive](/fr/docs/Web/JavaScript/Data_structures#primitive_coercion) à l'aide de leurs méthodes [`[@@toPrimitive]()`](/fr/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) (où `"number"` est fourni comme indication), `valueOf()`, et `toString()`, selon cet ordre. La valeur primitive obtenue est alors convertie en nombre.
+- Les objets sont d'abord [convertis en une valeur primitive](/fr/docs/Web/JavaScript/Guide/Data_structures#primitive_coercion) à l'aide de leurs méthodes [`[@@toPrimitive]()`](/fr/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) (où `"number"` est fourni comme indication), `valueOf()`, et `toString()`, selon cet ordre. La valeur primitive obtenue est alors convertie en nombre.
 
 Il existe deux méthodes qui permettent de déclencher cette conversion (ou presque) en JavaScript&nbsp;:
 
@@ -116,7 +116,8 @@ new Uint8Array([257, -257]); // Uint8Array(2) [ 1, 255 ]
 
 Lorsque `Number` est appelé comme constructeur (avec le mot-clé `new`), il crée un objet `Number` qui **n'est pas** une valeur primitive. Par exemple, on aura `typeof new Number(42) === "object"`, et `new Number(42) !== 42` (même si `new Number(42) == 42`).
 
-> **Attention :** Il est plutôt rare de devoir utiliser `Number` comme constructeur.
+> [!WARNING]
+> Il est plutôt rare de devoir utiliser `Number` comme constructeur.
 
 ## Propriétés statiques
 

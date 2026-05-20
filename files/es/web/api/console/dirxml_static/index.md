@@ -1,7 +1,6 @@
 ---
 title: Console.dirxml()
 slug: Web/API/console/dirxml_static
-original_slug: Web/API/console/dirxml
 ---
 
 {{APIRef("Console API")}}{{Non-standard_header}}
@@ -29,4 +28,4 @@ console.dirxml(objeto);
 
 ## Ver también
 
-- [Opera Dragonfly documentation: Console](http://www.opera.com/dragonfly/documentation/console/)
+- [Opera Dragonfly documentation: Console](https://www.opera.com/dragonfly/documentation/console/)

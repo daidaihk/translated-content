@@ -3,12 +3,14 @@ title: focusin
 slug: Web/API/Element/focusin_event
 ---
 
+{{APIRef}}
+
 Событие focusin срабатывает, когда элемент получает фокус. Главное отличие от `focus` в том, что последний не всплывает.
 
 ## Общая информация
 
 - Specification
-  - : [DOM L3](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusIn)
+  - : [DOM L3](https://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusIn)
 - Interface
   - : {{domxref("FocusEvent")}}
 - Bubbles
@@ -36,7 +38,7 @@ slug: Web/API/Element/focusin_event
 
 ## Related Events
 
-- {{event("focus")}}
-- {{event("blur")}}
-- {{event("focusin")}}
-- {{event("focusout")}}
+- [`focus`](/ru/docs/Web/API/Element/focus_event)
+- [`blur`](/ru/docs/Web/API/Element/blur_event)
+- [`focusin`](/ru/docs/Web/API/Element/focusin_event)
+- [`focusout`](/ru/docs/Web/API/Element/focusout_event)

@@ -3,7 +3,7 @@ title: Collections avec clés
 slug: Web/JavaScript/Guide/Keyed_collections
 ---
 
-{{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Collections_indexées", "Web/JavaScript/Guide/Utiliser_les_objets")}}
+{{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Indexed_collections", "Web/JavaScript/Guide/Working_with_objects")}}
 
 Ce chapitre présente les collections de données qui sont ordonnées avec une clé. Les objets `Map` et `Set` contiennent des éléments sur lesquels on peut itérer dans leur ordre d'insertion.
 
@@ -55,7 +55,7 @@ La différence entre le type `Map` et le type `WeakMap` est que les clés d'un o
 
 Pour plus d'informations et d'exemples, voir également le paragraphe « Pourquoi WeakMap ? » sur l'article {{jsxref("WeakMap")}} de la référence.
 
-Un cas d'utilisation des objets `WeakMap` est le stockage de données privées d'un objet ou pour cacher certains détails d'implémentation. L'exemple qui suit est tiré du billet de blog de Nick Fitzgerald [« Masquer des détails d'implémentation avec les WeakMaps ECMAScript 6 »](http://fitzgeraldnick.com/weblog/53/). Les données et méthodes privées sont stockées dans l'objet WeakMap `privates`. Tout ce qui est exposé par l'instance et le prototype est public. Tout ce qui est en dehors est inaccessible car `privates` n'est pas exporté depuis le module :
+Un cas d'utilisation des objets `WeakMap` est le stockage de données privées d'un objet ou pour cacher certains détails d'implémentation. L'exemple qui suit est tiré du billet de blog de Nick Fitzgerald [« Masquer des détails d'implémentation avec les WeakMaps ECMAScript 6 »](https://fitzgen.com/2014/01/13/hiding-implementation-details-with-e6-weakmaps.html). Les données et méthodes privées sont stockées dans l'objet WeakMap `privates`. Tout ce qui est exposé par l'instance et le prototype est public. Tout ce qui est en dehors est inaccessible car `privates` n'est pas exporté depuis le module :
 
 ```js
 const privates = new WeakMap();
@@ -137,4 +137,4 @@ L'égalité utilisée pour les clés des objets `Map` et celle utilisée pour le
 - `-0` et `+0` sont considérés égaux.
 - {{jsxref("NaN")}} est considéré égal à lui-même (contrairement à ce qu'on obtient avec `===`).
 
-{{PreviousNext("Web/JavaScript/Guide/Collections_indexées", "Web/JavaScript/Guide/Utiliser_les_objets")}}
+{{PreviousNext("Web/JavaScript/Guide/Indexed_collections", "Web/JavaScript/Guide/Working_with_objects")}}

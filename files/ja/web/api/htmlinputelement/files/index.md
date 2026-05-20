@@ -1,13 +1,14 @@
 ---
 title: "HTMLInputElement: files プロパティ"
+short-title: files
 slug: Web/API/HTMLInputElement/files
 l10n:
-  sourceCommit: bbedc393bbeb2fc0ca6c5681f6a0d30898886418
+  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
 ---
 
 {{APIRef("File and Directory Entries API")}}
 
-**`HTMLInputElement.files`** プロパティを通じて、[`<input type="file">`](/ja/docs/Web/HTML/Element/input/file) 要素で選択された {{domxref("FileList")}} にアクセスできます。
+**`HTMLInputElement.files`** プロパティを通じて、[`<input type="file">`](/ja/docs/Web/HTML/Reference/Elements/input/file) 要素で選択された {{domxref("FileList")}} にアクセスできます。
 
 ## 値
 

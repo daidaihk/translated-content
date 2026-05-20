@@ -9,7 +9,8 @@ slug: Web/JavaScript/Reference/Global_Objects/Math/random
 
 A função **`Math.random()`** retorna um número pseudo-aleatório no intervalo `[0, 1[`, ou seja, de 0 (inclusivo) até, mas não incluindo, 1 (exclusivo), que depois você pode dimensionar para um intervalo desejado. A implementação seleciona uma semente para o algoritmo de geração de números aleatórios; esta semente não pode ser escolhida ou reatribuída.
 
-> **Nota:** **`Math.random()`** não gera números criptograficamente seguros. Não a use para nada relacionado a segurança. Use a API Web Crypto, mais precisamente o método {{domxref("RandomSource.getRandomValues()", "window.crypto.getRandomValues()")}}.
+> [!NOTE]
+> **`Math.random()`** não gera números criptograficamente seguros. Não a use para nada relacionado a segurança. Use a API Web Crypto, mais precisamente o método {{domxref("RandomSource.getRandomValues()", "window.crypto.getRandomValues()")}}.
 
 ## Sintaxe
 
@@ -55,7 +56,8 @@ function getRandomInt(min, max) {
 }
 ```
 
-> **Nota:** Pode ser tentandor usar `Math.round()` para arredondar `min` e `max`, mas dessa maneira a aleatoriedade dos números seguiria uma distribuição não-uniforme, que talvez não seja o que você precisa.
+> [!NOTE]
+> Pode ser tentandor usar `Math.round()` para arredondar `min` e `max`, mas dessa maneira a aleatoriedade dos números seguiria uma distribuição não-uniforme, que talvez não seja o que você precisa.
 
 ### Gerando um número inteiro aleatório entre dois valores, inclusive
 

@@ -1,16 +1,15 @@
 ---
 title: "CSSImportRule: stylesheet プロパティ"
-short-title: stylesheet
-slug: Web/API/CSSImportRule/stylesheet
+slug: Web/API/CSSImportRule/styleSheet
 l10n:
   sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
 ---
 
 {{APIRef("CSSOM")}}
 
-**`styleSheet`** は {{domxref("CSSImportRule")}} インターフェイスの読み取り専用プロパティで、 {{cssxref("@import")}} [アットルール](/ja/docs/Web/CSS/At-rule)によって指定された CSS スタイルシートを返します。これは {{domxref("CSSStyleSheet")}} オブジェクトの形です。
+**`styleSheet`** は {{domxref("CSSImportRule")}} インターフェイスの読み取り専用プロパティで、 {{cssxref("@import")}} [アットルール](/ja/docs/Web/CSS/Guides/Syntax/At-rules)によって指定された CSS スタイルシートを返します。これは {{domxref("CSSStyleSheet")}} オブジェクトの形です。
 
-{{cssxref("@import")}} [アットルール](/ja/docs/Web/CSS/At-rule)には、常に関連付けられたスタイルシートがあります。
+{{cssxref("@import")}} [アットルール](/ja/docs/Web/CSS/Guides/Syntax/At-rules)には、常に関連付けられたスタイルシートがあります。
 
 ## 値
 

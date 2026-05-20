@@ -3,25 +3,33 @@ title: "Document: startViewTransition() メソッド"
 short-title: startViewTransition()
 slug: Web/API/Document/startViewTransition
 l10n:
-  sourceCommit: 7b3ccaec4a93584da12939587ea746acaabe30bc
+  sourceCommit: baf0cb6bfe8bf2418122300d3f93e3aa94f72dca
 ---
 
-{{APIRef("Document")}}{{SeeCompatTable}}
+{{APIRef("View Transition API")}}
 
-**`startViewTransition()`** は{{domxref("View Transitions API", "ビュートランジション API", "", "nocode")}} のメソッドで、新しいビュートランジションを始め、それを表す {{domxref("ViewTransition")}} オブジェクトを返します。
+**`startViewTransition()`** は {{domxref("Document")}} インターフェイスのメソッドで、新しい同一文書内 (SPA) の[ビュー遷移](/ja/docs/Web/API/View_Transition_API)を始め、それを表す {{domxref("ViewTransition")}} オブジェクトを返します。
 
-`startViewTransition()`を呼び出すと、[ビュートランジションのプロセス](/ja/docs/Web/API/View_Transitions_API#ビュートランジションのプロセス)で説明されている一連の手順が続きます。
+`startViewTransition()` を呼び出すと、[ビュー遷移のプロセス](/ja/docs/Web/API/View_Transition_API/Using#ビュー遷移のプロセス)で説明されている一連の手順が続きます。
 
 ## 構文
 
 ```js-nolint
-startViewTransition(callback)
+startViewTransition()
+startViewTransition(updateCallback)
+startViewTransition(options)
 ```
 
 ### 引数
 
-- `callback`
-  - : 通常、ビュートランジションプロセス中に DOM を更新するために呼び出されるコールバック関数で、プロミス ({{jsxref("Promise")}}) を返します。コールバックは、 API が現在のページのスクリーンショットを導いたら呼び出されます。コールバックが返すプロミスが履行されると、次のフレームでビュートランジションが始まります。コールバックが返すプロミスが拒否された場合、トランジションは放棄されます。
+- `updateCallback` {{optional_inline}}
+  - : 通常、SPA のビュー遷移処理中に DOM を更新するために呼び出されるオプションのコールバック関数で、プロミス ({{jsxref("Promise")}}) を返します。このコールバックは、 API が現在のページのスナップショットを取得したときに呼び出されます。コールバックが返すプロミスが履行されると、次のフレームでビュー遷移が始まります。コールバックが返すプロミスが拒否された場合、トランジションは放棄されます。
+- `options` {{optional_inline}}
+  - : このビュー遷移を構成するためのオプションを含むオブジェクトです。以下のプロパティを置くことができます。
+    - `update` {{optional_inline}}
+      - : 前述の `updateCallback` 関数と同じものです。デフォルトは `null` です。
+    - `types` {{optional_inline}}
+      - : ビュー遷移に適用される型を表す文字列の配列です。[ビュー遷移型](/ja/docs/Web/API/View_Transition_API/Using_types)を使用すると、発生する遷移の種類に基づいて、CSS スタイルや JavaScript ロジックを選択的に適用することができます。デフォルトは空の配列です。
 
 ### 返値
 
@@ -29,36 +37,71 @@ startViewTransition(callback)
 
 ## 例
 
-### 基本的な使用方法
+完全な例のリストについては、[ビュー遷移 API > 例](/ja/docs/Web/API/View_Transition_API#例)を参照してください。
 
-[基本的なビュートランジションのデモ](https://mdn.github.io/dom-examples/view-transitions/)では、 `updateView()` 関数はビュートランジション API に対応しているブラウザーと対応していないブラウザーの両方に対応しています。対応しているブラウザーで、返値を気にせずにビュートランジションのプロセスを設定するには `startViewTransition()` を呼び出します。
+### 基本的な使い方
+
+この同一文書内でのビュー遷移では、ブラウザーがビュー遷移に対応しているかどうかを確認します。
+未対応の場合、代替手段を用いて背景色を設定し、即座に適用します。
+対応している場合は、CSSで定義したアニメーションルールと共に、安全に `document.startViewTransition()` を呼び出すことができます。
+
+```html
+<main>
+  <section></section>
+  <button id="change-color">色を変更</button>
+</main>
+```
+
+{{CSSXRef("::view-transition-group")}} を使用して、`animation-duration` を 2 秒に設定します。
+
+```css
+html {
+  --bg: indigo;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+section {
+  background-color: var(--bg);
+  height: 60px;
+  border-radius: 5px;
+}
+::view-transition-group(root) {
+  animation-duration: 2s;
+}
+```
 
 ```js
-function updateView(event) {
-  // Handle the difference in whether the event is fired on the <a> or the <img>
-  let targetIdentifier;
-  if (event.target.firstChild === null) {
-    targetIdentifier = event.target;
-  } else {
-    targetIdentifier = event.target.firstChild;
-  }
-
-  const displayNewImage = () => {
-    const mainSrc = `${targetIdentifier.src.split("_th.jpg")[0]}.jpg`;
-    galleryImg.src = mainSrc;
-    galleryCaption.textContent = targetIdentifier.alt;
-  };
-
-  // Fallback for browsers that don't support View Transitions:
+const colors = ["darkred", "darkslateblue", "darkgreen"];
+const colBlock = document.querySelector("section");
+let count = 0;
+const updateColor = () => {
+  colBlock.style = `--bg: ${colors[count]}`;
+  count = count !== colors.length - 1 ? ++count : 0;
+};
+const changeColor = () => {
+  // ビュー遷移に対応していないブラウザー向けの代替処理
   if (!document.startViewTransition) {
-    displayNewImage();
+    updateColor();
     return;
   }
 
-  // With View Transitions:
-  const transition = document.startViewTransition(() => displayNewImage());
-}
+  // ビュー遷移を使用する場合
+  const transition = document.startViewTransition(() => {
+    updateColor();
+  });
+};
+const changeColorButton = document.querySelector("#change-color");
+changeColorButton.addEventListener("click", changeColor);
+changeColorButton.addEventListener("keypress", changeColor);
 ```
+
+ビュー遷移に対応している場合、ボタンをクリックすると、2 秒かけて色が徐々に変化します。
+対応していない場合は、アニメーションなしで、代替方法を用いて背景色が設定されます。
+
+{{EmbedLiveSample('color_change', '100%', '120')}}
 
 ## 仕様書
 
@@ -70,4 +113,10 @@ function updateView(event) {
 
 ## 関連情報
 
-- [Smooth and simple transitions with the View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- {{domxref("Document.activeViewTransition")}}
+- {{CSSXRef(":active-view-transition")}} 擬似クラス
+- {{cssxref(":active-view-transition-type", ":active-view-transition-type()")}} 擬似クラス
+- [ビュー遷移 API](/ja/docs/Web/API/View_Transition_API)
+- [ビュー遷移 API の使用](/ja/docs/Web/API/View_Transition_API/Using)
+- [ビュー遷移型の使用](/ja/docs/Web/API/View_Transition_API/Using_types)
+- [Smooth transitions with the View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

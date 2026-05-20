@@ -11,6 +11,5 @@ slug: Glossary/Crawler
 
 - Wikipedia の [クローラ](https://ja.wikipedia.org/wiki/クローラ)
 
-1. [MDN Web Docs 用語集](/ja/docs/Glossary)
-
+1. 関連用語:
    1. {{Glossary("Search engine", "検索エンジン")}}

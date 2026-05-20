@@ -1,9 +1,9 @@
 ---
 title: 浏览上下文（Browsing context）
 slug: Glossary/Browsing_context
+l10n:
+  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
 ---
-
-{{GlossarySidebar}}
 
 **浏览上下文**（browsing context）是浏览器（browser）展示{{domxref("Document","文档")}}的环境。在现代浏览器中，通常是一个*标签页*（tab），也可能是一个*窗体*（window）或只是页面的一部分，如 _frame_ 或 _iframe_。
 
@@ -13,4 +13,5 @@ slug: Glossary/Browsing_context
 
 ## 参见
 
-- 参见 {{glossary("origin")}}
+- 相关术语：
+  - {{glossary("Origin", "来源")}}

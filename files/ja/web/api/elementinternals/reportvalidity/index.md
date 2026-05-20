@@ -3,12 +3,12 @@ title: "ElementInternals: reportValidity() メソッド"
 short-title: reportValidity()
 slug: Web/API/ElementInternals/reportValidity
 l10n:
-  sourceCommit: 86215eff9beccf2e069be9109347ad830cc5e9c4
+  sourceCommit: ce10da0e9d23d241b175d8d68bf93507734b7c48
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Web Components")}}
 
-**`reportValidity()`** は {{domxref("ElementInternals")}} インターフェイスのメソッドで、適用された[制約検証](/ja/docs/Web/HTML/Constraint_validation)ルールをこの要素が満たしているかどうかをチェックします。
+**`reportValidity()`** は {{domxref("ElementInternals")}} インターフェイスのメソッドで、適用された[制約検証](/ja/docs/Web/HTML/Guides/Constraint_validation)ルールをこの要素が満たしているかどうかをチェックします。
 
 `reportValidity` が `false` を返した場合、キャンセル可能な [invalid イベント](/ja/docs/Web/API/HTMLInputElement/invalid_event)が要素で発生します。
 

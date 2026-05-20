@@ -8,7 +8,8 @@ l10n:
 
 {{APIRef("File API")}}{{deprecated_header}}
 
-> **メモ:** このメソッドは非推奨であり、 {{DOMxRef("FileReaderSync.readAsArrayBuffer","readAsArrayBuffer()")}} に取って代わられました。
+> [!NOTE]
+> このメソッドは非推奨であり、 {{DOMxRef("FileReaderSync.readAsArrayBuffer","readAsArrayBuffer()")}} に取って代わられました。
 
 `readAsBinaryString()` は {{DOMxRef("FileReaderSync")}} インターフェイスのメソッドで、 {{DOMxRef("File")}} または {{DOMxRef("Blob")}} オブジェクトを同期的に文字列に読み込むことを可能にします。このインターフェイスは、ブロックが発生する可能性のある同期 I/O を可能にするため、[ワーカー](/ja/docs/Web/API/Worker)で[のみ利用可能](/ja/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)です。
 
@@ -40,7 +41,7 @@ readAsBinaryString(Blob)
 - `NotReadableError` {{domxref("DOMException")}}
   - : 同時実行ロックなどの権限の問題でリソースを読み込めない場合に発生します。
 - `EncodingError` {{domxref("DOMException")}}
-  - : リソースがデータ URL であり、ブラウザーごとに定義された制限長を超えた場合に発生します。
+  - : リソースが data URL であり、ブラウザーごとに定義された制限長を超えた場合に発生します。
 
 ## 仕様書
 

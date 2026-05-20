@@ -3,11 +3,9 @@ title: 建立Canvas並畫出
 slug: Games/Tutorials/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it
 ---
 
-{{GamesSidebar}}
+{{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball")}}
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Move_the_ball")}}
-
-這是[Gamedev Canvas tutorial](/zh-TW/docs/Games/Workflows/Breakout_game_from_scratch)十個步驟的第一步。你可以這份教學的原始碼，當你完成這份教學你的程式碼應該跟[Gamedev-Canvas-workshop/lesson1.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson01.html)差不多。
+這是[Gamedev Canvas tutorial](/zh-TW/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript)十個步驟的第一步。你可以這份教學的原始碼，當你完成這份教學你的程式碼應該跟[Gamedev-Canvas-workshop/lesson1.html](https://github.com/end3r/Gamedev-Canvas-workshop/blob/gh-pages/lesson01.html)差不多。
 
 在開始撰寫遊戲功能之前，我們先建構在遊戲中負責渲染的基礎結構。渲染可透過 HTML 的{{htmlelement("canvas")}} 元件完成。
 
@@ -101,14 +99,48 @@ ctx.closePath();
 
 ## 比較你的程式碼
 
-這裡第一課的有全部原始碼，在 JSFiddle 上實際運行:
+這裡第一課的有全部原始碼，可以實際運行:
 
-{{JSFiddleEmbed("https://jsfiddle.net/end3r/x62h15e2/","","370")}}
+```html
+<canvas id="myCanvas" width="480" height="320"></canvas>
+```
 
-> **備註：** 練習改變物體的大小和顏色
+```css
+canvas {
+  background: #eeeeee;
+}
+```
+
+```js
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+ctx.beginPath();
+ctx.rect(20, 40, 50, 50);
+ctx.fillStyle = "red";
+ctx.fill();
+ctx.closePath();
+
+ctx.beginPath();
+ctx.arc(240, 160, 20, 0, Math.PI * 2, false);
+ctx.fillStyle = "green";
+ctx.fill();
+ctx.closePath();
+
+ctx.beginPath();
+ctx.rect(160, 10, 100, 40);
+ctx.strokeStyle = "rgb(0 0 255 / 0.5)";
+ctx.stroke();
+ctx.closePath();
+```
+
+{{embedlivesample("比較你的程式碼", 600, 340)}}
+
+> [!NOTE]
+> 嘗試改變物體的大小和顏色。
 
 ## 下一步
 
-現在我們已經設定基本的 HTML 並且學了一些 canvas 知識 ，讓我們接著下去第二章實做[如何在遊戲中移動球](/zh-TW/docs/Games/Workflows/Breakout_game_from_scratch/Move_the_ball)[。](/zh-TW/docs/Games/Workflows/Breakout_game_from_scratch/Move_the_ball)
+現在我們已經設定基本的 HTML 並且學了一些 canvas 知識 ，讓我們接著下去第二章實做[如何在遊戲中移動球](/zh-TW/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball)[。](/zh-TW/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball)
 
-{{PreviousNext("Games/Workflows/2D_Breakout_game_pure_JavaScript", "Games/Workflows/2D_Breakout_game_pure_JavaScript/Move_the_ball")}}
+{{PreviousNext("Games/Tutorials/2D_Breakout_game_pure_JavaScript", "Games/Tutorials/2D_Breakout_game_pure_JavaScript/Move_the_ball")}}

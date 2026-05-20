@@ -10,7 +10,7 @@ l10n:
 
 **`localStorage`** は {{domxref("window")}} プロパティの読み取り専用プロパティで、この {{DOMxRef("Document")}} の {{glossary("origin")}} における {{DOMxRef("Storage")}} オブジェクトにアクセスできます。格納されたデータは、ブラウザーのセッションを跨いで保存されます。
 
-`localStorage` は {{DOMxRef("Window.sessionStorage", "sessionStorage")}} によく似ていまが、 `localStorage` のデータには期限がないのに対し、 `sessionStorage` のデータはページセッションが終了したとき、すなわちページが閉じられたときにクリアされます。（「プライベートブラウジング」や「プライバシーモード」のセッションに読み込まれた文書の `localStorage` のデータは、最後の「プライベート」タブが閉じられたときにクリアされます。）
+`localStorage` は {{DOMxRef("Window.sessionStorage", "sessionStorage")}} によく似ていますが、 `localStorage` のデータには期限がないのに対し、 `sessionStorage` のデータはページセッションが終了したとき、すなわちページが閉じられたときにクリアされます。（「プライベートブラウジング」や「プライバシーモード」のセッションに読み込まれた文書の `localStorage` のデータは、最後の「プライベート」タブが閉じられたときにクリアされます。）
 
 ## 値
 
@@ -19,10 +19,8 @@ l10n:
 ### 例外
 
 - `SecurityError`
-
   - : 以下のいずれかの場合に発生します。
-
-    - オリジンが[妥当なスキーム/ホスト名/ポート番号の組み合わせ](/ja/docs/Web/Security/Same-origin_policy#definition_of_an_origin)でない。これは例えば、オリジンが `file:` や `data:` スキームを使うときに起こります。
+    - オリジンが[妥当なスキーム/ホスト名/ポート番号の組み合わせ](/ja/docs/Web/Security/Defenses/Same-origin_policy#definition_of_an_origin)でない。これは例えば、オリジンが `file:` や `data:` スキームを使うときに起こります。
     - リクエストがポリシーの決定に反している。例えば、ユーザーがブラウザーで特定のオリジンにおいてデータの永続化を拒否している場合です。
 
     なお、ユーザーが Cookie をブロックしている場合、ブラウザーはこれをデータの永続化の拒否と解釈する可能性が高いです。
@@ -63,7 +61,8 @@ localStorage.removeItem("myCat");
 localStorage.clear();
 ```
 
-> **メモ:** 詳細な使用例は、[ウェブストレージ API の使用](/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)の記事を参照してください。
+> [!NOTE]
+> 詳細な使用例は、[ウェブストレージ API の使用](/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)の記事を参照してください。
 
 ## 仕様書
 

@@ -16,7 +16,7 @@ l10n:
 리소스는 향후 탐색에 필요한 가능성에 따라 미리 가져와야 합니다.
 브라우저는 주소 표시줄의 현재 URL과 같은 일부 리소스에 대해 필요한 리소스를 자동으로 추론할 수 있습니다.
 
-브라우저는 또한 [`rel="prefetch"`](/ko/docs/Web/HTML/Attributes/rel/prefetch)을 사용하여 [`<link>`](/ko/docs/Web/HTML/Element/link) 요소에 대한 콘텐츠를 미리 가져옵니다.
+브라우저는 또한 [`rel="prefetch"`](/ko/docs/Web/HTML/Attributes/rel/prefetch)을 사용하여 [`<link>`](/ko/docs/Web/HTML/Reference/Elements/link) 요소에 대한 콘텐츠를 미리 가져옵니다.
 이 방식을 통해서, 개발자는 현재 페이지에서 가능한 탐색 방법을 브라우저에 암시해줄 수 있습니다.
 이러한 링크만 미리 가져오고(`<a>` 요소는 그렇지 않습니다), `fetchPriority="low"`가 있는 요소를 포함해 현재 페이지에서 사용하는 리소스보다 낮은 우선순위로 가져옵니다.
 
@@ -32,7 +32,8 @@ l10n:
 요청의 {{HTTPHeader("Accept")}} 헤더는 일반 탐색 요청에 사용되는 값과 일치해야 합니다. 이를 통해 브라우저는 탐색 후 일치하는 캐시된 리소스를 찾을 수 있습니다.
 응답이 반환되면, HTTP 캐시의 요청과 함께 캐시됩니다.
 
-> **참고:** 브라우저 공급업체는 현재 전송되는 헤더를 중심으로 정렬하고 있으며, 다른 헤더와 값을 사용할 수 있습니다.
+> [!NOTE]
+> 브라우저 공급업체는 현재 전송되는 헤더를 중심으로 정렬하고 있으며, 다른 헤더와 값을 사용할 수 있습니다.
 > 명세 준수 사항을 추적하는 가장 좋은 장소는 [`Sec-Purpose`](/ko/docs/Web/HTTP/Headers/Sec-Purpose) 호환성 표입니다.
 
 ### DNS 프리페치
@@ -45,9 +46,9 @@ l10n:
 
 ## 같이 보기
 
-- [즉각적인 페이지 탐색을 위해 Chrome에서 페이지를 미리 렌더링](https://developer.chrome.com/blog/prerender-pages/#prerendering-from-the-address-bar) (developer.chrome.com)
+- [즉각적인 페이지 탐색을 위해 Chrome에서 페이지를 미리 렌더링](https://developer.chrome.com/docs/web-platform/prerender-pages#prerendering-from-the-address-bar) (developer.chrome.com)
 - {{Glossary("prerender")}}
-- [프리로드](/ko/docs/Web/HTML/Attributes/rel/preload)
+- [프리로드](/ko/docs/Web/HTML/Reference/Attributes/rel/preload)
 - [dns 프리페치](/ko/docs/Web/HTML/Attributes/rel/dns-prefetch)
 - [페이지 예측](/ko/docs/Glossary/Page_prediction)
-- [지연 로딩](/ko/docs/Web/Performance/Lazy_loading)
+- [지연 로딩](/ko/docs/Web/Performance/Guides/Lazy_loading)

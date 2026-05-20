@@ -3,11 +3,12 @@ title: Hello GLSL
 slug: Web/API/WebGL_API/By_example/Hello_GLSL
 ---
 
-{{PreviousNext("Apprendre/WebGL/Par_exemple/Une_pluie_de_rectangle","Apprendre/WebGL/Par_exemple/Introduction_aux_attributs_vertex")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Raining_rectangles","Web/API/WebGL_API/By_example/Hello_vertex_attributes")}}
 
 Dans cet article, on décrit un programme de manipulation de _shaders_ qui dessine un carré de couleur.
 
-> **Note :** Cet exemple devrait fonctionner pour l'ensemble des navigateurs récents. Cependant, pour les versions anciennes ou mobiles, il peut y avoir des dysfonctionnements. Si le canevas reste blanc, vous pouvez vérifier le résultat avec l'exemple suivant qui dessine exactement la même chose. Assurez-vous de bien lire les explications et le code présent sur cette page avant de passer à la suivante.
+> [!NOTE]
+> Cet exemple devrait fonctionner pour l'ensemble des navigateurs récents. Cependant, pour les versions anciennes ou mobiles, il peut y avoir des dysfonctionnements. Si le canevas reste blanc, vous pouvez vérifier le résultat avec l'exemple suivant qui dessine exactement la même chose. Assurez-vous de bien lire les explications et le code présent sur cette page avant de passer à la suivante.
 
 {{EmbedLiveSample("Hello_World_en_GLSL",660,425)}}
 
@@ -147,4 +148,4 @@ function getRenderingContext() {
 
 Le code source de cet exemple est également disponible sur [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/hello-glsl).
 
-{{PreviousNext("Apprendre/WebGL/Par_exemple/Une_pluie_de_rectangle","Apprendre/WebGL/Par_exemple/Introduction_aux_attributs_vertex")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Raining_rectangles","Web/API/WebGL_API/By_example/Hello_vertex_attributes")}}

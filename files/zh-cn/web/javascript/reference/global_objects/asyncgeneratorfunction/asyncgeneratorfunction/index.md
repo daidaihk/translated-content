@@ -5,8 +5,6 @@ l10n:
   sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
 ---
 
-{{JSRef}}
-
 **`AsyncGeneratorFunction()`** 构造函数创建 {{jsxref("AsyncGeneratorFunction")}} 对象。
 
 注意，`AsyncGeneratorFunction` 不是全局对象。它可以通过执行以下代码获取。
@@ -31,7 +29,8 @@ AsyncGeneratorFunction(arg1, arg2, functionBody)
 AsyncGeneratorFunction(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
-> **备注：** 无论是否使用 [`new`](/zh-CN/docs/Web/JavaScript/Reference/Operators/new) 调用 `AsyncGeneratorFunction()`，都可以创建一个新的 `AsyncGeneratorFunction` 实例。
+> [!NOTE]
+> 无论是否使用 [`new`](/zh-CN/docs/Web/JavaScript/Reference/Operators/new) 调用 `AsyncGeneratorFunction()`，都可以创建一个新的 `AsyncGeneratorFunction` 实例。
 
 ### 参数
 

@@ -5,8 +5,6 @@ l10n:
   sourceCommit: e3faa375b0179de77a5eff00074e3d168a0a904c
 ---
 
-{{jsSidebar("Statements")}}
-
 JavaScript 应用程序是由许多语法正确的语句组成的。单个语句可以跨多行。如果每个语句用分号隔开，那么多个语句可以在一行中出现。本页的内容并不是一个关键字，而是一组关键字。
 
 ## 语句和声明（按类别分类）
@@ -133,7 +131,8 @@ if (condition)
 label: const a = 1; // SyntaxError: Lexical declaration cannot appear in a single-statement context
 ```
 
-> **备注：** 有一种遗留语法允许[函数声明具有标签](/zh-CN/docs/Web/JavaScript/Reference/Statements/label#标记函数声明)，但它只是为了与 web 现实兼容而进行了标准化。
+> [!NOTE]
+> 有一种遗留语法允许[函数声明具有标签](/zh-CN/docs/Web/JavaScript/Reference/Statements/label#标记函数声明)，但它只是为了与 web 现实兼容而进行了标准化。
 
 为了解决这个问题，你可以将声明括在大括号中——这使其成为[块语句](/zh-CN/docs/Web/JavaScript/Reference/Statements/block)的一部分。
 

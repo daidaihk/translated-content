@@ -3,7 +3,7 @@ title: JavaScript 类型化数组
 slug: Web/JavaScript/Guide/Typed_arrays
 ---
 
-{{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Using_promises", "Web/JavaScript/Guide/Iterators_and_generators")}}
+{{PreviousNext("Web/JavaScript/Guide/Using_promises", "Web/JavaScript/Guide/Iterators_and_generators")}}
 
 JavaScript 类型化数组是一种类似数组的对象，并提供了一种用于在内存缓冲中访问原始二进制数据的机制。
 
@@ -202,7 +202,7 @@ console.log(`32 位数组的索引 0 处数据是：${int32View[0]}`);
 ```plain
 Int16Array  |  32  |  0   |   2  |  0   |   4  |  0   |   6  |  0   |
 Int32Array  |     32      |      2      |      4      |      6      |
-ArrayBuffer | 00 02 00 00 | 02 00 00 00 | 04 00 00 00 | 06 00 00 00 |
+ArrayBuffer | 20 00 00 00 | 02 00 00 00 | 04 00 00 00 | 06 00 00 00 |
 ```
 
 你可以对任意视图类型进行这样的操作，尽管如果你设置一个整数，然后以浮点数的形式读取它，你可能会得到一个奇怪的结果，因为位的解释方式不同。
@@ -287,7 +287,7 @@ const normalArray = [...typedArray];
 ## 参见
 
 - [使用类型化数组实现快速的 Canvas 像素操作](https://hacks.mozilla.org/2011/12/faster-canvas-pixel-manipulation-with-typed-arrays/)
-- [类型化数组：浏览器中的二进制数据](https://web.dev/articles/webgl-typed-arrays)
+- [类型化数组：浏览器中的二进制数据](https://web.developers.google.cn/articles/webgl-typed-arrays)
 - [字节序](/zh-CN/docs/Glossary/Endianness)
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}

@@ -1,17 +1,33 @@
 ---
 title: Math.cos()
+short-title: cos()
 slug: Web/JavaScript/Reference/Global_Objects/Math/cos
+l10n:
+  sourceCommit: 544b843570cb08d1474cfc5ec03ffb9f4edc0166
 ---
 
-{{JSRef}}
+**`Math.cos()`** は静的メソッドで、ラジアンの数値の余弦（コサイン）を返します。
 
-**`Math.cos()`** は静的関数で、指定された角度の余弦 ([コサイン](https://ja.wikipedia.org/wiki/コサイン)) を返します。ここで角度は[ラジアン](https://ja.wikipedia.org/wiki/ラジアン)で指定します。この値は <math style="display: inline;"><mstyle displaystyle="true"><mfrac><msub><mrow><mtext>length</mtext> </mrow><mrow><mrow><mtext>adjacent</mtext> </mrow></mrow></msub><msub><mrow><mtext>length</mtext> </mrow><mrow><mrow><mtext>hypotenuse</mtext> </mrow></mrow></msub></mfrac></mstyle></math> です。
+{{InteractiveExample("JavaScript デモ: Math.cos()")}}
 
-{{EmbedInteractiveExample("pages/js/math-cos.html")}}
+```js interactive-example
+function getCircleX(radians, radius) {
+  return Math.cos(radians) * radius;
+}
+
+console.log(getCircleX(1, 10));
+// 予想される結果: 5.403023058681398
+
+console.log(getCircleX(2, 10));
+// 予想される結果: -4.161468365471424
+
+console.log(getCircleX(Math.PI, 10));
+// 予想される結果: -10
+```
 
 ## 構文
 
-```
+```js-nolint
 Math.cos(x)
 ```
 
@@ -22,11 +38,9 @@ Math.cos(x)
 
 ### 返値
 
-与えられた数値の余弦 (コサイン) です。
+`x` の余弦で、-1 から 1 まで（両端を含む）です。 `x` が{{jsxref("Infinity")}}、`-Infinity`、または {{jsxref("NaN")}} の場合、 {{jsxref("NaN")}} を返します。
 
 ## 解説
-
-`Math.cos()` メソッドはラジアンで指定された角度の余弦 (コサイン) を表す -1 から 1 までの範囲の数値を表します。
 
 `cos()` は `Math` の静的メソッドであるため、生成した `Math` オブジェクトのメソッドとしてではなく、常に `Math.cos()` として使用するようにしてください (`Math` はコンストラクターではありません)。
 
@@ -35,11 +49,13 @@ Math.cos(x)
 ### Math.cos() の使用
 
 ```js
+Math.cos(-Infinity); // NaN
+Math.cos(-0); // 1
 Math.cos(0); // 1
 Math.cos(1); // 0.5403023058681398
-
 Math.cos(Math.PI); // -1
 Math.cos(2 * Math.PI); // 1
+Math.cos(Infinity); // NaN
 ```
 
 ## 仕様書

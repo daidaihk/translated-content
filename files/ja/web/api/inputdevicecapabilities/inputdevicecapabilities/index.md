@@ -1,12 +1,11 @@
 ---
 title: "InputDeviceCapabilities: InputDeviceCapabilities() コンストラクター"
-short-title: InputDeviceCapabilities()
 slug: Web/API/InputDeviceCapabilities/InputDeviceCapabilities
 l10n:
   sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
 ---
 
-{{SeeCompatTable}}
+{{APIRef("Input Device Capabilities API")}}{{SeeCompatTable}}
 
 `InputDeviceCapabilities()` コンストラクターは新しい {{domxref("InputDeviceCapabilities")}} オブジェクトを作成し、タッチイベントを生成する物理機器に関する情報を提供します。
 
@@ -24,9 +23,7 @@ new InputDeviceCapabilities(InputDeviceCapabilitiesInit)
 ### 引数
 
 - `InputDeviceCapabilitiesInit` {{optional_inline}}
-
   - : 一連の機器能力を格納する辞書オブジェクト。以下のプロパティを持ちます。
-
     - `fireTouchEvents`: 機器でタッチイベントが配信されるかどうかを示す論理値です。
 
 ## 仕様書

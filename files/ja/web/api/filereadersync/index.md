@@ -11,7 +11,8 @@ l10n:
 
 {{AvailableInWorkers}}
 
-> **警告:** このインターフェイスは、ブロックが発生する可能性がある同期 I/O を使用するため、[ワーカー](/ja/docs/Web/API/Worker)**でのみ**利用できます。
+> [!WARNING]
+> このインターフェイスは、ブロックが発生する可能性がある同期 I/O を使用するため、[ワーカー](/ja/docs/Web/API/Worker)**でのみ**利用できます。
 
 ## コンストラクター
 
@@ -31,7 +32,7 @@ l10n:
 - {{DOMxRef("FileReaderSync.readAsText","FileReaderSync.readAsText()")}}
   - : このメソッドは、指定された {{DOMxRef("Blob")}} または {{DOMxRef("File")}} を、入力データをテキスト文字列として表す文字列に変換します。オプションの **`encoding`** 引数は、使用するエンコーディングを示します（iso-8859-1 や UTF-8 など）。これがない場合、このメソッドはエンコーディングの検出アルゴリズムを適用します。
 - {{DOMxRef("FileReaderSync.readAsDataURL","FileReaderSync.readAsDataURL()")}}
-  - : 指定された {{DOMxRef("Blob")}} または {{DOMxRef("File")}} を、入力データをデータ URL として表す文字列に変換します。
+  - : 指定された {{DOMxRef("Blob")}} または {{DOMxRef("File")}} を、入力データを data URL として表す文字列に変換します。
 
 ## 仕様書
 

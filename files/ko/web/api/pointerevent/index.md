@@ -56,17 +56,18 @@ l10n:
 
 `PointerEvent` 인터페이스에는 여러 이벤트 유형이 있습니다. 어떤 유형인지는 이벤트의 {{domxref("Event.type", "type")}} 속성으로 알 수 있습니다.
 
-> **참고:** 대부분의 경우, 비 포인터 이벤트 코드도 사용자와 상호작용할 수 있도록 포인터와 마우스 이벤트가 같이 발생한다는 점을 기억해야 합니다. 포인터 이벤트를 사용할 경우, {{ domxref("event.preventDefault()") }}로 마우스 이벤트의 발생을 막으세요.
+> [!NOTE]
+> 대부분의 경우, 비 포인터 이벤트 코드도 사용자와 상호작용할 수 있도록 포인터와 마우스 이벤트가 같이 발생한다는 점을 기억해야 합니다. 포인터 이벤트를 사용할 경우, {{ domxref("event.preventDefault()") }}로 마우스 이벤트의 발생을 막으세요.
 
 - {{domxref('Element/pointerover_event', 'pointerover')}}
   - : 포인터가 요소의 적중 테스트 경계 내로 들어오면 발생합니다.
 - {{domxref('Element/pointerenter_event', 'pointerenter')}}
   - : 포인터가 요소 또는 요소 자손의 적중 테스트 경계 내로 들어오면 발생합니다. 호버를 지원하지 않는 장치(`pointerdown`을 참고하세요)에서의 `pointerdown` 이벤트 결과로도 발생합니다. `pointerover`와 유사하지만 이 이벤트는 버블링하지 않습니다.
 - {{domxref('Element/pointerdown_event', 'pointerdown')}}
-
   - : 포인터가 "활성" 상태가 되면 발생합니다. 마우스에 있어서 활성은 장치의 버튼이 아무것도 눌리지 않은 상태에서 적어도 한 개의 버튼이 눌린 상태로 전환될 때입니다. 터치에서는 디지타이저와 물리적 접촉을 할 때고, 펜에서는 스타일러스가 디지타이저와 물리적 접촉을 할 때입니다.
 
-    > **참고:** [직접 조작](https://w3c.github.io/pointerevents/#dfn-direct-manipulation)을 지원하는 터치 화면 브라우저에서는 `pointerdown` 이벤트가 [암시적인 포인터 포획](https://w3c.github.io/pointerevents/#dfn-implicit-pointer-capture)을 유발하여 이후 발생하는 모든 포인터 이벤트가 대상에게 포획됩니다. 포획된 이벤트들은 포획 대상의 위에서 발생하는 것처럼 취급합니다. 따라서 포획 중에는 `pointerover`, `pointerenter`, `pointerleave`, `pointerout`이 **발생하지 않습니다**. 포인터 포획은 대상 요소의 {{domxref('element.releasePointerCapture')}}를 직접 호출해서 해제할 수도 있고, `pointerup`이나 `pointercancel` 이벤트가 발생하면 암시적으로 해제됩니다.
+    > [!NOTE]
+    > [직접 조작](https://w3c.github.io/pointerevents/#dfn-direct-manipulation)을 지원하는 터치 화면 브라우저에서는 `pointerdown` 이벤트가 [암시적인 포인터 포획](https://w3c.github.io/pointerevents/#dfn-implicit-pointer-capture)을 유발하여 이후 발생하는 모든 포인터 이벤트가 대상에게 포획됩니다. 포획된 이벤트들은 포획 대상의 위에서 발생하는 것처럼 취급합니다. 따라서 포획 중에는 `pointerover`, `pointerenter`, `pointerleave`, `pointerout`이 **발생하지 않습니다**. 포인터 포획은 대상 요소의 {{domxref('element.releasePointerCapture')}}를 직접 호출해서 해제할 수도 있고, `pointerup`이나 `pointercancel` 이벤트가 발생하면 암시적으로 해제됩니다.
 
 - {{domxref('Element/pointermove_event', 'pointermove')}}
   - : 포인터가 좌표를 바꾸면 발생합니다.

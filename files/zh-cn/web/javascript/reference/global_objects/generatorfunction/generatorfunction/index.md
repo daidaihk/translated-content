@@ -5,8 +5,6 @@ l10n:
   sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
 ---
 
-{{JSRef}}
-
 **`GeneratorFunction()`** 构造函数创建 {{jsxref("GeneratorFunction")}} 对象。
 
 请注意，`GeneratorFunction` *不是*全局对象。可以通过以下代码来获取它：
@@ -31,7 +29,8 @@ GeneratorFunction(arg1, arg2, functionBody)
 GeneratorFunction(arg1, arg2, /* …, */ argN, functionBody)
 ```
 
-> **备注：** 无论是否使用 [`new`](/zh-CN/docs/Web/JavaScript/Reference/Operators/new) 调用 `GeneratorFunction()`，都可以创建一个新的 `GeneratorFunction` 实例。
+> [!NOTE]
+> 无论是否使用 [`new`](/zh-CN/docs/Web/JavaScript/Reference/Operators/new) 调用 `GeneratorFunction()`，都可以创建一个新的 `GeneratorFunction` 实例。
 
 ### 参数
 

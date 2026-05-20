@@ -1,6 +1,8 @@
 ---
-title: FileSystemDirectoryReader.readEntries()
+title: FileSystemDirectoryReader：readEntries() 方法
 slug: Web/API/FileSystemDirectoryReader/readEntries
+l10n:
+  sourceCommit: ce76486041ebf62c43750031d4546a5e18f2bdcd
 ---
 
 {{APIRef("File and Directory Entries API")}}
@@ -39,11 +41,10 @@ readEntries(successCallback, errorCallback)
 
 {{Compat}}
 
-在 Chrome 77 上，`readEntries()` 只会返回前 100 个 `FileSystemEntry` 实例。为了获取所有的实例，请多次调用 `readEntries()`。
+在基于 Chromium 的浏览器中，`readEntries()` 只会返回前 100 个 `FileSystemEntry` 实例。为了获取所有的实例，请多次调用 `readEntries()`。
 
 ## 参见
 
 - [文件与目录条目 API](/zh-CN/docs/Web/API/File_and_Directory_Entries_API)
-- [文件与目录条目 API 简介](/zh-CN/docs/Web/API/File_and_Directory_Entries_API/Introduction)
 - {{domxref("FileSystemDirectoryEntry")}}
 - {{domxref("FileSystem")}}

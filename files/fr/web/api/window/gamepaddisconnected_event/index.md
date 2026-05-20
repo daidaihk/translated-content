@@ -1,39 +1,56 @@
 ---
-title: gamepaddisconnected
+title: "Window : évènement gamepaddisconnected"
+short-title: gamepaddisconnected
 slug: Web/API/Window/gamepaddisconnected_event
+l10n:
+  sourceCommit: f5e710f5c620c8d3c8b179f3b062d6bbdc8389ec
 ---
 
-L'événement `gamepaddisconnected` est déclenché lorsque le navigateur détecte le fait qu'une manette ait été débranchée.
+{{APIRef}}
 
-## Informations générales
+L'évènement `gamepaddisconnected` de l'interface {{DOMxRef("Window")}} est déclenché lorsque le navigateur détecte qu'une manette a été déconnectée.
 
-- Spécification
-  - : [Gamepad](http://www.w3.org/TR/gamepad/#the-gamepaddisconnected-event)
-- Interface
-  - : {{domxref("Event")}}
-- Propagation
-  - : Non
-- Annulable
-  - : Non
-- Cible
-  - : DefaultView (`<window>`)
-- Action par défaut
-  - : Aucune
+L'évènement ne se déclenche pas si le document l'interdit par la [politique d'autorisations](/fr/docs/Web/HTTP/Guides/Permissions_Policy) {{HTTPHeader("Permissions-Policy/gamepad", "gamepad")}}.
 
-## Propriétés
+Cet évènement n'est pas annulable et ne se propage pas.
 
-| Property                        | Type                       | Description                                                                                 |
-| ------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------- |
-| `target` {{readonlyInline}}     | {{domxref("EventTarget")}} | The event target (the topmost target in the DOM tree).                                      |
-| `type` {{readonlyInline}}       | {{domxref("DOMString")}}   | The type of event.                                                                          |
-| `bubbles` {{readonlyInline}}    | {{jsxref("Boolean")}}      | Whether the event normally bubbles or not.                                                  |
-| `cancelable` {{readonlyInline}} | {{jsxref("Boolean")}}      | Whether the event is cancellable or not.                                                    |
-| `gamepad` {{readonlyInline}}    | {{domxref("Gamepad")}}     | The single gamepad attribute provides access to the associated gamepad data for this event. |
+## Syntaxe
 
-## Evénements liés
+Utilisez le nom de l'évènement dans des méthodes comme {{DOMxRef("EventTarget.addEventListener", "addEventListener()")}}, ou définissez une propriété de gestionnaire d'évènement.
 
-- [gamepadconnected](/fr/docs/Web/Reference/Events/gamepadconnected)
+```js-nolint
+addEventListener("gamepaddisconnected", (event) => { })
+
+ongamepaddisconnected = (event) => { }
+```
+
+## Exemples
+
+Pour être informé lorsqu'une manette est déconnectée, vous pouvez ajouter un gestionnaire à la fenêtre en utilisant {{DOMxRef("EventTarget.addEventListener", "addEventListener()")}}, comme ceci&nbsp;:
+
+```js
+window.addEventListener("gamepaddisconnected", (event) => {
+  console.log("Perte de connexion avec la manette.");
+});
+```
+
+D'autre part, vous pouvez utiliser la propriété de gestionnaire d'évènement `window.ongamepaddisconnected` pour établir un gestionnaire pour l'évènement `gamepaddisconnected`&nbsp;:
+
+```js
+window.ongamepaddisconnected = (event) => {
+  console.log("Perte de connexion avec la manette.");
+};
+```
+
+## Spécifications
+
+{{Specifications}}
+
+## Compatibilité des navigateurs
+
+{{Compat}}
 
 ## Voir aussi
 
-- [Utilisation de l'API Gamepad](/fr/docs/API/Gamepad/Using_Gamepad_API)
+- L'évènement {{DOMxRef("Window/gamepadconnected_event", "gamepadconnected")}}
+- [Utiliser l'API Gamepad](/fr/docs/Web/API/Gamepad_API/Using_the_Gamepad_API)

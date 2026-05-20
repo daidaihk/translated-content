@@ -22,7 +22,7 @@ l10n:
 - 一部の特殊なキーボードのキー（マルチメディアキーボードでメディアを制御するための拡張キーなど）は、 Windows ではキーコードを生成しません。その代わりに、 `WM_APPCOMMAND` イベントが発生します。これらのイベントは DOM キーボードイベントにマッピングされ、 Windows の「仮想キーコード」にリストアップされます（実際にはキーコードではありませんが）。
 - キーを特定できない場合、返される値は `Unidentified` になります。
 
-> **注目:**
+> [!CALLOUT]
 >
 > [キー値の完全なリスト](/ja/docs/Web/API/UI_Events/Keyboard_event_key_values)をご覧ください。
 
@@ -136,7 +136,8 @@ btnReset.addEventListener("click", (e) => {
 
 {{EmbedLiveSample('KeyboardEvent_sequence_example')}}
 
-> **メモ:** {{domxref("HTMLElement/beforeinput_event", "beforeinput")}} と {{domxref("HTMLElement/input_event", "input")}} イベントで使用されている {{domxref("InputEvent")}} インターフェイスを完全に実装していないブラウザーでは、誤ったログ出力をする可能性があります。
+> [!NOTE]
+> {{domxref("HTMLElement/beforeinput_event", "beforeinput")}} と {{domxref("HTMLElement/input_event", "input")}} イベントで使用されている {{domxref("InputEvent")}} インターフェイスを完全に実装していないブラウザーでは、誤ったログ出力をする可能性があります。
 
 ### ケース 1
 

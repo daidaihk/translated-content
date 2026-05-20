@@ -5,13 +5,40 @@ slug: Web/JavaScript/Reference/Global_Objects/Object
 
 {{JSRef}}
 
-Тип **`Object`** представляет один из [типов данных JavaScript](/ru/docs/Web/JavaScript/Data_structures). Он используется для хранения различных коллекций с ключами и более сложных сущностей. Объекты могут быть созданы с использованием конструктора {{jsxref("Object/Object", "Object()")}} или [синтаксиса инициализатора / литерала объекта](/ru/docs/Web/JavaScript/Reference/Operators/Object_initializer).
+Тип **`Object`** представляет один из [типов данных JavaScript](/ru/docs/Web/JavaScript/Guide/Data_structures). Он используется для хранения различных коллекций с ключами и более сложных сущностей. Объекты могут быть созданы с использованием конструктора {{jsxref("Object/Object", "Object()")}} или [синтаксиса инициализатора / литерала объекта](/ru/docs/Web/JavaScript/Reference/Operators/Object_initializer).
 
 ## Описание
 
-Почти все [объекты](/ru/docs/Web/JavaScript/Data_structures#объекты) в JavaScript являются экземплярами `Object`; типичный объект наследует свойства (включая методы) от `Object.prototype`, хотя эти свойства могут быть затенены (т.е. переопределены). Единственные объекты, которые не наследуют от `Object.prototype`, - это те, у которых [прототип `null`](#null-prototype_objects), или которые происходят от других объектов с прототипом `null`.
+Почти все [объекты](/ru/docs/Web/JavaScript/Guide/Data_structures#объекты) в JavaScript являются экземплярами `Object`; типичный объект наследует свойства (включая методы) от `Object.prototype`, хотя эти свойства могут быть затенены (т.е. переопределены). Единственные объекты, которые не наследуют от `Object.prototype`, - это те, у которых [прототип `null`](#null-prototype_objects), или которые происходят от других объектов с прототипом `null`.
 
 Изменения в объекте `Object.prototype` видны всем объектам с помощью цепочки прототипов, если свойства и методы, подверженные этим изменениям, не переопределены дальше по цепочке прототипов. Это предоставляет очень мощный, хотя и потенциально опасный механизм для переопределения или расширения поведения объектов. Для обеспечения большей безопасности, `Object.prototype` - единственный объект в основном языке JavaScript, у которого [неизменяемый прототип](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf#описание) - прототип `Object.prototype` всегда `null` и не может быть изменен.
+
+### Свойства прототипа Object
+
+Следует избегать прямого вызова методов `Object.prototype` из экземпляра, особенно тех, которые не предназначены для полиморфизма (то есть имеет смысл только их начальное поведение, и объект-наследник не может переопределить его осмысленным образом). Все объекты, являющиеся потомками `Object.prototype`, могут определять собственное свойство с тем же именем, но с совершенно иной семантикой. Кроме того, эти свойства не наследуются объектами с `null`-прототипом. Все современные утилиты JavaScript для работы с объектами являются статическими:
+
+- Методы [`valueOf()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf), [`toString()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) и [`toLocaleString()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/toLocaleString) являются полиморфными, и следует ожидать, что объект определит собственную реализацию с разумным поведением, поэтому их можно вызывать как методы экземпляра. Однако методы `valueOf()` и `toString()` обычно вызываются неявно через [преобразование типа](/ru/docs/Web/JavaScript/Guide/Data_structures#type_coercion), поэтому не нужно вызывать их явно в своем коде.
+- Методы [`__defineGetter__()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__), [`__defineSetter__()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__), [`__lookupGetter__()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__) и [`__lookupSetter__()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__) являются устаревшими и не должны использоваться. Вместо них следует использовать статические альтернативы {{jsxref("Object.defineProperty()")}} и {{jsxref("Object.getOwnPropertyDescriptor()")}}.
+- Свойство [`__proto__`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) является устаревшим и не должно использоваться. Его альтернативы — статические методы {{jsxref("Object.getPrototypeOf()")}} и {{jsxref("Object.setPrototypeOf()")}}.
+- Методы [`propertyIsEnumerable()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable) и [`hasOwnProperty()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) можно заменить на статические методы {{jsxref("Object.getOwnPropertyDescriptor()")}} и {{jsxref("Object.hasOwn()")}}, соответственно.
+- Метод [`isPrototypeOf()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf) обычно можно заменить на [`instanceof`](/ru/docs/Web/JavaScript/Reference/Operators/instanceof) для проверки свойства `prototype` конструктора.
+
+В случае, когда семантически эквивалентный статический метод не существует или действительно необходимо использовать метод из `Object.prototype`, следует вызвать метод [`call()`](/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/call) для целевого объекта, чтобы предотвратить появление у объекта переопределённого свойства, которое может привести к неожиданным результатам.
+
+```js
+const obj = {
+  foo: 1,
+  // Не следует определять такой метод в собственном объекте,
+  // но может не быть возможности предотвратить это, если
+  // объект получен из внешнего источника данных
+  propertyIsEnumerable() {
+    return false;
+  },
+};
+
+obj.propertyIsEnumerable("foo"); // false; неожиданный результат
+Object.prototype.propertyIsEnumerable.call(obj, "foo"); // true; ожидаемый результат
+```
 
 ## Синтаксис
 
@@ -102,9 +129,9 @@ new Object([value])
 - {{jsxref("Object.prototype.hasOwnProperty()")}}
   - : Возвращает логическое значение, указывающее, содержит ли объект указанное свойство как прямое свойство этого объекта, а не унаследованное через цепочку прототипов.
 - {{jsxref("Object.prototype.isPrototypeOf()")}}
-  - : Возвращает логическое значение, указывающее, содержит ли объект указанное свойство как прямое свойство этого объекта, а не унаследованное через цепочку прототипов.
+  - : Возвращает логическое значение, указывающее, входит ли объект, у которого вызван метод, в цепочку прототипов другого объекта.
 - {{jsxref("Object.prototype.propertyIsEnumerable()")}}
-  - : Возвращает логическое значение, указывающее, является ли указанное свойство свойством объекта [enumerable own](/ru/docs/Web/JavaScript/Enumerability_and_ownership_of_properties).
+  - : Возвращает логическое значение, указывающее, является ли указанное свойство свойством объекта [enumerable own](/ru/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties).
 - {{jsxref("Object.prototype.toLocaleString()")}}
   - : Вызывает {{jsxref("Object/toString", "toString()")}}.
 - {{jsxref("Object.prototype.toString()")}}

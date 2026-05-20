@@ -15,7 +15,8 @@ l10n:
 
 До HTML 5 возвращаемым объектом был {{domxref("HTMLCollection")}}, на котором основан `HTMLFormControlsCollection`.
 
-> **Примечание:** Аналогичным образом можно получить список всех форм, содержащихся в документе, используя свойство документа {{domxref("Document.forms", "forms")}}.
+> [!NOTE]
+> Аналогичным образом можно получить список всех форм, содержащихся в документе, используя свойство документа {{domxref("Document.forms", "forms")}}.
 
 ## Значение
 
@@ -28,7 +29,7 @@ l10n:
 
 - {{HTMLElement("button")}}
 - {{HTMLElement("fieldset")}}
-- {{HTMLElement("input")}} (за исключением элементов, у которых атрибут [`type`](/ru/docs/Web/HTML/Element/input#type) равен `"image"`, по историческим причинам)
+- {{HTMLElement("input")}} (за исключением элементов, у которых атрибут [`type`](/ru/docs/Web/HTML/Reference/Elements/input#type) равен `"image"`, по историческим причинам)
 - {{HTMLElement("object")}}
 - {{HTMLElement("output")}}
 - {{HTMLElement("select")}}

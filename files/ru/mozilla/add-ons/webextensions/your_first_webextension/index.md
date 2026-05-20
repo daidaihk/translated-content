@@ -7,7 +7,8 @@ l10n:
 
 {{AddonSidebar}}
 
-> **Примечание:** Если вы уже знакомы с основными понятиями о браузерных расширениях, то можете пропустить этот раздел и [узнать как собираются файлы расширений](/ru/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension). Также вы можете использовать [справочную документацию](/ru/docs/Mozilla/Add-ons/WebExtensions#reference) чтобы начать создавать свои расширения. Посетите [Мастер-класс по расширениям Firefox](https://extensionworkshop.com/?utm_source=developer.mozilla.org&utm_medium=documentation&utm_campaign=your-first-extension) чтобы узнать больше о тестировании и публикации расширений для Firefox
+> [!NOTE]
+> Если вы уже знакомы с основными понятиями о браузерных расширениях, то можете пропустить этот раздел и [узнать как собираются файлы расширений](/ru/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension). Также вы можете использовать [справочную документацию](/ru/docs/Mozilla/Add-ons/WebExtensions#reference) чтобы начать создавать свои расширения. Посетите [Мастер-класс по расширениям Firefox](https://extensionworkshop.com/?utm_source=developer.mozilla.org&utm_medium=documentation&utm_campaign=your-first-extension) чтобы узнать больше о тестировании и публикации расширений для Firefox
 
 В этой статье мы пройдём весь путь создания расширения для Firefox от начала и до конца. Это расширение будет просто добавлять красную рамку ко всем страницам, загруженным с `mozilla.org` или любого из его поддоменов.
 
@@ -24,7 +25,7 @@ cd borderify
 
 ### manifest.json
 
-Используя удобный [текстовый редактор](/ru/docs/Learn/Common_questions/Tools_and_setup/Available_text_editors), создайте в папке `borderify` новый файл с именем `manifest.json` и таким содержимым:
+Используя удобный [текстовый редактор](/ru/docs/Learn_web_development/Howto/Tools_and_setup/Available_text_editors), создайте в папке `borderify` новый файл с именем `manifest.json` и таким содержимым:
 
 ```json
 {
@@ -55,7 +56,8 @@ cd borderify
 
 - [Узнать больше о шаблонах совпадения](/ru/docs/Mozilla/Add-ons/WebExtensions/Match_patterns)
 
-> **Предупреждение:** [В некоторых случаях вам нужно указать ID для вашего дополнения](https://extensionworkshop.com/documentation/develop/extensions-and-the-add-on-id/#when_do_you_need_an_add-on_id). Если это необходимо, то добавьте ключ [`browser_specific_settings`](/ru/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) в файл `manifest.json` и установите свойство `gecko.id`:
+> [!WARNING]
+> [В некоторых случаях вам нужно указать ID для вашего дополнения](https://extensionworkshop.com/documentation/develop/extensions-and-the-add-on-id/#when_do_you_need_an_add-on_id). Если это необходимо, то добавьте ключ [`browser_specific_settings`](/ru/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) в файл `manifest.json` и установите свойство `gecko.id`:
 >
 > ```json
 > "browser_specific_settings": {
@@ -118,13 +120,15 @@ borderify/
 
 ### Тестирование
 
-> **Примечание:** По умолчанию [расширения не работают в режиме приватного просмотра](https://support.mozilla.org/ru/kb/dopolneniya-v-rezhime-privatnogo-prosmotra). Если вы хотите протестировать расширение в режиме приватного просмотра, то откройте `about:addons`, выберите расширение и установите переключатель `Запуск в приватных окнах` в положение `Разрешить`.
+> [!NOTE]
+> По умолчанию [расширения не работают в режиме приватного просмотра](https://support.mozilla.org/ru/kb/dopolneniya-v-rezhime-privatnogo-prosmotra). Если вы хотите протестировать расширение в режиме приватного просмотра, то откройте `about:addons`, выберите расширение и установите переключатель `Запуск в приватных окнах` в положение `Разрешить`.
 
 Теперь перейдите на любую страницу "`https://www.mozilla.org/ru/`" и вы должны будете увидеть красную границу вокруг страницы.
 
 ![На mozilla.org отображается рамка](border_on_mozilla_org.png)
 
-> **Примечание:** Не проверяйте на `addons.mozilla.org`! Встраиваемые скрипты на данный момент запрещены на этом поддомене.
+> [!NOTE]
+> Не проверяйте на `addons.mozilla.org`! Встраиваемые скрипты на данный момент запрещены на этом поддомене.
 
 Попробуйте немного поэкспериментировать. Измените цвет границы или сделайте что-нибудь ещё с содержимым страницы. Для этого внесите изменения в скрипт и перезагрузите файлы расширения, нажав кнопку `Обновить` в `about:debugging`. Сразу после этого изменения станут видны.
 

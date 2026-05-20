@@ -3,8 +3,6 @@ title: Firefox 27 for developers
 slug: Mozilla/Firefox/Releases/27
 ---
 
-{{FirefoxSidebar}}
-
 ## Web 开发者需要注意的变化
 
 ### 开发者工具
@@ -52,6 +50,6 @@ _No change._
 
 - [Site Compatibility for Firefox 27](/zh-CN/docs/Mozilla/Firefox/Releases/27/Site_Compatibility)
 
-### 更早版本
+### 更早期的版本
 
-{{Firefox_for_developers('26')}}
+{{Firefox_for_developers}}

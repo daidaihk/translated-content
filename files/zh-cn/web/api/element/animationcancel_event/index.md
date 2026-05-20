@@ -5,14 +5,16 @@ slug: Web/API/Element/animationcancel_event
 
 {{APIRef("CSS3 Animations")}}
 
-animationcancel 是一个事件处理操作，这个事件在[CSS Animation](/zh-CN/docs/Web/CSS/CSS_animations)属性意外中断时派发出来 (换句话说，任何时候 animation 停止运行不会发出一个 animationend 事件，比如，当 animation-name 改变以后，animation 就会被移除，或者动画节点隐藏—当前元素或者任何包含的节点隐藏)—使用 css 时。
+animationcancel 是一个事件处理操作，这个事件在[CSS Animation](/zh-CN/docs/Web/CSS/Guides/Animations)属性意外中断时派发出来 (换句话说，任何时候 animation 停止运行不会发出一个 animationend 事件，比如，当 animation-name 改变以后，animation 就会被移除，或者动画节点隐藏—当前元素或者任何包含的节点隐藏)—使用 css 时。
 
 ## 语法
 
-```
-var animCancelHandler = target.onanimationcancel;
+在类似 {{domxref("EventTarget.addEventListener", "addEventListener()")}} 这样的方法中使用事件名称，或设置事件处理器属性。
 
-target.onanimationcancel = {{jsxref("Function")}}
+```js
+addEventListener("animationcancel", (event) => {});
+
+onanimationcancel = (event) => {};
 ```
 
 ## 示例
@@ -157,7 +159,8 @@ function toggleBox() {
 
 Toggling the box to `display: none` has the effect of aborting its animation. In browsers that support `animationcancel`, the event is fired and this handler is called.
 
-> **备注：** At this time, no major browser supports `animationcancel`.
+> [!NOTE]
+> At this time, no major browser supports `animationcancel`.
 
 ### 结果
 

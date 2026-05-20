@@ -10,7 +10,8 @@ l10n:
 
 La méthode **`permissionState()`** de l'interface [`PushManager`](/fr/docs/Web/API/PushManager) renvoie une [promesse (`Promise`)](/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise) qui se résout en une chaîne de caractères indiquant l'état de la permission du gestionnaire de push. Les valeurs possibles sont `'prompt'`, `'denied'`, ou `'granted'`.
 
-> **Note :** Depuis Firefox 44, les autorisations pour [Notifications](/fr/docs/Web/API/Notifications_API) et [Push](/fr/docs/Web/API/Push_API) ont été fusionnées. Si l'autorisation est accordée pour les notifications, le push sera également activé.
+> [!NOTE]
+> Depuis Firefox 44, les autorisations pour [Notifications](/fr/docs/Web/API/Notifications_API) et [Push](/fr/docs/Web/API/Push_API) ont été fusionnées. Si l'autorisation est accordée pour les notifications, le push sera également activé.
 
 ## Syntaxe
 
@@ -22,9 +23,7 @@ permissionState(options)
 ### Paramètres
 
 - `options` {{optional_inline}}
-
   - : Un objet contenant des paramètres de configuration optionnels. Il peut avoir les propriétés suivantes&nbsp;:
-
     - `userVisibleOnly`
       - : Un booléen indiquant que l'abonnement push renvoyé ne sera utilisé que pour les messages dont l'effet est visible pour l'utilisatrice ou l'utilisateur.
     - `applicationServerKey`

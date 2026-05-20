@@ -3,14 +3,13 @@ title: Reflect.set()
 slug: Web/JavaScript/Reference/Global_Objects/Reflect/set
 ---
 
-{{JSRef}}
-
 静态方法 **`Reflect.set()`** 工作方式就像在一个对象上设置一个属性。
 
 ## 语法
 
-```plain
-Reflect.set(target, propertyKey, value[, receiver])
+```js-nolint
+Reflect.set(target, propertyKey, value)
+Reflect.set(target, propertyKey, value, receiver)
 ```
 
 ### 参数

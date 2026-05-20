@@ -7,11 +7,12 @@ slug: Web/API/Web_components/Using_shadow_DOM
 
 Un aspecto importante de los componentes Web es la encapsulación — ser capaz de mantener la estructura de marcado, estilo, y comportamiento oculto y separado de otro código en la página para que las diferentes partes no entre en conflicto, y el código pueda permanecer limpio y agradable. El API de DOM Shadow es un parte clave para esto, proporcionando una forma de enlazar un DOM oculto y separado a un elemento. Este artículo cubre los aspectos básicos para utilizar Shadow DOM.
 
-> **Nota:** Shadow DOM es soportado por defecto en Firefox (63 en adelante), Chrome, Opera, y Safari. Edge también está trabajando en una implemetanción.
+> [!NOTE]
+> Shadow DOM es soportado por defecto en Firefox (63 en adelante), Chrome, Opera, y Safari. Edge también está trabajando en una implemetanción.
 
 ## Vista de alto nivel
 
-Este artículo asume que usted está familiarizado con el concepto de [DOM (Document Object Model)](/es/docs/Web/API/Document_Object_Model/Introduction) — una estructura en forma de arbol de nodos conectados que representan los diferentes elementos y cadenas de texto que aparecen en un documento de marcado (generalmente un documento HTML en el caso de documentos web). Como ejemplo, considere el siguiente fragmento HTML:
+Este artículo asume que usted está familiarizado con el concepto de [DOM (Document Object Model)](/es/docs/conflicting/Web/API/Document_Object_Model_a0b90593de4c5cb214690e823be115a18d605d4bc7719ba296e212da2abe18ef) — una estructura en forma de arbol de nodos conectados que representan los diferentes elementos y cadenas de texto que aparecen en un documento de marcado (generalmente un documento HTML en el caso de documentos web). Como ejemplo, considere el siguiente fragmento HTML:
 
 ```html
 <!doctype html>
@@ -70,7 +71,8 @@ let myShadowDom = myCustomElem.shadowRoot;
 
 If you attach a shadow root to a custom element with `mode: closed` set, you won't be able to access the shadow DOM from the outside — `myCustomElem.shadowRoot` returns `null`. This is the case with built in elements that contain shadow DOMs, such as `<video>`.
 
-> **Nota:** As [this blog post shows](https://blog.revillweb.com/open-vs-closed-shadow-dom-9f3d7427d1af), it is actually fairly easy to work around closed shadow DOMs, and the hassle to completely hide them is often more than it's worth.
+> [!NOTE]
+> As [this blog post shows](https://blog.revillweb.com/open-vs-closed-shadow-dom-9f3d7427d1af), it is actually fairly easy to work around closed shadow DOMs, and the hassle to completely hide them is often more than it's worth.
 
 If you are attaching a shadow DOM to a custom element as part of its constructor (by far the most useful application of the shadow DOM), you would use something like this:
 
@@ -196,7 +198,7 @@ wrapper.appendChild(info);
 
 ### Using our custom element
 
-Once the class is defined, using the element is as simple as defining it, and putting it on the page, as explained in [Using custom elements](/es/docs/Web/Web_Components/Using_custom_elements):
+Once the class is defined, using the element is as simple as defining it, and putting it on the page, as explained in [Using custom elements](/es/docs/Web/API/Web_components/Using_custom_elements):
 
 ```js
 // Define the new element
@@ -211,5 +213,5 @@ customElements.define("popup-info", PopUpInfo);
 
 ## See also
 
-- [Using custom elements](/es/docs/Web/Web_Components/Using_custom_elements)
-- [Using templates and slots](/es/docs/Web/Web_Components/Using_templates_and_slots)
+- [Using custom elements](/es/docs/Web/API/Web_components/Using_custom_elements)
+- [Using templates and slots](/es/docs/Web/API/Web_components/Using_templates_and_slots)

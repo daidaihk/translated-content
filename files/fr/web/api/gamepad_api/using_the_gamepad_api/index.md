@@ -13,7 +13,8 @@ L'API [<i lang="en">Gamepad</i>](/fr/docs/Web/API/Gamepad_API) introduit de nouv
 
 Lorsqu'une nouvelle manette est connectée à l'ordinateur, la page qui a le focus reçoit d'abord un évènement [`gamepadconnected`](/fr/docs/Web/API/Window/gamepadconnected_event). Si une manette est déjà connectée lorsque la page est chargée, l'évènement [`gamepadconnected`](/fr/docs/Web/API/Window/gamepadconnected_event) est émis sur la page lorsque la personne appuie sur un bouton ou déplace un axe.
 
-> **Note :** Dans Firefox, les manettes sont uniquement exposées à la page après qu'il y a eu une interaction de la personne avec la page. Cela permet d'éviter à ce que les manettes soient utilisées pour créer une empreinte, de faciliter le pistage. Une fois qu'une manette a interagi avec la page, les autres manettes connectées seront automatiquement visibles.
+> [!NOTE]
+> Dans Firefox, les manettes sont uniquement exposées à la page après qu'il y a eu une interaction de la personne avec la page. Cela permet d'éviter à ce que les manettes soient utilisées pour créer une empreinte, de faciliter le pistage. Une fois qu'une manette a interagi avec la page, les autres manettes connectées seront automatiquement visibles.
 
 On peut utiliser [`gamepadconnected`](/fr/docs/Web/API/Window/gamepadconnected_event) comme ceci&nbsp;:
 
@@ -122,7 +123,8 @@ Les propriétés d'un objet [`Gamepad`](/fr/docs/Web/API/Gamepad) sont&nbsp;:
 - `timestamp`
   - : : Un objet [`DOMHighResTimeStamp`](/fr/docs/Web/API/DOMHighResTimeStamp) indiquant le dernier instant auquel les données des manettes ont été mises à jour. Cela permet de déterminer si les données fournies par `axes` et `button` ont été mises à jour par le matériel. Cette valeur doit être relative à l'attribut `navigationStart` de l'interface [`PerformanceTiming`](/fr/docs/Web/API/PerformanceTiming). Les valeurs augmentent de façon monotone, ce qui signifie qu'on peut les comparer pour déterminer l'ordre des mises à jour (les valeurs les plus récentes seront toujours supérieures aux valeurs antérieures). Cette propriété n'est actuellement pas prise en charge par Firefox.
 
-> **Note :** L'objet `Gamepad` est disponible sur l'évènement [`gamepadconnected`](/fr/docs/Web/API/Window/gamepadconnected_event) plutôt que sur l'objet [`Window`](/fr/docs/Web/API/Window) pour des raisons de sécurité. Une fois qu'une référence est obtenue, on peut consulter ses propriétés pour obtenir des informations à propos de la manette. Sous le capot, cet objet est mis à jour à chaque fois que l'état de la manette change.
+> [!NOTE]
+> L'objet `Gamepad` est disponible sur l'évènement [`gamepadconnected`](/fr/docs/Web/API/Window/gamepadconnected_event) plutôt que sur l'objet [`Window`](/fr/docs/Web/API/Window) pour des raisons de sécurité. Une fois qu'une référence est obtenue, on peut consulter ses propriétés pour obtenir des informations à propos de la manette. Sous le capot, cet objet est mis à jour à chaque fois que l'état de la manette change.
 
 ### Utiliser les informations des boutons
 
@@ -175,7 +177,7 @@ window.addEventListener("gamepaddisconnected", function (e) {
 });
 ```
 
-Pour Chrome, les choses sont différentes. Le navigateur ne stocke qu'un instantané de l'état de la manette et il faut donc continuellement rafraîchir l'état connu avant d'utiliser l'objet [`Gamepad`](/fr/docs/Web/API/Gamepad) lorsque celui-ci devient disponible. Dans le code qui suit, on fait cela avec [`setInterval()`](/fr/docs/Web/API/setInterval). Une fois que l'objet est disponible, les informations sont affichées, la boucle de jeu commence et l'intervalle de répétition pour l'état de la manette est arrêté avec [`clearInterval`](/fr/docs/Web/API/clearInterval). Pour les versions les plus anciennes de Chrome, [`Navigator.getGamepads()`](/fr/docs/Web/API/Navigator/getGamepads) est implémentée avec un préfixe `webkit`. Pour une rétro-compatibilité, on essaie ici de détecter et de gérer les deux cas (avec et sans préfixe).
+Pour Chrome, les choses sont différentes. Le navigateur ne stocke qu'un instantané de l'état de la manette et il faut donc continuellement rafraîchir l'état connu avant d'utiliser l'objet [`Gamepad`](/fr/docs/Web/API/Gamepad) lorsque celui-ci devient disponible. Dans le code qui suit, on fait cela avec [`setInterval()`](/fr/docs/Web/API/Window/setInterval). Une fois que l'objet est disponible, les informations sont affichées, la boucle de jeu commence et l'intervalle de répétition pour l'état de la manette est arrêté avec [`clearInterval`](/fr/docs/Web/API/Window/clearInterval). Pour les versions les plus anciennes de Chrome, [`Navigator.getGamepads()`](/fr/docs/Web/API/Navigator/getGamepads) est implémentée avec un préfixe `webkit`. Pour une rétro-compatibilité, on essaie ici de détecter et de gérer les deux cas (avec et sans préfixe).
 
 ```js
 let interval;
@@ -212,7 +214,7 @@ function pollGamepads() {
 }
 ```
 
-Voyons maintenant la boucle de jeu principale. Pour chaque exécution de la boucle, on regarde si un des quatre boutons est pressé. Si c'est le cas, on met à jour les variables de mouvement `a` et `b` de façon correspondante. Ensuite, on met à jour les propriétés CSS [`left`](/fr/docs/Web/CSS/left) et [`top`](/fr/docs/Web/CSS/top) avec les valeurs respectives de `a` et `b`. En pratique, cela aura pour effet de déplacer la balle sur l'écran.
+Voyons maintenant la boucle de jeu principale. Pour chaque exécution de la boucle, on regarde si un des quatre boutons est pressé. Si c'est le cas, on met à jour les variables de mouvement `a` et `b` de façon correspondante. Ensuite, on met à jour les propriétés CSS [`left`](/fr/docs/Web/CSS/Reference/Properties/left) et [`top`](/fr/docs/Web/CSS/Reference/Properties/top) avec les valeurs respectives de `a` et `b`. En pratique, cela aura pour effet de déplacer la balle sur l'écran.
 
 Une fois que tout ça est fait, on utilise `requestAnimationFrame()` pour passer à la <i lang="en">frame</i> suivante, où on exécute à nouveau `gameLoop()`.
 

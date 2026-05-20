@@ -27,12 +27,10 @@ SyntaxError: for-in loop variable declaration may not have an initializer. (Chro
 
 この例では `SyntaxError` が発生します。
 
-```js example-bad
-"use strict";
+```js-nolint example-bad
+const obj = { a: 1, b: 2, c: 3 };
 
-var obj = {a: 1, b: 2, c: 3 };
-
-for (var i = 0 in obj) {
+for (const i = 0 in obj) {
   console.log(obj[i]);
 }
 
@@ -67,7 +65,7 @@ for (var i = 2; i < arr.length; i++) {
 // "c"
 ```
 
-## 関連項目
+## 関連情報
 
 - [`for...in`](/ja/docs/Web/JavaScript/Reference/Statements/for...in)
 - [`for...of`](/ja/docs/Web/JavaScript/Reference/Statements/for...of) – こちらも strict モードであろうとなかろうと初期化子が使用できない。

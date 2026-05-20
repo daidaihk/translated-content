@@ -3,13 +3,16 @@ title: FormData.set()
 slug: Web/API/FormData/set
 ---
 
-{{APIRef("XMLHttpRequest")}}
+{{AvailableInWorkers}}
+
+{{APIRef("XMLHttpRequest API")}}
 
 {{domxref("FormData")}} 인터페이스의 **`set()`** 메서드는 `FormData` 객체 내에 있는 기존 키에 새 값을 설정하거나, 존재하지 않을 경우 key/value을 추가합니다.
 
 `set()` 과 {{domxref("FormData.append")}} 의 차이점은 지정된 키가 이미 존재할 경우에, `set()` 은 모든 기존 값들을 새로운 값으로 덮어쓰기하는 반면, {{domxref("FormData.append")}} 는 기존 값의 끝에 새 값을 추가합니다.
 
-> **참고:** 이 메서드는 [Web Worker](/ko/docs/Web/API/Web_Workers_API)에서 사용할 수 있습니다.
+> [!NOTE]
+> 이 메서드는 [Web Worker](/ko/docs/Web/API/Web_Workers_API)에서 사용할 수 있습니다.
 
 ## Syntax
 
@@ -29,7 +32,8 @@ formData.set(name, value, filename);
 - `filename` {{optional_inline}}
   - : {{domxref("Blob")}} 또는 {{domxref("File")}} 이 두 번째 매개 변수로 전달될 때, 서버에 리포트하는 파일 이름(a {{domxref("USVString")}})입니다. {{domxref("Blob")}} 객체의 기본 파일 이름은 "blob"입니다.
 
-> **참고:** {{domxref("Blob")}} 을 `FormData` 객체에 추가할 데이터로 지정하면, "Content-Disposition" 헤더에서 서버에 리포트하는 파일 이름이 브라우저마다 다를 수 있습니다.
+> [!NOTE]
+> {{domxref("Blob")}} 을 `FormData` 객체에 추가할 데이터로 지정하면, "Content-Disposition" 헤더에서 서버에 리포트하는 파일 이름이 브라우저마다 다를 수 있습니다.
 
 ## Example
 
@@ -57,6 +61,6 @@ formData.set("userpic", myFileInput.files[0], "chris.jpg");
 ## See also
 
 - {{domxref("XMLHTTPRequest")}}
-- [Using XMLHttpRequest](/ko/docs/DOM/XMLHttpRequest/Using_XMLHttpRequest)
-- [Using FormData objects](/ko/docs/DOM/XMLHttpRequest/FormData/Using_FormData_Objects)
+- [Using XMLHttpRequest](/ko/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
+- [Using FormData objects](/ko/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

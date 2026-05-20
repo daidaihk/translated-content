@@ -5,13 +5,11 @@ l10n:
   sourceCommit: 6754a50ec57c8c9758a65a42691878e5fd1f910a
 ---
 
-{{DefaultAPISidebar("Device Orientation Events")}} {{securecontext_header}}
-
-{{DefaultAPISidebar("Device Orientation Events")}} {{securecontext_header}}
+{{DefaultAPISidebar("Device Orientation Events")}}{{securecontext_header}}
 
 次第に、ウェブを利用可能な端末は、自身の**方向**を特定できるようになってきました。つまり端末は、重力との関係による自身の向きの変化を示すデータを報告できます。特に携帯電話のようなハンドヘルド端末は、表示内容が直立し続けるよう自動的に回転させるためにこの情報を使用できます。画面の幅が高さより大きくなるように端末を回転させたときは、ウェブコンテンツをワイドスクリーン表示にします。
 
-方向の情報を制御する JavaScript イベントが 2 つあります。ひとつは {{domxref("DeviceOrientationEvent")}} であり、加速度センサーが端末の方向の変化を検出したときに発生します。 orientation イベントが報告するデータを受け取って処理することで、ユーザが端末を動かすことによる方向や高さの変化に対してインタラクティブに応答できるようになります。
+方向の情報を制御する JavaScript イベントが 2 つあります。ひとつは {{domxref("DeviceOrientationEvent")}} であり、加速度センサーが端末の方向の変化を検出したときに発生します。 orientation イベントが報告するデータを受け取って処理することで、ユーザーが端末を動かすことによる方向や高さの変化に対してインタラクティブに応答できるようになります。
 
 もうひとつのイベントは {{domxref("DeviceMotionEvent")}} であり、加速度が変化したときに発生します。こちらは方向ではなく加速度の変化を監視することが、{{domxref("DeviceOrientationEvent")}} との違いです。一般的に {{domxref("DeviceMotionEvent")}} を検出できるセンサーには、可動部があるストレージ装置を保護するためノートパソコンに内蔵するものも含みます。{{domxref("DeviceOrientationEvent")}} は、モバイル端末でとても一般的です。
 
@@ -45,9 +43,10 @@ function handleOrientation(event) {
 }
 ```
 
-> **メモ:** [parallax](https://github.com/wagerfield/parallax) は、モバイル端末の加速度センサーとジャイロスコープのデータを正規化するためのポリフィルです。これは、端末の方向に対する対応の違いを克服するのに有益です。
+> [!NOTE]
+> [parallax](https://github.com/wagerfield/parallax) は、モバイル端末の加速度センサーとジャイロスコープのデータを正規化するためのポリフィルです。これは、端末の方向に対する対応の違いを克服するのに有益です。
 
-### 方向として示される値
+### 方向の値の解説
 
 それぞれの軸で報告される値は、標準座標系の軸を中心にした回転量を表します。これらは[方向および動きとして示されるデータの説明](/ja/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)の記事で詳しく説明しており、ここでは概要を記載します。
 
@@ -55,7 +54,7 @@ function handleOrientation(event) {
 - {{domxref("DeviceOrientationEvent.beta")}} の値は x 軸を中心にした端末の動きを表し、-180 以上 180 未満の範囲の値による度数で表されます。これは端末の前後の動きです。
 - {{domxref("DeviceOrientationEvent.gamma")}} の値は y 軸を中心にした端末の動きを表し、-90 以上 90 未満の範囲の値による度数で表されます。これは端末の左右の動きです。
 
-### 例
+### 方向の例
 
 このサンプルは方向を検出可能な端末上で、 {{domxref("Window.deviceorientation_event", "deviceorientation")}} イベントに対応するブラウザーで実行する場合に動作します。
 
@@ -118,7 +117,7 @@ function handleOrientation(event) {
   }
 
   // 計算を容易にするため、x および y の値の範囲を
-  // 0 から 180 に変換する
+  // [0,180] に変換
   x += 90;
   y += 90;
 
@@ -135,9 +134,9 @@ window.addEventListener("deviceorientation", handleOrientation);
 
 {{EmbedLiveSample('Orientation_example', '230', '260')}}
 
-## motion イベントの処理
+## モーションイベントの処理
 
-motion イベントは orientation イベントと同じ方法で扱えますが、イベント名は {{domxref("Window/devicemotion_event", "devicemotion")}} になります。
+モーションイベントは方向イベントと同じ方法で扱えますが、イベント名は {{domxref("Window.devicemotion_event", "devicemotion")}} になります。
 
 ```js
 window.addEventListener("devicemotion", handleMotion, true);
@@ -145,14 +144,14 @@ window.addEventListener("devicemotion", handleMotion, true);
 
 実際どのように変化したかの情報は、 {{domxref("DeviceMotionEvent")}} オブジェクトが提供します。これはイベントリスナー（この例では `handleMotion()`）の引数として渡されます。
 
-motion イベントは 4 つのプロパティを持ちます。
+モーションイベントには 4 つのプロパティがあります。
 
 - {{domxref("DeviceMotionEvent.acceleration")}}
 - {{domxref("DeviceMotionEvent.accelerationIncludingGravity")}}
 - {{domxref("DeviceMotionEvent.rotationRate")}}
 - {{domxref("DeviceMotionEvent.interval")}}
 
-### 動きとして示される値
+### モーション値の解説
 
 {{domxref("DeviceMotionEvent")}} オブジェクトはウェブ開発者に、端末の位置や方向が変化した速度の情報を提供します。変化量は 3 つの軸 (詳しくは[方向および動きとして示されるデータの説明](/ja/docs/Web/API/Device_orientation_events/Orientation_and_motion_data_explained)をご覧ください) に沿って表します。
 
@@ -165,7 +164,7 @@ motion イベントは 4 つのプロパティを持ちます。
 - `z`
   - : 地面から直立する軸を表します。
 
-{{domxref("DeviceMotionEvent.rotationRate","rotationRate")}} では状況が若干異なります。こちらの情報はそれぞれ以下のように対応します:
+{{domxref("DeviceMotionEvent.rotationRate","rotationRate")}} では状況が若干異なります。こちらの情報はそれぞれ以下のように対応します。
 
 - `alpha`
   - : 画面（デスクトップ環境ではキーボード）から直立する軸を表します。

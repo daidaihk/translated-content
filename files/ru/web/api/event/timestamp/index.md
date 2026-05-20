@@ -7,7 +7,8 @@ slug: Web/API/Event/timeStamp
 
 Возвращает время (в миллисекундах), в котором было создано событие.
 
-> **Примечание:**Это свойство работает только в том случае, если система событий поддерживает его для конкретного события.
+> [!NOTE]
+> Это свойство работает только в том случае, если система событий поддерживает его для конкретного события.
 
 ## Синтаксис
 
@@ -70,7 +71,7 @@ event.timeStamp;
 
 In Firefox, you can also enabled `privacy.resistFingerprinting`, the precision will be 100ms or the value of `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, whichever is larger.
 
-## Specifications
+## Спецификации
 
 {{Specifications}}
 

@@ -3,12 +3,12 @@ title: "File: lastModified プロパティ"
 short-title: lastModified
 slug: Web/API/File/lastModified
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
 ---
 
-{{APIRef("File")}}
+{{APIRef("File API")}}{{AvailableInWorkers}}
 
-**`File.lastModified`** は読み取り専用プロパティで、ファイルの最終更新日時を UNIX 元期（1970 年 1 月 1 日の深夜 0 時）からのミリ秒数で返します。最終更新日時が分からないファイルは、現在の日時を返します。
+**`lastModified`** は {{domxref("File")}} インターフェイスの読み取り専用プロパティで、ファイルの最終更新日時を UNIX 元期（1970 年 1 月 1 日の深夜 0 時）からのミリ秒数で返します。最終更新日時が分からないファイルは、現在の日時を返します。
 
 ## 値
 
@@ -21,7 +21,7 @@ UNIX 元期からのミリ秒数を表す数値です。
 ### HTML
 
 ```html
-<input type="file" id="filepicker" name="fileList" multiple />
+<input type="file" id="file-picker" name="fileList" multiple />
 <output id="output"></output>
 ```
 
@@ -36,16 +36,16 @@ output {
 
 ```js
 const output = document.getElementById("output");
-const filepicker = document.getElementById("filepicker");
+const filePicker = document.getElementById("file-picker");
 
-filepicker.addEventListener("change", (event) => {
+filePicker.addEventListener("change", (event) => {
   const files = event.target.files;
   const now = new Date();
   output.textContent = "";
 
   for (const file of files) {
     const date = new Date(file.lastModified);
-    // ファイルが 1 年以上変更されていなければtrue
+    // ファイルが 1 年以上変更されていなければ true
     const stale = now.getTime() - file.lastModified > 31_536_000_000;
     output.textContent += `${file.name} is ${
       stale ? "stale" : "fresh"
@@ -74,12 +74,15 @@ console.log(fileWithoutDate.lastModified); // returns current time
 
 ## 時間の精度の低下
 
-タイミング攻撃やフィンガープリンティングに対する保護機能を提供するために、 `someFile.lastModified` の精度がブラウザーの設定に応じて丸められることがあります。
-Firefox では、`privacy.reduceTimerPrecision` 設定は既定で有効になっており、 Firefox 59 では既定で 20 us に設定されています。60 で 2 ms になります。
+タイミング攻撃や[フィンガープリンティング](/ja/docs/Glossary/Fingerprinting)に対する保護機能を提供するために、 `someFile.lastModified` の精度がブラウザーの設定に応じて丸められることがあります。
+Firefox では、`privacy.reduceTimerPrecision` 設定は既定で有効になっており、既定で 2 ミリ秒になります。この場合、精度は 100ms または `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` の値のどちらか大きい方になります。
+
+例えば、時刻の精度を下げた場合、`someFile.lastModified` の結果は常に 2 の倍数になり、`privacy.resistFingerprinting` を有効にした場合は 100 の倍数（または `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`）になります。
 
 ```js
 // Firefox 60 での時間の制度の低下 (2ms)
 someFile.lastModified;
+// 取りうる値:
 // 1519211809934
 // 1519211810362
 // 1519211811670
@@ -87,13 +90,12 @@ someFile.lastModified;
 
 // `privacy.resistFingerprinting` が有効な場合の時間の制度の低下
 someFile.lastModified;
+// 取りうる値:
 // 1519129853500
 // 1519129858900
 // 1519129864400
 // …
 ```
-
-Firefox では、`privacy.resistFingerprinting` を有効にすることもできます。精度は 100ms か `privacy.resistFingerprinting.reduceTimerPrecision.microseconds` のいずれか大きい方の値になります。
 
 ## 仕様書
 

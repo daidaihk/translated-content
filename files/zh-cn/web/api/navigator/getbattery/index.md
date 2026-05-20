@@ -2,7 +2,7 @@
 title: Navigator：getBattery() 方法
 slug: Web/API/Navigator/getBattery
 l10n:
-  sourceCommit: cf05364b23bc44af37a350319a1dd47485746a9c
+  sourceCommit: 4d929bb0a021c7130d5a71a4bf505bcb8070378d
 ---
 
 {{ApiRef("Battery API")}}{{securecontext_header}}
@@ -11,7 +11,8 @@ l10n:
 
 自 Chrome 103 起，{{domxref("Battery Status API", "", "", "nocode")}} 的 `Navigator.getBattery()` 方法只在严格上下文中暴露。
 
-> **备注：** 对该特性的访问可由 {{HTTPHeader("Permissions-Policy")}} 的 {{HTTPHeader("Permissions-Policy/battery","battery")}} 指令控制。
+> [!NOTE]
+> 对该特性的访问可由 {{HTTPHeader("Permissions-Policy")}} 的 {{HTTPHeader("Permissions-Policy/battery","battery")}} 指令控制。
 
 ## 语法
 
@@ -30,7 +31,7 @@ getBattery()
 ### 异常
 
 - `NotAllowedError` {{domxref("DOMException")}}
-  - : 对该特性的使用被[权限策略](/zh-CN/docs/Web/HTTP/Permissions_Policy)阻止。
+  - : 对该特性的使用被[权限策略](/zh-CN/docs/Web/HTTP/Guides/Permissions_Policy)阻止。
 - `SecurityError`
   - : 用户代理不会向不安全上下文暴露电池信息，而此方法在不安全的上下文中被调用了。
 

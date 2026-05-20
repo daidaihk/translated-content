@@ -7,7 +7,23 @@ slug: Web/JavaScript/Reference/Statements/switch
 
 L'instruction **`switch`** évalue une expression et, selon le résultat obtenu et le cas associé, exécute les instructions correspondantes.
 
-{{EmbedInteractiveExample("pages/js/statement-switch.html")}}
+{{InteractiveExample("JavaScript Demo: Statement - Switch")}}
+
+```js interactive-example
+const expr = "Papayas";
+switch (expr) {
+  case "Oranges":
+    console.log("Oranges are $0.59 a pound.");
+    break;
+  case "Mangoes":
+  case "Papayas":
+    console.log("Mangoes and papayas are $2.79 a pound.");
+    // Expected output: "Mangoes and papayas are $2.79 a pound."
+    break;
+  default:
+    console.log(`Sorry, we are out of ${expr}.`);
+}
+```
 
 ## Syntaxe
 
@@ -52,7 +68,7 @@ switch (expression) {
 
 Une instruction `switch` commence par évaluer l'expression fournie (cette évaluation ne se produit qu'une fois). Si une correspondance est trouvée, le programme exécutera les instructions associées. Si plusieurs cas de figure correspondent, le premier sera sélectionné (même si les cas sont différents les uns des autres).
 
-Le programme recherche tout d'abord une clause `case` dont l'expression est évaluée avec la même valeur que l'expression d'entrée (au sens de {{jsxref("Opérateurs/Opérateurs_de_comparaison","l'égalité stricte","#.C3.89galit.C3.A9_stricte_(.3D.3D.3D)",1)}}. Si une telle clause est trouvée, les instructions associées sont exécutées. Si aucune clause `case` n'est trouvée, le programme recherche la clause optionnelle `default` et si elle existe, les instructions correspondantes sont exécutées. Si cette clause optionnelle n'est pas utilisée, le programme continue son exécution après l'instruction `switch`. Par convention, la clause `default` est utilisée en dernière mais cela n'est pas nécessaire.
+Le programme recherche tout d'abord une clause `case` dont l'expression est évaluée avec la même valeur que l'expression d'entrée (au sens de {{jsxref("Opérateurs/Opérateurs_de_comparaison","l'égalité stricte","#égalité_stricte_(===)",1)}}. Si une telle clause est trouvée, les instructions associées sont exécutées. Si aucune clause `case` n'est trouvée, le programme recherche la clause optionnelle `default` et si elle existe, les instructions correspondantes sont exécutées. Si cette clause optionnelle n'est pas utilisée, le programme continue son exécution après l'instruction `switch`. Par convention, la clause `default` est utilisée en dernière mais cela n'est pas nécessaire.
 
 L'instruction {{jsxref("Instructions/break","break")}} peut optionnellement être utilisée pour chaque cas et permet de s'assurer que seules les instructions associées à ce cas seront exécutées. Si `break` n'est pas utilisé, le programme continuera son exécution avec les instructions suivantes (des autres cas de l'instruction `switch`).
 

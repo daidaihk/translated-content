@@ -3,7 +3,7 @@ title: Metaprogramación
 slug: Web/JavaScript/Guide/Meta_programming
 ---
 
-{{jsSidebar("Guía de JavaScript")}}{{PreviousNext("Web/JavaScript/Guide/Iterators_and_Generators", "Web/JavaScript/Guide/Modules")}}
+{{jsSidebar("Guía de JavaScript")}}{{PreviousNext("Web/JavaScript/Guide/Iterators_and_generators", "Web/JavaScript/Guide/Modules")}}
 
 A partir de ECMAScript 2015, JavaScript gana soporte para los objetos {{jsxref("Proxy")}} y {{jsxref("Reflect")}} lo cual te permite interceptar y definir un comportamiento personalizado para las operaciones fundamentales del lenguaje (por ejemplo, búsqueda de propiedades, asignación, enumeración, invocación de funciones, etc.). Con la ayuda de estos dos objetos, puedes programar en el metanivel de JavaScript.
 
@@ -33,7 +33,7 @@ Hay ejemplos adicionales disponibles en la página de referencia {{jsxref("Proxy
 
 Los siguientes términos se utilizan cuando se habla de la funcionalidad de los proxies.
 
-- {{jsxref("Global_Objects/Proxy/handler","handler","","true")}}
+- {{jsxref("Global_Objects/Proxy/handler","handler","",1)}}
   - : Objeto marcador de posición que contiene trampas.
 - traps
   - : Los métodos que proporcionan acceso a la propiedad. (Esto es análogo al concepto de _trampas_ en los sistemas operativos).
@@ -44,7 +44,7 @@ Los siguientes términos se utilizan cuando se habla de la funcionalidad de los 
 
 ## Controladores y trampas
 
-La siguiente tabla resume las trampas disponibles para los objetos `Proxy`. Ve las [páginas de referencia](/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler) para explicaciones detalladas y ejemplos.
+La siguiente tabla resume las trampas disponibles para los objetos `Proxy`. Ve las [páginas de referencia](/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy) para explicaciones detalladas y ejemplos.
 
 <table class="standard-table">
     <thead>
@@ -269,7 +269,7 @@ Reflect.has(Object, "assign"); // true
 
 ### Una mejor función `apply`
 
-En ES5, normalmente usas el método {{jsxref("Function.prototype.apply()")}} para llamar a una función con un valor `this` y `arguments` proporcionado como un arreglo (o un [objeto similar a un arreglo](/es/docs/Web/JavaScript/Guide/Indexed_collections#Working_with_array-like_objects)).
+En ES5, normalmente usas el método {{jsxref("Function.prototype.apply()")}} para llamar a una función con un valor `this` y `arguments` proporcionado como un arreglo (o un [objeto similar a un arreglo](/es/docs/Web/JavaScript/Guide/Indexed_collections#working_with_array-like_objects)).
 
 ```js
 Function.prototype.apply.call(Math.floor, undefined, [1.75]);
@@ -303,4 +303,4 @@ if (Reflect.defineProperty(target, property, attributes)) {
 }
 ```
 
-{{Previous("Web/JavaScript/Guide/Iterators_and_Generators")}}
+{{Previous("Web/JavaScript/Guide/Iterators_and_generators")}}

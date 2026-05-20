@@ -29,7 +29,8 @@ O laço `for...in` iterage sobre as propriedades de um objeto em uma ordem arbit
 
 ### Iteração em Arrays e `for...in`
 
-> **Nota:** `for...in` não deve ser usado para iteração em uma {{jsxref("Array")}} onde a ordem é importante, visto que ele iterage em uma ordem arbitrária.
+> [!NOTE]
+> `for...in` não deve ser usado para iteração em uma {{jsxref("Array")}} onde a ordem é importante, visto que ele iterage em uma ordem arbitrária.
 
 Indices de arrays somente se tornam propriedades enumeradas com inteiros (integer). Não há garantia de que utilizando o laço for...in os indices de um array serão retornados em uma ordem particular ou irá retornar todas as propriedades enumeráveis. É recomendável utilizar o laço {{jsxref("Statements/for", "for")}} com índices numéricos ou {{jsxref("Array.prototype.forEach()")}} ou ainda {{jsxref("Statements/for...of", "for...of")}} quando iteragir sobre arrays onde a ordem é importante.
 
@@ -92,9 +93,9 @@ for (var prop in obj) {
 
 Anterior ao SpiderMonkey 40, era possível usar uma expressão inicial com o laço for...in, conforme exemplo que se segue:
 
-```js example-bad
-var obj = {a:1, b:2, c:3};
-for(var i=0 in obj) {
+```js-nolint example-bad
+var obj = { a: 1, b: 2, c: 3 };
+for (var i = 0 in obj) {
   console.log(obj[i]);
 }
 // 1
@@ -109,8 +110,8 @@ Este não é o comportamento padrão e atualmente é ignorado a partir da versã
 - {{jsxref("Statements/for...of", "for...of")}} - laço similar que iterage sobre os valores das propriedades.
 - {{jsxref("Statements/for_each...in", "for each in")}} - (deprecated).
 - {{jsxref("Statements/for", "for")}}
-- [Generator expressions](/pt-BR/docs/Web/JavaScript/Guide/Iterators_and_Generators) (uses the `for...in` syntax)
-- [Enumerability and ownership of properties](/pt-BR/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
+- [Generator expressions](/pt-BR/docs/Web/JavaScript/Guide/Iterators_and_generators) (uses the `for...in` syntax)
+- [Enumerability and ownership of properties](/pt-BR/docs/Web/JavaScript/Guide/Enumerability_and_ownership_of_properties)
 - {{jsxref("Object.getOwnPropertyNames()")}}
 - {{jsxref("Object.prototype.hasOwnProperty()")}}
 - {{jsxref("Array.prototype.forEach()")}}

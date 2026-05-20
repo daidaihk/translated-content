@@ -40,7 +40,8 @@ async function handleTransition() {
 }
 ```
 
-> **备注：** `isBackNavigation` 不是内置特性；它是一个理论上存在的函数，可以使用 [Navigation API](/zh-CN/docs/Web/API/Navigation_API) 或类似的特性实现。
+> [!NOTE]
+> `isBackNavigation` 不是内置特性；它是一个理论上存在的函数，可以使用 [Navigation API](/zh-CN/docs/Web/API/Navigation_API) 或类似的特性实现。
 
 ## 规范
 
@@ -52,4 +53,4 @@ async function handleTransition() {
 
 ## 参见
 
-- [使用 View Transitions API 实现平滑、简单的过渡](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [使用 View Transitions API 实现平滑、简单的过渡](https://developer.chrome.google.cn/docs/web-platform/view-transitions)

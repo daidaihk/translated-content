@@ -7,11 +7,12 @@ slug: Web/API/Web_components/Using_shadow_DOM
 
 웹 컴포넌트의 중요한 측면은 캡슐화입니다. 캡슐화를 통해 마크업 구조, 스타일, 동작을 숨기고 페이지의 다른 코드로부터의 분리하여 각기 다른 부분들이 충돌하지 않게 하고, 코드가 깔끔하게 유지될 수 있게 합니다. Shadow DOM API는 캡슐화의 핵심 파트이며, 숨겨진 분리된 DOM을 요소에 부착하는 방법을 제공합니다. 이 문서는 Shadow DOM 사용의 기본을 다룹니다.
 
-> **참고:** Shadow DOM은 Firefox (63 이상), Chrome, Opera, Safari에서 기본으로 지원됩니다. 새로운 Chromium 기반의 Edge (79 이상) 또한 Shadow DOM을 지원하나 구버전 Edge는 그렇지 않습니다.
+> [!NOTE]
+> Shadow DOM은 Firefox (63 이상), Chrome, Opera, Safari에서 기본으로 지원됩니다. 새로운 Chromium 기반의 Edge (79 이상) 또한 Shadow DOM을 지원하나 구버전 Edge는 그렇지 않습니다.
 
 ## 중요 내용 보기
 
-이 문서는 여러분이 이미 [DOM (Document Object Model)](/ko/docs/Web/API/Document_Object_Model/Introduction)의 개념에 익숙하다고 가정합니다. DOM이란 마크업 문서에서 나타나는 여러 가지 요소들과 텍스트 문자열을 나타내는 연결된 노드들의 트리같은 구조입니다 (웹 문서의 경우 보통 HTML 문서). 예제로서, 다음의 HTML fragment를 고려해 보세요.
+이 문서는 여러분이 이미 [DOM (Document Object Model)](/ko/docs/conflicting/Web/API/Document_Object_Model_a0b90593de4c5cb214690e823be115a18d605d4bc7719ba296e212da2abe18ef)의 개념에 익숙하다고 가정합니다. DOM이란 마크업 문서에서 나타나는 여러 가지 요소들과 텍스트 문자열을 나타내는 연결된 노드들의 트리같은 구조입니다 (웹 문서의 경우 보통 HTML 문서). 예제로서, 다음의 HTML fragment를 고려해 보세요.
 
 ```html
 <!doctype html>
@@ -71,7 +72,8 @@ let myShadowDom = myCustomElem.shadowRoot;
 
 만약 `mode: closed` 로 사용자 정의 요소에 shadow root을 부착했다면, 외부로부터 shadow DOM에 접근할 수 없을 것입니다. `myCustomElem.shadowRoot` 은 `null` 을 반환합니다. 이것은 `<video>` 와 같이 shadow DOM을 포함하고 있는 내장 요소들의 경우입니다.
 
-> **참고:** [이 블로그 글](https://blog.revillweb.com/open-vs-closed-shadow-dom-9f3d7427d1af)이 보여주듯, closed인 shadow DOM을 우회하는 것은 사실 상당히 쉽고, shadow DOM을 완전히 숨기기 위한 귀찮은 일은 종종 그 일의 가치보다 더 큽니다.
+> [!NOTE]
+> [이 블로그 글](https://blog.revillweb.com/open-vs-closed-shadow-dom-9f3d7427d1af)이 보여주듯, closed인 shadow DOM을 우회하는 것은 사실 상당히 쉽고, shadow DOM을 완전히 숨기기 위한 귀찮은 일은 종종 그 일의 가치보다 더 큽니다.
 
 만약 shadow DOM을 사용자 정의 요소에 사용자 정의 요소 생성자의 일부로써 부착한다면 (단연코 shadow DOM의 가장 유용한 적용), 다음과 같이 할 것입니다.
 
@@ -197,7 +199,7 @@ wrapper.appendChild(info);
 
 ### 사용자 정의 요소 사용하기
 
-한 번 클래스가 정의되고 나면, 요소를 사용하는 것은 요소를 정의하는 것과 페이지에 요소를 추가하는 것만큼이나 간단합니다. (페이지에 요소를 추가하는 것은 [사용자 정의 요소 사용하기](/ko/docs/Web/Web_Components/Using_custom_elements)에서 설명되었습니다).
+한 번 클래스가 정의되고 나면, 요소를 사용하는 것은 요소를 정의하는 것과 페이지에 요소를 추가하는 것만큼이나 간단합니다. (페이지에 요소를 추가하는 것은 [사용자 정의 요소 사용하기](/ko/docs/Web/API/Web_components/Using_custom_elements)에서 설명되었습니다).
 
 ```js
 // 새로운 요소를 정의합니다
@@ -234,5 +236,5 @@ shadow.appendChild(linkElem);
 
 ## 같이 보기
 
-- [사용자 정의 요소 사용하기](/ko/docs/Web/Web_Components/Using_custom_elements)
-- [template와 slot 사용하기](/ko/docs/Web/Web_Components/Using_templates_and_slots)
+- [사용자 정의 요소 사용하기](/ko/docs/Web/API/Web_components/Using_custom_elements)
+- [template와 slot 사용하기](/ko/docs/Web/API/Web_components/Using_templates_and_slots)

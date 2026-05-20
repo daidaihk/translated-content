@@ -10,7 +10,8 @@ l10n:
 
 **`FormData.keys()`** メソッドは、この {{domxref("FormData")}} に含まれるすべてのキーを走査する[イテレーター](/ja/docs/Web/JavaScript/Reference/Iteration_protocols)を返します。キーは文字列です。
 
-> **メモ:** このメソッドは[ウェブワーカー](/ja/docs/Web/API/Web_Workers_API)で使用できます。
+> [!NOTE]
+> このメソッドは[ウェブワーカー](/ja/docs/Web/API/Web_Workers_API)で使用できます。
 
 ## 構文
 
@@ -56,5 +57,5 @@ key2
 
 ## 関連情報
 
-- [FormData オブジェクトの使用](/ja/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
+- [FormData オブジェクトの使い方](/ja/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects)
 - {{HTMLElement("Form")}}

@@ -5,8 +5,6 @@ l10n:
   sourceCommit: 76a33f03c6b116e85efc981f22ff9eca51cea8d8
 ---
 
-{{GamesSidebar}}
-
 本文介绍了用于在 3D 环境中实现碰撞检测的不同包围体（bounding volume）技术。后续文章将讨论特定 3D 库中的实现。
 
 ## 轴对齐包围盒
@@ -19,7 +17,8 @@ l10n:
 
 ![旋转线结动画显示虚拟矩形框随着线结的旋转而收缩和扩大。盒子不旋转。](rotating_knot.gif)
 
-> **备注：** 参考[使用 Three.js 的包围体](/zh-CN/docs/Games/Techniques/3D_collision_detection/Bounding_volume_collision_detection_with_THREE.js)，以了解该技术的实际实现。
+> [!NOTE]
+> 参考[使用 Three.js 的包围体](/zh-CN/docs/Games/Techniques/3D_collision_detection/Bounding_volume_collision_detection_with_THREE.js)，以了解该技术的实际实现。
 
 ### 点与 AABB
 
@@ -98,7 +97,8 @@ function isPointInsideSphere(point, sphere) {
 }
 ```
 
-> **备注：** 上面的代码有一个平方根，计算开销可能很大。一种简单的优化是将平方距离与平方半径进行比较，以避免这种情况，所以优化后的不等式涉及 `distanceSqr < sphere.radius * sphere.radius`。
+> [!NOTE]
+> 上面的代码有一个平方根，计算开销可能很大。一种简单的优化是将平方距离与平方半径进行比较，以避免这种情况，所以优化后的不等式涉及 `distanceSqr < sphere.radius * sphere.radius`。
 
 ### 球体与球体
 

@@ -10,7 +10,8 @@ l10n:
 
 **`permissionState()`** は {{domxref("PushManager")}} インターフェイスのメソッドで、プッシュマネージャーの許可状態を示す文字列で解決される {{jsxref("Promise")}} を返します。許可状態は、`'prompt'` か `'denied'`、`'granted'` のいずれかです。
 
-> **メモ:** Firefox 44 では、[通知](/ja/docs/Web/API/Notifications_API)と[プッシュ](/ja/docs/Web/API/Push_API)の許可が統合されています。
+> [!NOTE]
+> Firefox 44 では、[通知](/ja/docs/Web/API/Notifications_API)と[プッシュ](/ja/docs/Web/API/Push_API)の許可が統合されています。
 > 通知が許可された場合、プッシュも利用できます。
 
 ## 構文
@@ -23,9 +24,7 @@ permissionState(options)
 ### 引数
 
 - `options` {{optional_inline}}
-
   - : オプションの設定パラメーターを含むオブジェクト。以下のプロパティが利用可能です。
-
     - `userVisibleOnly`
       - : 論理値で、返されたプッシュサブスクリプションは、その効果がユーザーに見えるようにされたメッセージに のみ使用することを示します。
     - `applicationServerKey`

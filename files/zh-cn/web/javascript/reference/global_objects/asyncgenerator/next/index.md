@@ -5,8 +5,6 @@ l10n:
   sourceCommit: e01fd6206ce2fad2fe09a485bb2d3ceda53a62de
 ---
 
-{{JSRef}}
-
 {{jsxref("AsyncGenerator")}} 实例的 **`next()`** 方法返回序列中的下一个值。
 
 ## 语法
@@ -63,7 +61,8 @@ asyncGen.next().then((res) => console.log(res)); // { value: undefined, done: tr
 
 在此示例中，调用 `next` 时传入了值。
 
-> **备注：** 第一次调用不会打印任何内容，因为生成器最初没有产生任何内容。
+> [!NOTE]
+> 第一次调用不会打印任何内容，因为生成器最初没有产生任何内容。
 
 ```js
 // 异步任务。假设它在实践中做了一些更有用的事情。

@@ -3,6 +3,8 @@ title: 同步和异步请求
 slug: Web/API/XMLHttpRequest_API/Synchronous_and_Asynchronous_Requests
 ---
 
+{{DefaultAPISidebar("XMLHttpRequest API")}}
+
 `XMLHttpRequest` 支持同步和异步通信。但是，一般来说，出于性能原因，异步请求应优先于同步请求。
 
 同步请求阻止代码的执行，这会导致屏幕上出现“冻结”和无响应的用户体验。
@@ -127,11 +129,13 @@ loadFile("message.txt", 2000, showMessage, "New message!\n");
 
 如上，我们指定的超时时间为 2000 ms。
 
-> **备注：** `timeout` 属性添加于 Gecko 12.0。
+> [!NOTE]
+> `timeout` 属性添加于 Gecko 12.0。
 
 ## 同步请求
 
-> **备注：** 从 Gecko 30.0，Blink 39.0 和 Edge 13 开始，主线程上的同步请求由于对用户体验的负面影响而被弃用。
+> [!NOTE]
+> 从 Gecko 30.0，Blink 39.0 和 Edge 13 开始，主线程上的同步请求由于对用户体验的负面影响而被弃用。
 
 同步 XHR 通常会导致网络挂起。但开发人员通常不会注意到这个问题，因为在网络状况不佳或服务器响应速度慢的情况下，挂起只会显示同步 XHR 现在处于弃用状态。建议开发人员远离这个 API。
 
@@ -158,7 +162,7 @@ if (request.status === 200) {
 
 ### 示例：在 `Worker` 中使用 HTTP 同步请求
 
-在 [`Worker`](/zh-CN/DOM/Worker) 中使用 `XMLHttpRequest` 时，同步请求比异步请求更适合。
+在 [`Worker`](/zh-CN/docs/Web/API/Worker) 中使用 `XMLHttpRequest` 时，同步请求比异步请求更适合。
 
 **`example.html`** (主页):
 
@@ -181,13 +185,13 @@ if (request.status === 200) {
 </html>
 ```
 
-**`myFile.txt`** ( [`XMLHttpRequest`](/zh-CN/DOM/XMLHttpRequest)对象同步请求的文件):
+**`myFile.txt`** ( [`XMLHttpRequest`](/zh-CN/docs/Web/API/XMLHttpRequest)对象同步请求的文件):
 
-```
+```plain
 Hello World!!
 ```
 
-**`myTask.js`** (包含了[`Worker`](/zh-CN/DOM/Worker)代码):
+**`myTask.js`** (包含了[`Worker`](/zh-CN/docs/Web/API/Worker)代码):
 
 ```js
 self.onmessage = function (oEvent) {
@@ -200,13 +204,14 @@ self.onmessage = function (oEvent) {
 };
 ```
 
-> **备注：** 由于使用了`Worker`，所以该请求实际上也是异步的。
+> [!NOTE]
+> 由于使用了`Worker`，所以该请求实际上也是异步的。
 
-可以使用类似的方法，让脚本在后台与服务器交互，预加载某些内容。查看[使用 Web workers](/zh-CN/DOM/Using_web_workers)了解更多详情。
+可以使用类似的方法，让脚本在后台与服务器交互，预加载某些内容。查看[使用 Web workers](/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers)了解更多详情。
 
 ### 将同步 XHR 用例调整到 Beacon API
 
-在某些情况下，XMLHttpRequest 的同步使用是不可替代的，就像在 [window.onunload](/zh-CN/docs/Web/API/Window/onunload)和[window.onbeforeunload](/zh-CN/docs/Web/API/Window/onbeforeunload) 事件期间一样。你应该考虑使用带有 `Keepalive` 标志的 `fetch` API。当 `keepalive` 的 `fetch` 不可用时，可以考虑使用 [navigator.sendBeacon](/zh-CN/docs/Web/API/Navigator/sendBeacon) API 可以支持这些用例，通常在提供良好 UX 的同时。
+在某些情况下，XMLHttpRequest 的同步使用是不可替代的，就像在 [window.onunload](/zh-CN/docs/Web/API/Window/unload_event)和[window.onbeforeunload](/zh-CN/docs/Web/API/Window/beforeunload_event) 事件期间一样。你应该考虑使用带有 `Keepalive` 标志的 `fetch` API。当 `keepalive` 的 `fetch` 不可用时，可以考虑使用 [navigator.sendBeacon](/zh-CN/docs/Web/API/Navigator/sendBeacon) API 可以支持这些用例，通常在提供良好 UX 的同时。
 
 以下示例（来自 [sendBeacon](/zh-CN/docs/Web/API/Navigator/sendBeacon) 文档）显示了一个理论分析代码，该代码尝试通过在卸载处理程序中使用同步 XMLHttpRequest 将数据提交给服务器。这导致页面的卸载被延迟。
 

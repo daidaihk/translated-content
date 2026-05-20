@@ -7,7 +7,8 @@ slug: Mozilla/Add-ons/WebExtensions/user_interface
 
 WebExtension API を使った機能拡張には、いくつかのユーザーインターフェイスオプションが提供されていて、ユーザーがこれによって機能を利用できます。この節では、下記にこのオプションの要約と、それぞれのユーザーインターフェイスオプションの詳細な導入とがあります。
 
-> **メモ:** 機能拡張でこれらの UI コンポーネントを使って優れた使い勝手を実現するためのアドバイスとして、[ユーザーエクスペリエンスのベストプラクティス](https://extensionworkshop.com/documentation/develop/user-experience-best-practices/) （英語）の記事を見てください。
+> [!NOTE]
+> 機能拡張でこれらの UI コンポーネントを使って優れた使い勝手を実現するためのアドバイスとして、[ユーザーエクスペリエンスのベストプラクティス](https://extensionworkshop.com/documentation/develop/user-experience-best-practices/) （英語）の記事を見てください。
 
 <table class="standard-table">
   <thead>
@@ -20,11 +21,11 @@ WebExtension API を使った機能拡張には、いくつかのユーザーイ
   <tbody>
     <tr>
       <td>
-        <a href="/ja/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_action">ブラウザーツールバーボタン</a>
+        <a href="/ja/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button">ブラウザーツールバーボタン</a>
         (ブラウザーアクション)
       </td>
       <td>
-        ブラウザーツールバーのボタンで、クリック時に機能拡張にイベントを送ります。既定では全てのタブででこのボタンが表示されています。
+        ブラウザーツールバーのボタンで、クリック時に機能拡張にイベントを送ります。既定では全てのタブでこのボタンが表示されています。
       </td>
       <td>
         <img alt="ツールバーボタン（ブラウザーアクション）を表示している例" src="browser-action.png">

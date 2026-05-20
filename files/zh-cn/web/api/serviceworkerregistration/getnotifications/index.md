@@ -2,14 +2,12 @@
 title: ServiceWorkerRegistration：getNotifications() 方法
 slug: Web/API/ServiceWorkerRegistration/getNotifications
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: e4c0939929e1b3e1fa3fd3da82b827fca3ed4c79
 ---
 
-{{APIRef("Web Notifications")}}{{SecureContext_Header}}
+{{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
 {{domxref("ServiceWorkerRegistration")}} 接口的 **`getNotifications()`** 方法按照通知通过当前 Service Worker 注册从当前源创建的顺序返回通知列表。同一个源可以有许多活跃但范围不同的 Service Worker 注册。由同一源上的一个 Service Worker 创建的通知将不可用于同一源上的其他活动的 Service Worker。
-
-{{AvailableInWorkers}}
 
 ## 语法
 
@@ -21,9 +19,7 @@ getNotifications(options)
 ### 参数
 
 - `options` {{optional_inline}}
-
   - : 包含用于过滤返回的通知的选项的对象。可用的选项有：
-
     - `tag` {{optional_inline}}
       - : 一个表示通知标签的字符串。如果指定，则仅返回具有此标签的通知。
 

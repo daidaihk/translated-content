@@ -3,8 +3,6 @@ title: 创建和解决议题指南
 slug: MDN/Community/Issues
 ---
 
-{{MDNSidebar}}
-
 作为贡献者，你可以[报告](#报告议题指南)和[解决](#解决议题指南)议题（issue）。
 
 在你报告议题后，议题会被分类。议题[分类](#议题分类指南)通常由被指定为维护者或所有者的人员完成。
@@ -31,12 +29,11 @@ slug: MDN/Community/Issues
 
 ### 创建议题前
 
-如果你认为你发现了 MDN Web 文档内容或网站界面外观的错误，请搜索[相关的仓库](/zh-CN/docs/MDN/Community/Contributing/Our_repositories)中当前未解决的议题，确保没有其他人报告该议题。
+如果你认为你发现了 MDN Web 文档内容或网站界面外观的错误，请搜索[相关的仓库](/zh-CN/docs/MDN/Community/Our_repositories)中当前未解决的议题，确保没有其他人报告该议题。
 
 ### 报告议题
 
 - 根据你发现的问题类型，在以下仓库中的某一个创建议题：
-
   - [文档](https://github.com/mdn/content/issues/new/choose)
   - [翻译](https://github.com/mdn/translated-content/issues/new/choose)
   - 网站的[界面外观](https://github.com/mdn/yari/issues/new/choose)
@@ -48,7 +45,6 @@ slug: MDN/Community/Issues
 - 请选择适当的类别来报告议题。例如，要报告内容错误，请使用 `mdn/content` 仓库中的[内容议题](https://github.com/mdn/content/issues/new?assignees=&labels=needs+triage&template=content-bug.yml)模板。
 
 - 报告议题时请提供足够的信息：
-
   - **议题标题**必须简洁地传达*所需的操作*。
 
   - **议题描述**必须清楚地描述错误和解决议题所需的操作。它还必须列出完成解决议题所需的任务或子任务。其他的指南包括：
@@ -59,7 +55,6 @@ slug: MDN/Community/Issues
 - 如果你在议题中提供的信息不完整，那么我们可能会在[议题分类的过程](#检查议题信息的完整性)中与你联系。
 
 - 如果你发现自己处于以下情况之一，请将相关讨论转移到 [MDN 的 GitHub 讨论](https://github.com/orgs/mdn/discussions)中：
-
   - 需要进行讨论来澄清议题。
   - 创建的议题引发了讨论。
   - 尚未对议题的解决方案达成明确的共识。
@@ -79,7 +74,7 @@ slug: MDN/Community/Issues
 
 ### 描述
 
-CSS 属性页面模板在[此处](https://developer.mozilla.org/zh-CN/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_property_page_template)定义。该议题中的任务列表用于将记录的 CSS 属性与模板进行比较，并跟踪属性页面的更改以与模板一致。
+CSS 属性页面模板在[此处](/zh-CN/docs/MDN/Writing_guidelines/Page_structures/Page_types/CSS_property_page_template)定义。该议题中的任务列表用于将记录的 CSS 属性与模板进行比较，并跟踪属性页面的更改以与模板一致。
 
 ### 已检查的页面列表
 
@@ -96,12 +91,12 @@ CSS 属性页面模板在[此处](https://developer.mozilla.org/zh-CN/docs/MDN/W
 
 1. **查找议题**：如果你想要做出贡献，请搜索带有 [`good first issue`、`help wanted`](#设置其他标签) 或 [`p3`](#设置优先级标签) 标签的议题。大多数仓库都有带有这些标签的议题。你可以浏览并选择适合你的技能的议题。另一个寻找议题的有用方法是 [MDN 贡献者任务板](https://github.com/orgs/mdn/projects/25)。该项目的视图列出了多个仓库中的未解决的议题。你可以根据你感兴趣的主题（`label` 列）来筛选列表。请参阅议题分类时应用的一些[标签](#设置其他标签)的描述。
 
-   > **备注：** 若议题带有 `needs triage` 标签，表明 MDN Web 文档的核心团队尚未审核该议题，你不应开始处理该议题。
+   > [!NOTE]
+   > 若议题带有 `needs triage` 标签，表明 MDN Web 文档的核心团队尚未审核该议题，你不应开始处理该议题。
 
 2. **将议题分配给自己**：在找到你想要解决的议题后，请确保该议题尚未分配给其他人。创建评论，说明你想要解决该议题，并且如果你能够解决该议题，请[将议题分配给你自己](https://docs.github.com/zh/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request)。
 
 3. **进行研究**：大多数议题在开始处理之前都需要一些调查。
-
    - 确定需要做哪些工作。如果你有任何疑问，请在 [MDN Web 文档的聊天室](/zh-CN/docs/MDN/Community/Communication_channels#聊天室)中提问。
    - 如果议题描述清晰，且工作明确，那就开始吧。
    - 如果问题描述得不清楚，或者你不确定需要做什么，请随时 @ 提及发布者并要求提供更多信息。
@@ -120,7 +115,8 @@ CSS 属性页面模板在[此处](https://developer.mozilla.org/zh-CN/docs/MDN/W
 
 对于所有其他类型的错误，请先[创建议题](#报告议题指南)。添加有关你打算解决该议题的意图的评论，如果可能，请描述你提议的解决方案或解决议题的步骤。等待议题被分类，以便 MDN Web 文档团队可以验证该议题是否正当，并批准你提议的解决方案。
 
-> **备注：** 如果你在对问题被分类前创建了拉取请求，那么如果链接的问题被视为无效或解决方案与 MDN Web 文档团队期望的不符，你的时间和精力可能会被浪费。请在议题被分类后，将议题分配给你自己。
+> [!NOTE]
+> 如果你在对问题被分类前创建了拉取请求，那么如果链接的问题被视为无效或解决方案与 MDN Web 文档团队期望的不符，你的时间和精力可能会被浪费。请在议题被分类后，将议题分配给你自己。
 
 遵循[解决议题的指南](#解决议题指南)，尝试通过更新适当的源内容来解决问题，例如：
 
@@ -176,15 +172,12 @@ CSS 属性页面模板在[此处](https://developer.mozilla.org/zh-CN/docs/MDN/W
 请根据议题的严重程度为每一个错误设置优先级标签，以帮助那些想要解决最重要的议题或领域的人。
 
 - 严重议题：此类议题需要尽快修复，无论它出现在网站的哪个位置。此类议题可能会严重损害 MDN 的声誉和/或损害用户。此类议题的示例包括错误的代码片段，如果在生产中使用，可能会产生严重的安全问题和不受欢迎的内容，例如恶意软件、亵渎、色情、仇恨言论或指向此类内容的链接。
-
   - 标签：`p0`（将立即得到解决）
 
 - 主要议题：此类议题可能会严重影响页面的实用性。例如，大量过时的信息、不起作用的复杂而重要的代码示例、大量糟糕且难以理解的行文，或大量损坏的链接。
-
   - 标签：`p1`（将很快得到解决）和 `p2`（将很快得到解决，但优先级更高的项目将优先得到解决）
 
 - 小议题：这是一种可以使现有内容更好但不影响学习或仅对学习产生轻微影响的改进议题。由于这些类型的议题不是主动计划的，因此欢迎并非常感谢贡献者的帮助来解决这些议题。解决其中一些议题也可以为刚开始熟悉贡献流程的初学者提供必要的练习。示例包括拼写错误、语法错误、损坏的链接、少量过时的信息或糟糕的行文，或者不起作用的代码片段。
-
   - 标签：`p3`（无法预期问题何时可以得到解决）
 
 一般来说，严重议题应立即修复，最有可能由 MDN Web 文档的工作人员和同行进行处理。
@@ -214,4 +207,5 @@ CSS 属性页面模板在[此处](https://developer.mozilla.org/zh-CN/docs/MDN/W
 - `document not written`：如果议题涉及尚未编写的必要文档（通常是因为有链接指向该文档），请设置此标签。
 - `needs content update`：如果另一个仓库中的议题的修复需要在 `mdn/content` 仓库中进行等效的修复，请设置此标签。
 
-  > **备注：** 在分类过程完成后，请删除 `needs triage` 标签。
+  > [!NOTE]
+  > 在分类过程完成后，请删除 `needs triage` 标签。

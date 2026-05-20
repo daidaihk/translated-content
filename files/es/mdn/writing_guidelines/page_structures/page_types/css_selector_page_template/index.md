@@ -7,7 +7,8 @@ l10n:
 
 {{MDNSidebar}}
 
-> **Nota:** _Elimine toda esta nota explicativa antes de publicar_
+> [!NOTE]
+> _Elimine toda esta nota explicativa antes de publicar_
 >
 > ---
 >
@@ -31,16 +32,15 @@ l10n:
 >
 > - **title**
 >   - : Título que se muestra en la parte superior de la página. Formatear como _:NameOfTheSelector_.
->     Por ejemplo, el selector [`:hover`](/es/docs/Web/CSS/:hover) tiene el título de _:hover_.
+>     Por ejemplo, el selector [`:hover`](/es/docs/Web/CSS/Reference/Selectors/:hover) tiene el título de _:hover_.
 > - **slug**
 >   - : El final de la ruta de la URL después de `https://developer.mozilla.org/es/docs/`). Se formateará como `Web/CSS/:NameOfTheSelector`.
->     Por ejemplo, el slug del selector [`:hover`](/es/docs/Web/CSS/:hover) es `Web/CSS/:hover`.
+>     Por ejemplo, el slug del selector [`:hover`](/es/docs/Web/CSS/Reference/Selectors/:hover) es `Web/CSS/:hover`.
 > - **page-type**
->   - : El valor de `page-type` para las propiedades CSS puede ser `css-selector`, `css-pseudo-class` o `css-pseudo-element`, dependiendo de si el selector es un [pseudo-clase](/es/docs/Web/CSS/Pseudo-classes), un [pseudo-elemento](/es/docs/Web/CSS/Pseudo-elements), un [combinador](/es/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#combinators), o un [selector básico](/es/docs/Web/CSS/CSS_selectors/Selector_structure#basic_selectors).
+>   - : El valor de `page-type` para las propiedades CSS puede ser `css-selector`, `css-pseudo-class` o `css-pseudo-element`, dependiendo de si el selector es un [pseudo-clase](/es/docs/Web/CSS/Reference/Selectors/Pseudo-classes), un [pseudo-elemento](/es/docs/Web/CSS/Reference/Selectors/Pseudo-elements), un [combinador](/es/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#combinators), o un [selector básico](/es/docs/Web/CSS/CSS_selectors/Selector_structure#basic_selectors).
 > - **status**
 >   - : Incluye claves de estado de tecnología (apropiadas): [**experimental**](/es/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental), [**obsoleto**](/es/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated), **no estándar** (si no está en una pista de estándares).
 > - **browser-compat**
->
 >   - : Reemplace el valor del marcador de posición `css.selectors.NameOfTheSelector` con la cadena de consulta para el selector en el [repositorio de datos de compatibilidad con los navegadores](https://github.com/mdn/browser-compat-data).
 >     La cadena de herramientas utiliza automáticamente la clave para rellenar las secciones de compatibilidad con los navegadores y especificaciones (reemplazando las macros `\{{Compat}}` y `\{{Specifications}}` en esas secciones, respectivamente).
 >
@@ -72,7 +72,7 @@ l10n:
 >
 > _Recuerde eliminar toda esta nota explicativa antes de publicar_
 
-{{CSSRef}}{{SeeCompatTable}}{{Deprecated_Header}}
+{{SeeCompatTable}}{{Deprecated_Header}}
 
 El párrafo de resumen: comience nombrando el selector y diciendo lo que hace. Idealmente, esto debería consistir en 1 o 2 oraciones cortas.
 
@@ -96,7 +96,8 @@ Cada ejemplo debe tener un encabezado H3 (`###`) que nombre el ejemplo. El encab
 
 Consulta nuestra guía sobre cómo añadir [ejemplos de código](/es/docs/MDN/Writing_guidelines/Page_structures/Code_examples) para obtener más información.
 
-> **Nota:** A veces, querrás vincular a ejemplos dados en otra página.
+> [!NOTE]
+> A veces, querrás vincular a ejemplos dados en otra página.
 >
 > **Escenario 1:** Si tiene algunos ejemplos en esta página y algunos ejemplos más en otra página:
 >

@@ -1,9 +1,9 @@
 ---
 title: RTL（从右到左）
 slug: Glossary/RTL
+l10n:
+  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
 ---
-
-{{GlossarySidebar}}
 
 **RTL**（**从右到左**，Right To Left）是{{Glossary("locale", "区域设置")}}的属性之一，用于指示语言从右到左的书写方向。
 
@@ -14,7 +14,6 @@ slug: Glossary/RTL
 ## 参见
 
 - [MDN Web 文档术语](/zh-CN/docs/Glossary)
-
   - {{Glossary("Localization", "本地化")}}
   - {{Glossary("LTR", "LTR（从左到右）")}}
   - {{Glossary("RTL", "RTL（从右到左）")}}

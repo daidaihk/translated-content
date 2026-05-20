@@ -3,19 +3,20 @@ title: "GeolocationCoordinates: longitude プロパティ"
 short-title: longitude
 slug: Web/API/GeolocationCoordinates/longitude
 l10n:
-  sourceCommit: b6984118ac9482e683a654edfefa4b426ca3c7ca
+  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
 ---
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-{{domxref("GeolocationCoordinates")}} インターフェイスの **`longitude`** プロパティは読み取り専用であり、地理的な位置の経度 10 進数で表す倍精度浮動小数点値です。
-[Unix 時刻](/ja/docs/Glossary/Unix_time)として提供される、計測時刻を表すタイムスタンプ共に、 `GeolocationCoordinates` オブジェクトは {{domxref("GeolocationPosition")}} インターフェイスの一部であり、位置位置を取得して返す位置情報 API 関数が返すオブジェクト型です。
+**`longitude`** は {{domxref("GeolocationCoordinates")}} インターフェイスの読み取り専用プロパティであり、地理的な位置の経度 10 進数で表す数値です。
+ミリ秒単位の {{Glossary("Unix time", "Unix 時刻")}}として提供される、計測時刻を表すタイムスタンプ共に、 `GeolocationCoordinates` オブジェクトは {{domxref("GeolocationPosition")}} インターフェイスの一部であり、位置位置を取得して返す位置情報 API 関数が返すオブジェクト型です。
 
 ## 値
 
 `longitude` の値は `Coordinates` オブジェクトによって記述された地球上の場所の地理的な経度を 10 進数で表したものです。この値は World Geodetic System 1984 仕様 (WGS 84) で定義されています。
 
-> **メモ:** ゼロ子午線（本初子午線、基準子午線とも呼ばれる）は、多くの人が思い浮かべるグリニッジ子午線と正確には同じではありません。これは [IERS 基準子午線](https://ja.wikipedia.org/wiki/IERS基準子午線) であり、 5.3 [秒](<https://ja.wikipedia.org/wiki/度_(角度)>) （102 メートル/335 フィート）だけ[グリニッジ子午線](https://ja.wikipedia.org/wiki/グリニッジ子午線)より東に位置しています。これは[グローバルポジショニングシステム](https://ja.wikipedia.org/wiki/グローバル・ポジショニング・システム) (GPS) で使われている規格と同じものです。
+> [!NOTE]
+> ゼロ子午線（本初子午線、基準子午線とも呼ばれる）は、多くの人が思い浮かべるグリニッジ子午線と正確には同じではありません。これは [IERS 基準子午線](https://ja.wikipedia.org/wiki/IERS基準子午線) であり、 5.3 [秒](<https://ja.wikipedia.org/wiki/度_(角度)>) （102 メートル/335 フィート）だけ[グリニッジ子午線](https://ja.wikipedia.org/wiki/グリニッジ子午線)より東に位置しています。これは[グローバルポジショニングシステム](https://ja.wikipedia.org/wiki/グローバル・ポジショニング・システム) (GPS) で使われている規格と同じものです。
 
 ## 例
 

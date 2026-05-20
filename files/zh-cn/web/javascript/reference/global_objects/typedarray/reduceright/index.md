@@ -3,8 +3,6 @@ title: TypedArray.prototype.reduceRight()
 slug: Web/JavaScript/Reference/Global_Objects/TypedArray/reduceRight
 ---
 
-{{JSRef}}
-
 **`reduceRight()`** 在累加器和类型化数组的每个元素上（从右到左）调用函数，使其归约为单一的值。这个方法的算法和 {{jsxref("Array.prototype.reduceRight()")}} 相同。_TypedArray_ 是这里的[类型化数组类型](/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#typedarray_对象)之一。
 
 ## 语法
@@ -70,7 +68,7 @@ var total = new Uint8Array([0, 1, 2, 3]).reduceRight(function (a, b) {
 
 {{Compat}}
 
-## 另见
+## 参见
 
 - {{jsxref("TypedArray.prototype.reduce()")}}
 - {{jsxref("Array.prototype.reduceRight()")}}

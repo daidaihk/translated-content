@@ -3,12 +3,12 @@ title: "ElementInternals: checkValidity() メソッド"
 short-title: checkValidity()
 slug: Web/API/ElementInternals/checkValidity
 l10n:
-  sourceCommit: 86215eff9beccf2e069be9109347ad830cc5e9c4
+  sourceCommit: ce10da0e9d23d241b175d8d68bf93507734b7c48
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Web Components")}}
 
-**`checkValidity()`** は {{domxref("ElementInternals")}} インタフェイスのメソッドで、要素が適用された[制約検証](/ja/docs/Web/HTML/Constraint_validation)のルールを満たしているかどうかをチェックします。
+**`checkValidity()`** は {{domxref("ElementInternals")}} インタフェイスのメソッドで、要素が適用された[制約検証](/ja/docs/Web/HTML/Guides/Constraint_validation)のルールを満たしているかどうかをチェックします。
 
 もし `checkValidity` が `false` を返したら、キャンセル可能な [invalid イベント](/ja/docs/Web/API/HTMLInputElement/invalid_event)が要素で発生します。
 

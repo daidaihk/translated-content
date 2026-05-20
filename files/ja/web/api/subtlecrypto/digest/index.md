@@ -37,7 +37,7 @@ digest(algorithm, data)
 
 ## 対応しているアルゴリズム
 
-ダイジェストアルゴリズムは[暗号ハッシュ関数](/ja/docs/Glossary/Cryptographic_hash_function)とも呼ばれ、任意の大きなデータブロックを固定サイズの出力（通常は入力よりもはるかに短い出力）に変換します。暗号化にはさまざまな用途があります。
+ダイジェストアルゴリズムは[暗号ハッシュ関数](/ja/docs/Glossary/Hash_function)とも呼ばれ、任意の大きなデータブロックを固定サイズの出力（通常は入力よりもはるかに短い出力）に変換します。暗号化にはさまざまな用途があります。
 
 <table class="standard-table">
   <tbody>
@@ -90,9 +90,11 @@ digest(algorithm, data)
   </tbody>
 </table>
 
-> **警告:** SHA-1 は現在脆弱であると見なされているため、暗号化アプリケーションには使用しないでください。
+> [!WARNING]
+> SHA-1 は現在脆弱であると見なされているため、暗号化アプリケーションには使用しないでください。
 
-> **メモ:** キー付きハッシュメッセージ認証コード ([HMAC](/ja/docs/Glossary/HMAC)) の作成方法をここで探している場合は、代わりに [SubtleCrypto.sign()](/ja/docs/Web/API/SubtleCrypto/sign#hmac) を使用する必要があります。
+> [!NOTE]
+> キー付きハッシュメッセージ認証コード ([HMAC](/ja/docs/Glossary/HMAC)) の作成方法をここで探している場合は、代わりに [SubtleCrypto.sign()](/ja/docs/Web/API/SubtleCrypto/sign#hmac) を使用する必要があります。
 
 ## 例
 

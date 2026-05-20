@@ -3,12 +3,13 @@ title: "Element: getBoundingClientRect() メソッド"
 short-title: getBoundingClientRect()
 slug: Web/API/Element/getBoundingClientRect
 l10n:
-  sourceCommit: bbf7f25f9cf95fb154e2740a9fdc9c02818981bf
+  sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
 ---
 
 {{APIRef("DOM")}}
 
-**`Element.getBoundingClientRect()`** メソッドは、要素の寸法と、その[ビューポート](/ja/docs/Glossary/Viewport)に対する相対位置に関する情報を返します。
+**`Element.getBoundingClientRect()`** メソッドは、要素の寸法と、その[ビューポート](/ja/docs/Glossary/Viewport)に対する相対位置に関する情報を
+{{domxref("DOMRect")}} オブジェクトで返します。
 
 ## 構文
 
@@ -26,7 +27,7 @@ getBoundingClientRect()
 
 ![要素全体を格納する最小の長方形である DOMRect オブジェクト。](element-box-diagram.png)
 
-このメソッドが返す {{domxref("DOMRect")}} オブジェクトの `width` と `height` プロパティは、内容物の幅や高さだけでなく、 `padding` と `border-width` も含まれます。標準的なボックスモデルでは、これは要素の `width` または `height` プロパティ + `padding` + `border-width` と同じになります。しかし、もし [`box-sizing: border-box`](/ja/docs/Web/CSS/box-sizing) が要素に設定されていれば、これは `width` または `height` と等しくなります。
+このメソッドが返す {{domxref("DOMRect")}} オブジェクトの `width` と `height` プロパティは、内容物の幅や高さだけでなく、 `padding` と `border-width` も含まれます。標準的なボックスモデルでは、これは要素の `width` または `height` プロパティ + `padding` + `border-width` と同じになります。しかし、もし [`box-sizing: border-box`](/ja/docs/Web/CSS/Reference/Properties/box-sizing) が要素に設定されていれば、これは `width` または `height` と等しくなります。
 
 返される値は、その要素に対して {{domxref("Element.getClientRects", "getClientRects()")}} が返す矩形の和、つまり、その要素に関連する CSS の border-box と見なすことができます。
 
@@ -106,7 +107,7 @@ function update() {
   const elem = document.getElementById("example");
   const rect = elem.getBoundingClientRect();
 
-  container.innerHTML = "";
+  container.textContent = "";
   for (const key in rect) {
     if (typeof rect[key] !== "function") {
       let para = document.createElement("p");
@@ -133,5 +134,3 @@ update();
 ## 関連情報
 
 - {{domxref("Element.getClientRects", "getClientRects()")}}
-- [MSDN: `getBoundingClientRect`](<https://msdn.microsoft.com/library/ms536433(VS.85).aspx>)
-- [MSDN: `ClientRect`](<https://msdn.microsoft.com/library/hh826029(VS.85).aspx>)、初期バージョンの `DOMRect`

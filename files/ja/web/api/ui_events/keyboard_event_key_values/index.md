@@ -2958,7 +2958,8 @@ Linux で GTK を使ってアクセント記号やその他の特殊文字を生
 - [ANSI/CEA-2014-B](https://shop.cta.tech/products/web-based-protocol-and-framework-for-remote-user-interface-on-upnp-networks-and-the-internet): UPnP™ ネットワークとインターネット上のリモートユーザーインターフェイスのためのウェブベースのプロトコルとフレームワーク
 - [Android KeyEvent key code values](https://developer.android.com/reference/android/view/KeyEvent.html)
 
-> **メモ:** リモコンには通常、[マルチメディアキー](#マルチメディアキー)や[音声制御キー](#音声制御キー)のように、すでに他の場所で定義されている値を持つキーが記載されています。それらのキーの値は、それらの表内の文書化されたものと一致します。
+> [!NOTE]
+> リモコンには通常、[マルチメディアキー](#マルチメディアキー)や[音声制御キー](#音声制御キー)のように、すでに他の場所で定義されている値を持つキーが記載されています。それらのキーの値は、それらの表内の文書化されたものと一致します。
 
 <table class="no-markdown">
   <thead>
@@ -4232,13 +4233,13 @@ Linux で GTK を使ってアクセント記号やその他の特殊文字を生
 
 \[3] Google Chrome 57 以前は `"LaunchApplication2"` の代わりに `"LaunchCalculator"` を返していました。詳しくは [Chrome Bug 612743](https://crbug.com/612743) を参照してください。
 
-\[4] Firefox 37 より前の Firefox では、ウェブブラウザのキーは "`LaunchWebBrowser"` ではなく `"LaunchApplication1"` というキーコードを返していました。
+\[4] Firefox 37 より前の Firefox では、ウェブブラウザーのキーは "`LaunchWebBrowser"` ではなく `"LaunchApplication1"` というキーコードを返していました。
 
 \[5] Firefox は Firefox 37 でこのキーに対応しました。それ以前は、このキーは `"Unidentified"` として報告されていました。
 
 ## ブラウザー制御キー
 
-キーボードによっては、ウェブブラウザを制御するための特別なキーが記載されています。それらのキーは以下に続きます。
+キーボードによっては、ウェブブラウザーを制御するための特別なキーが記載されています。それらのキーは以下に続きます。
 
 <table class="no-markdown">
   <thead>
@@ -4385,7 +4386,7 @@ Linux で GTK を使ってアクセント記号やその他の特殊文字を生
 
 これらのキーはキーボードのテンキーにあります。しかし、すべてがすべてのキーボードに存在するわけではありません。一般的なテンキーには <kbd>0</kbd> から <kbd>9</kbd> までの数字キーがありますが（`"0"` から `"9"` までのエンコード方式）、マルチメディアキーボードの中には、それ以上の数字のために追加の数字キーがあるものもあります。
 
-> **メモ:** <kbd>10</kbd> キーが存在する場合、 `key` の値が `"0"` のイベントを生成します。
+> [!NOTE] > <kbd>10</kbd> キーが存在する場合、 `key` の値が `"0"` のイベントを生成します。
 
 <table class="no-markdown">
   <thead>

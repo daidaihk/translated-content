@@ -33,7 +33,8 @@ browser-compat: api.Ink
 배너가 있는 페이지에는 일반적으로 "보완적인" 페이지 메타데이터도 있습니다.
 예를 들어 `\{{SeeCompatTable}}`이 있는 페이지는 일반적으로 사이드바에 적절한 아이콘이 표시되도록 `experimental` 상태도 추가해야 합니다(위에 표시된 대로).
 
-> **참고:** 배너 매크로는 메타데이터에 의존하지 않지만 일부 다른 매크로 삽입 콘텐츠는 의존합니다.
+> [!NOTE]
+> 배너 매크로는 메타데이터에 의존하지 않지만 일부 다른 매크로 삽입 콘텐츠는 의존합니다.
 > 예를 들어 `\{{Compat}}` 매크로는 `browser-compat` 메타데이터 값에 의존합니다.
 
 ## 추가 할 수 있는 배너와 추가해야하는 배너
@@ -47,4 +48,4 @@ browser-compat: api.Ink
   또한 페이지 머리말에 `status`를 `deprecated`로 추가합니다.
 - `\{{Non-standard_Header}}` — 기술 사용이 여러 브라우저에서 구현되더라도 공식 사양의 일부가 아님을 나타내는 **비표준** 배너를 생성합니다.
   또한 페이지 머리말에 `status`를 `non-standard`로 추가합니다.
-- `\{{SecureContext_Header}}` — [보안 컨텍스트](/ko/docs/Web/Security/Secure_Contexts)에서만 기술을 사용할 수 있음을 나타내는 **보안 컨텍스트** 배너를 생성합니다.
+- `\{{SecureContext_Header}}` — [보안 컨텍스트](/ko/docs/Web/Security/Defenses/Secure_Contexts)에서만 기술을 사용할 수 있음을 나타내는 **보안 컨텍스트** 배너를 생성합니다.

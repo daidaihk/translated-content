@@ -21,9 +21,7 @@ browser.alarms.get(
 - `name`{{optional_inline}}
   - : `string`. 取得したいアラームの名前を指定します。指定しなかった場合は空文字列 "" が用いられます。
 - `callback`
-
   - : `function`. この関数には以下の引数が渡ります。
-
     - `alarm`
       - : `{{WebExtAPIRef('alarms.Alarm')}}`. 名前が `name` にマッチするアラームが入ります。マッチするアラームがなかった場合、`undefined` が入ります。
 
@@ -33,4 +31,5 @@ browser.alarms.get(
 
 {{WebExtExamples}}
 
-> **メモ:** この API は Chromium の [`chrome.alarms`](https://developer.chrome.com/extensions/alarms) API に基づいています。
+> [!NOTE]
+> この API は Chromium の [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API に基づいています。

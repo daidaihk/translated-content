@@ -3,8 +3,6 @@ title: Firefox 33 for developers
 slug: Mozilla/Firefox/Releases/33
 ---
 
-{{FirefoxSidebar}}
-
 ## 普通 Web 开发者应该注意的变化
 
 ### Developer Tools
@@ -53,6 +51,6 @@ _No change._
 
 - [Site Compatibility for Firefox 33](/zh-CN/docs/Mozilla/Firefox/Releases/33/Site_Compatibility)
 
-### 更早版本
+### 更早期的版本
 
-{{Firefox_for_developers('32')}}
+{{Firefox_for_developers}}

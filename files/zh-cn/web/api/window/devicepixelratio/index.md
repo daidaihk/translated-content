@@ -88,7 +88,7 @@ const updatePixelRatio = () => {
 
 updatePixelRatio();
 
-matchMedia(mqString).addListener(updatePixelRatio);
+matchMedia(mqString).addEventListener("change", updatePixelRatio);
 ```
 
 字符串`mqString`设置为媒体查询本身。媒体查询以`(resolution: 1dppx)`（对于标准显示）或`(resolution: 2dppx)`（对于 Retina / HiDPI 显示）开始，检查当前显示分辨率是否与每个像素`px`的实际设备像素点匹配。
@@ -165,6 +165,6 @@ body {
 
 ## 参见
 
-- [Media queries](/zh-CN/docs/Web/CSS/CSS_media_queries)
-- [Using media queries](/zh-CN/docs/Web/CSS/CSS_media_queries/Using_media_queries)
-- [CSS `resolution` media query](/zh-CN/docs/Web/CSS/@media/resolution)
+- [Media queries](/zh-CN/docs/Web/CSS/Guides/Media_queries)
+- [Using media queries](/zh-CN/docs/Web/CSS/Guides/Media_queries/Using)
+- [CSS `resolution` media query](/zh-CN/docs/Web/CSS/Reference/At-rules/@media/resolution)

@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("WebGL")}}
 
-**`WebGLRenderingContext`** インターフェースは、 {{HTMLElement("canvas")}} 要素の描画サーフェスのための OpenGL ES 2.0 の描画コンテキストを提供します。
+**`WebGLRenderingContext`** インターフェイスは、 {{HTMLElement("canvas")}} 要素の描画サーフェスのための OpenGL ES 2.0 の描画コンテキストを提供します。
 
-このインターフェースを取得するためには、 {{domxref("HTMLCanvasElement.getContext()", "getContext()")}} を `<canvas>` 要素に対して、 "webgl" の引数を与えて呼び出します。
+このインターフェイスを取得するためには、 {{domxref("HTMLCanvasElement.getContext()", "getContext()")}} を `<canvas>` 要素に対して、 "webgl" の引数を与えて呼び出します。
 
 ```js
 const canvas = document.getElementById("myCanvas");
@@ -214,7 +214,7 @@ WebGL 2.0 のコンテキストが必要な場合は、{{domxref("WebGL2Renderin
 - {{domxref("WebGLRenderingContext.deleteShader()")}}
   - : `WebGLShader` を削除します。
 - {{domxref("WebGLRenderingContext.detachShader()")}}
-  - : `WebGLShader` をでタッチします。
+  - : `WebGLShader` をデタッチします。
 - {{domxref("WebGLRenderingContext.getAttachedShaders()")}}
   - : `WebGLProgram` にアタッチされた `WebGLShader` オブジェクトのリストを返します。
 - {{domxref("WebGLRenderingContext.getProgramParameter()")}}

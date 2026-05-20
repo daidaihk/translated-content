@@ -1,118 +1,108 @@
 ---
 title: try...catch
 slug: Web/JavaScript/Reference/Statements/try...catch
+l10n:
+  sourceCommit: 203acfabc8a27b2a64757df33586b3c29abb730f
 ---
 
-{{jsSidebar("Statements")}}
+**`try...catch`** 语句由一个 `try` 块和一个 `catch` 块或 `finally` 块（或两者皆有）组成。首先执行 `try` 块中的代码，如果它抛出异常，则将执行 `catch` 块中的代码。`finally` 块中的代码将在控制流退出整个结构之前始终被执行。
 
-**`try...catch`** 语句标记要尝试的语句块，并指定一个出现异常时抛出的响应。
+{{InteractiveExample("JavaScript 演示：try...catch 语句")}}
 
-{{EmbedInteractiveExample("pages/js/statement-trycatch.html")}}
+```js interactive-example
+try {
+  nonExistentFunction();
+} catch (error) {
+  console.error(error);
+  // Expected output: ReferenceError: nonExistentFunction is not defined
+  // （注意：具体输出结果可能因浏览器而异）
+}
+```
 
 ## 语法
 
-```plain
+```js-nolint
 try {
-   try_statements
+  tryStatements
+} catch (exceptionVar) {
+  catchStatements
+} finally {
+  finallyStatements
 }
-[catch (exception_var_1 if condition_1) { // non-standard
-   catch_statements_1
-}]
-...
-[catch (exception_var_2) {
-   catch_statements_2
-}]
-[finally {
-   finally_statements
-}]
 ```
 
-- `try_statements`
-  - : 需要被执行的语句。
-- `catch_statements_1`, `catch_statements_2`
-  - : 如果在`try`块里有异常被抛出时执行的语句。
-- `exception_var_1`, `exception_var_2`
-  - : 用于保存关联`catch`子句的异常对象的标识符。
-- `condition_1`
-  - : 一个条件表达式。
-- `finally_statements`
-  - : 在`try`语句块之后执行的语句块。无论是否有异常抛出或捕获这些语句都将执行。
+- `tryStatements`
+  - : 要执行的语句。
+- `catchStatements`
+  - : `try` 块抛出异常后执行的语句。
+- `exceptionVar` {{optional_inline}}
+  - : 可选的[标识符或模式](#catch_绑定)，用于保存关联的 `catch` 块所捕获到的异常。如果 `catch` 块不使用异常的值，你可以省略 `exceptionVar` 及其周围的括号。
+- `finallyStatements`
+  - : 在控制流退出 `try...catch...finally` 结构之前执行的语句。这些语句无论是否抛出或捕获异常都会执行。
 
 ## 描述
 
-`try`语句包含了由一个或者多个语句组成的`try`块，和至少一个`catch`块或者一个`finally`块的其中一个，或者两个兼有，下面是三种形式的`try`声明：
+`try` 语句总是以 `try` 块开始。并且，至少存在 `catch` 块或 `finally` 块。也可以同时存在 `catch` 和 `finally` 块。这为我们提供了 `try` 语句的三种形式：
 
-1. `try...catch`
-2. `try...finally`
-3. `try...catch...finally`
+- `try...catch`
+- `try...finally`
+- `try...catch...finally`
 
-`catch`子句包含`try`块中抛出异常时要执行的语句。也就是，你想让`try`语句中的内容成功，如果没成功，你想控制接下来发生的事情，这时你可以在`catch`语句中实现。如果在`try`块中有任何一个语句（或者从`try`块中调用的函数）抛出异常，控制立即转向`catch`子句。如果在`try`块中没有异常抛出，会跳过`catch`子句。
+与其他结构（如 [`if`](/zh-CN/docs/Web/JavaScript/Reference/Statements/if...else) 或 [`for`](/zh-CN/docs/Web/JavaScript/Reference/Statements/for)）不同，`try`、`catch` 和 `finally` 块必须是*块*，而不是单个语句。
 
-`finally`子句在`try`块和`catch`块之后执行但是在下一个`try`声明之前执行。无论是否有异常抛出或捕获它总是执行。
+```js-nolint example-bad
+try doSomething(); // SyntaxError
+catch (e) console.log(e);
+```
 
-你可以嵌套一个或者更多的`try`语句。如果内部的`try`语句没有`catch`子句，那么将会进入包裹它的`try`语句的`catch`子句。
+`catch` 块包含指定在 `try` 块中抛出异常时要执行的语句。如果 `try` 块（或在 `try` 块内部调用的函数）中的任何语句抛出异常，则立即转移到 `catch` 块。如果 `try` 块中没有抛出异常，则跳过 `catch` 块。
 
-你也可以用`try`语句去处理 JavaScript 异常。参考[JavaScript 指南](/zh-CN/docs/Web/JavaScript/Guide)了解更多关于 Javascript 异常的信息。
+`finally` 块总是在控制流退出 `try...catch...finally` 结构之前执行。它总是执行，无论是否抛出或捕获异常。
 
-### 无条件的 `catch` 块
+你可以嵌套多个 `try` 语句。如果内部 `try` 语句没有 `catch` 块，则使用包裹它的 `try` 语句的 `catch` 块。
 
-当使用单个无条件`catch`子句时，抛出的任何异常时都会进入到`catch`块。例如，当在下面的代码中发生异常时，控制转移到`catch`子句。
+你可以使用 `try` 语句来处理 JavaScript 异常。有关 JavaScript 异常的更多信息，请参阅 [JavaScript 指南](/zh-CN/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#异常处理语句)。
+
+### catch 绑定
+
+当 `try` 块中抛出异常时，`exceptionVar`（即 `catch (e)` 中的 `e`）保存了异常的值。你可以使用这个{{Glossary("binding", "绑定")}}获取有关抛出的异常的信息。这个{{Glossary("binding", "绑定")}}只能在 `catch` 块的{{Glossary("Scope", "作用域")}}中使用。
+
+它不需要是单个标识符。你可以使用[解构模式](/zh-CN/docs/Web/JavaScript/Reference/Operators/Destructuring)来一次性为多个标识符赋值。
 
 ```js
 try {
-  throw "myException"; // generates an exception
-} catch (e) {
-  // statements to handle any exceptions
-  logMyErrors(e); // pass exception object to error handler
+  throw new TypeError("哦豁");
+} catch ({ name, message }) {
+  console.log(name); // "TypeError"
+  console.log(message); // "哦豁"
 }
 ```
 
-`catch`块指定一个标识符（在上面的示例中为 e），该标识符保存由`throw`语句指定的值。`catch`块是唯一的，因为当输入`catch`块时，JavaScript 会创建此标识符，并将其添加到当前作用域；标识符仅在`catch`块执行时存在；`catch`块执行完成后，标识符不再可用。
+`catch` 子句创建的绑定与 `catch` 块处于同一作用域内，因此 `catch` 块中声明的变量不能与 `catch` 子句创建的绑定具有相同的名称。（[有一个例外](/zh-CN/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#语句)，但它是已弃用的语法。）
 
-### 条件 `catch` 块
-
-{{non-standard_header}}
-
-你也可以用一个或者更多条件`catch`子句来处理特定的异常。在这种情况下，当异常抛出时将会进入合适的`catch`子句中。在下面的代码中，`try`块的代码可能会抛出三种异常：{{jsxref("TypeError")}}，{{jsxref("RangeError")}}和{{jsxref("EvalError")}}。当一个异常抛出时，控制将会进入与其对应的`catch`语句。如果这个异常不是特定的，那么控制将转移到无条件`catch`子句。
-
-当用一个无条件`catch`子句和一个或多个条件语句时，无条件`catch`子句必须放在最后。否则当到达条件语句之前所有的异常将会被非条件语句拦截。
-
-提醒：这个功能不符合 ECMAscript 规范。
-
-```js
+```js-nolint example-bad
 try {
-    myroutine(); // may throw three types of exceptions
-} catch (e if e instanceof TypeError) {
-    // statements to handle TypeError exceptions
-} catch (e if e instanceof RangeError) {
-    // statements to handle RangeError exceptions
-} catch (e if e instanceof EvalError) {
-    // statements to handle EvalError exceptions
-} catch (e) {
-    // statements to handle any unspecified exceptions
-    logMyErrors(e); // pass exception object to error handler
+  throw new TypeError("哦豁");
+} catch ({ name, message }) {
+  var name; // SyntaxError: Identifier 'name' has already been declared
+  let message; // SyntaxError: Identifier 'message' has already been declared
 }
 ```
 
-下面用符合 ECMAscript 规范的简单的 JavaScript 来编写相同的“条件 catch 子句”（显然更加冗长的，但是可以在任何地方运行）：
+异常绑定是可写的。例如，你可能需要规范异常值，以确保它是一个 {{jsxref("Error")}} 对象。
 
 ```js
 try {
-  myRoutine();
+  throw "哦豁；这不是一个 Error 对象";
 } catch (e) {
-  if (e instanceof RangeError) {
-    // statements to handle this very common expected error
-  } else {
-    throw e; // re-throw the error unchanged
+  if (!(e instanceof Error)) {
+    e = new Error(e);
   }
+  console.error(e.message);
 }
 ```
 
-### 异常标识符
-
-当`try`块中的抛出一个异常时，`exception_var`（如`catch (e)`中的`e`）用来保存被抛出声明指定的值。你可以用这个标识符来获取关于被抛出异常的信息。
-
-这个标识符是`catch`子语句内部的。换言之，当进入`catch`子语句时标识符创建，`catch`子语句执行完毕后，这个标识符将不再可用。
+如果你不需要异常值，你可以省略异常变量及其周围的括号。
 
 ```js
 function isValidJSON(text) {
@@ -125,120 +115,207 @@ function isValidJSON(text) {
 }
 ```
 
-### `finally` 块
+### finally 块
 
-`finally` 块包含的语句会在 `try` 块和 `catch` 块执行之后、及 `try...catch...finally` 块后面的语句执行之前执行。控制流始终会进入 `finally` 块，可以通过以下方式之一执行：
+`finally` 块包含要在 `try` 和 `catch` 块之后，但在 `try...catch...finally` 块之后的语句之前执行的语句。控制流将始终进入 `finally` 块，其执行可以按以下方式进行：
 
-- `try` 块正常执行结束后（没有抛出异常）立即执行；
-- 在 `catch` 块正常执行完毕后立即执行；
-- 紧接着在 `try` 代码块或 `catch` 代码块中的控制流语句（`return`、`throw`、`break`、`continue`）执行之前执行。
+- 在 `try...finally` 结构中，控制流离开 `try` 块后立即执行（无论是在最后一条语句之后，还是在 `throw`、`return`、`break` 或 `continue` 语句之后）；
+- 在 `try...catch...finally` 结构中，在控制流离开 `catch` 块后立即执行；
+- 在 `try...catch...finally` 结构中，在控制流离开 `try` 块后立即执行，除非通过 `throw` 语句退出（在这种情况下，控制流会先进入 `catch` 块）。
 
-如果 `try` 代码块抛出异常，即使没有 `catch` 代码块来处理异常，`finally` 代码块仍会执行，在这种情况下，异常仍会在 `finally` 代码块执行完毕后立即抛出。
+如果进入了 `finally` 块的控制流来自 `try` 或 `catch` 块中的控制流语句（`return`、`throw`、`break`、`continue`），则该语句的效果将被延迟，直到 `finally` 块中执行的最后一条语句之后。例如，如果在 `try` 块抛出异常，即使没有 `catch` 块来处理异常，`finally` 块仍然会执行，并且异常会在 `finally` 块执行完毕后立即抛出。
 
-下面的示例展示了 `finally` 代码块的一种使用情况。代码先打开一个文件，然后执行使用该文件的语句；即使出现异常，`finally` 块也会确保文件在使用后始终关闭。
+但是，这条规则有个例外：如果 `finally` 块中执行的最后一条语句本身就是一个控制流语句，那么该语句将覆盖之前的控制流语句的效果（没有延迟）；有关示例，请参阅[从 `finally` 块返回](#从_finally_块返回)。在 `finally` 块中使用控制流语句（`return`、`throw`、`break`、`continue`）通常不是一个好主意，因为它们可以覆盖之前执行的控制流语句的效果，而这很少是预期行为。大多数情况下，`finally` 块应该用于执行不修改主要逻辑的清理代码。
+
+## 示例
+
+### 无条件捕获块
+
+当使用 `catch` 块时，`catch` 块将在 `try` 块中抛出异常时被执行。例如，在下面的代码中，控制流将被转移到 `catch` 块。
+
+```js
+try {
+  throw "我的异常"; // 产生异常
+} catch (e) {
+  // 处理任何异常的语句
+  logMyErrors(e); // 将异常对象传递给错误处理器
+}
+```
+
+`catch` 块指定了一个标识符（如上例中的 `e`），它保存了异常的值。这个值只能在 `catch` 块的{{Glossary("Scope", "作用域")}}内使用。
+
+### 条件捕获块
+
+你可以通过将 `try...catch` 块与 `if...else if...else` 结构组合起来，创建“条件 `catch` 块”。例如：
+
+```js
+try {
+  myroutine(); // 可能会抛出三种类型的异常
+} catch (e) {
+  if (e instanceof TypeError) {
+    // 处理 TypeError 异常的语句
+  } else if (e instanceof RangeError) {
+    // 处理 RangeError 异常的语句
+  } else if (e instanceof EvalError) {
+    // 处理 EvalError 异常的语句
+  } else {
+    // 处理未指定异常的语句
+    logMyErrors(e); // 将异常对象传递给错误处理器
+  }
+}
+```
+
+一个常见的用例是仅捕获（并消除）一小部分预期错误，然后在其他情况下重新抛出错误：
+
+```js
+try {
+  myRoutine();
+} catch (e) {
+  if (e instanceof RangeError) {
+    // 处理这个非常常见的预期错误的语句
+  } else {
+    throw e; // 重新抛出错误，没有任何改变
+  }
+}
+```
+
+这类似与其他语言中的语法，比如 Java：
+
+```java
+try {
+  myRoutine();
+} catch (RangeError e) {
+  // 处理这个非常常见的预期错误的语句
+}
+// 其他错误被隐式重新抛出
+```
+
+### 嵌套 try 块
+
+首先，让我们看看下面的代码会发生什么：
+
+```js
+try {
+  try {
+    throw new Error("哦豁");
+  } finally {
+    console.log("finally");
+  }
+} catch (ex) {
+  console.error("外层", ex.message);
+}
+
+// 输出：
+// "finally"
+// "外层" "哦豁"
+```
+
+现在，如果我们已经在内部的 `try` 块中通过添加 `catch` 块捕获了异常：
+
+```js
+try {
+  try {
+    throw new Error("哦豁");
+  } catch (ex) {
+    console.error("内层", ex.message);
+  } finally {
+    console.log("最终");
+  }
+} catch (ex) {
+  console.error("外层", ex.message);
+}
+
+// 输出：
+// "内层" "哦豁"
+// "最终"
+```
+
+现在，让我们重新抛出错误。
+
+```js
+try {
+  try {
+    throw new Error("哦豁");
+  } catch (ex) {
+    console.error("内层", ex.message);
+    throw ex;
+  } finally {
+    console.log("最终");
+  }
+} catch (ex) {
+  console.error("外层", ex.message);
+}
+
+// 输出：
+// "内层" "哦豁"
+// "最终"
+// "外层" "哦豁"
+```
+
+任何特定的异常只会被直接包裹它的 `catch` 块捕获一次，除非该异常被重新抛出。当然，如果在“内部”代码块中触发了任何新的异常（因为 `catch` 块中的代码可能会执行某些操作并抛出异常），这些异常将由外部的 `catch` 块捕获。
+
+### 使用 finally 进行资源清理
+
+以下示例展示了 `finally` 块的一个用例。代码打开一个文件，然后执行使用该文件的语句；`finally` 块确保文件在使用后始终关闭，即使抛出了异常。
 
 ```js
 openMyFile();
 try {
-  // tie up a resource
+  // 占用资源
   writeMyFile(theData);
 } finally {
-  closeMyFile(); // always close the resource
+  closeMyFile(); // 始终关闭资源
+  // 任何未捕获的异常都会在这里被延迟处理
 }
 ```
 
-## 示例
-
-### 嵌套 try 块
-
-首先让我们看看这里发生什么：
+同样，`try` 块中任何 `return` 语句的效果都会在 `finally` 块结束后才生效，尽管返回值表达式是在进入 `finally` 块之前计算的。
 
 ```js
-try {
+function safeWriteMyFile() {
+  openMyFile();
   try {
-    throw new Error("oops");
+    return writeMyFile(theData); // 函数调用被求值
   } finally {
-    console.log("finally");
+    closeMyFile(); // 始终关闭资源
+    // return 在这里被延迟
   }
-} catch (ex) {
-  console.error("outer", ex.message);
 }
-
-// Output:
-// "finally"
-// "outer" "oops"
 ```
 
-现在，如果我们已经在 try 语句中，通过增加一个 catch 语句块捕获了异常
+### 从 finally 块返回
+
+以下示例说明了 `finally` 块中的控制流语句的行为。当控制流通过第一个 `return` 语句退出 `try` 块时，返回值表达式（`order.sort()`）在进入 `finally` 块之前被计算，函数计划在 `finally` 块执行完毕后返回该值。然而，`finally` 块中的 `return` 语句会覆盖前一个 `return` 语句的效果，包括其返回值。
 
 ```js
-try {
+function doIt() {
+  const order = ["z"];
   try {
-    throw new Error("oops");
-  } catch (ex) {
-    console.error("inner", ex.message);
+    order.push("try");
+    return order.sort(); // “z”现在在“try”之后
   } finally {
-    console.log("finally");
+    order.push("finally");
+    return order;
   }
-} catch (ex) {
-  console.error("outer", ex.message);
 }
-
-// Output:
-// "inner" "oops"
-// "finally"
+doIt();
+// 返回 ["try", "z", "finally"]，而不是 ["finally", "try", "z"] 或 ["try", "z"]
 ```
 
-现在，让我们再次抛出错误。
+同样的逻辑也适用于其他控制流语句。在这里，函数首先计划抛出值 `"catch"`，但最终返回值 `"finally"`。
 
 ```js
-try {
+function doIt() {
   try {
-    throw new Error("oops");
-  } catch (ex) {
-    console.error("inner", ex.message);
-    throw ex;
+    throw "catch";
   } finally {
-    console.log("finally");
+    return "finally";
   }
-} catch (ex) {
-  console.error("outer", ex.message);
 }
-
-// Output:
-// "inner" "oops"
-// "finally"
-// "outer" "oops"
+doIt(); // 返回“finally”
 ```
 
-任何给定的异常只会被离它最近的封闭 catch 块捕获一次。当然，在“inner”块抛出的任何新异常（因为 catch 块里的代码也可以抛出异常），将会被“outer”块所捕获。
-
-### 从 finally 语句块返回
-
-如果从`finally`块中返回一个值，那么这个值将会成为整个`try-catch-finally`的返回值，无论是否有`return`语句在`try`和`catch`中。这包括在`catch`块里抛出的异常。
-
-```js
-try {
-  try {
-    throw new Error("oops");
-  } catch (ex) {
-    console.error("inner", ex.message);
-    throw ex;
-  } finally {
-    console.log("finally");
-    return;
-  }
-} catch (ex) {
-  console.error("outer", ex.message);
-}
-
-// 注：此 try catch 语句需要在 function 中运行才能作为函数的返回值，否则直接运行会报语法错误
-// Output:
-// "inner" "oops"
-// "finally"
-```
-
-因为 finally 块里的 return 语句，"oops" 没有抛出到外层，从 catch 块返回的值同样适用。
+再次强调，不建议在 `finally` 块中使用控制流语句，因为这可能并非预期效果。
 
 ## 规范
 

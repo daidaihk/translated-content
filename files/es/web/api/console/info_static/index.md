@@ -1,7 +1,6 @@
 ---
 title: Console.info()
 slug: Web/API/console/info_static
-original_slug: Web/API/console/info
 ---
 
 {{APIRef("Console API")}}Emite un mensaje informativo a la Consola Web. En Firefox y Chrome, se muestra un pequeño ícono "i" junto a estos elementos en el registro de la Consola Web.
@@ -24,7 +23,7 @@ console.info(msg [, subst1, ..., substN]);
 - `subst1` ... `substN`
   - : Objetos en JavaScript con los que reemplazar cadenas de sustitución dentro del mensaje. Esto le da un control adicional sobre el formato de la salida.
 
-Ver [Salida de texto en la consola](/es/docs/Web/API/console#Outputting_text_to_the_console) en la documentacion de {{domxref("console")}} para detalles.
+Ver [Salida de texto en la consola](/es/docs/Web/API/console#outputting_text_to_the_console) en la documentacion de {{domxref("console")}} para detalles.
 
 ## Especificaciones
 
@@ -36,5 +35,5 @@ Ver [Salida de texto en la consola](/es/docs/Web/API/console#Outputting_text_to_
 
 ## Vea tambien
 
-- [Opera Dragonfly documentation: Console](http://www.opera.com/dragonfly/documentation/console/)
+- [Opera Dragonfly documentation: Console](https://www.opera.com/dragonfly/documentation/console/)
 - [MSDN: Using the F12 Tools Console to View Errors and Status](http://msdn.microsoft.com/library/gg589530)
